@@ -1,0 +1,85 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net9.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+		<InvariantGlobalization>true</InvariantGlobalization>
+
+		<PublishAot>true</PublishAot>
+		<IsAotCompatible>true</IsAotCompatible>
+		<OptimizationPreference>Speed</OptimizationPreference>
+
+		<OutputType>Library</OutputType>
+		<AssemblyName>winhttp</AssemblyName>
+
+		<!--https://learn.microsoft.com/zh-cn/dotnet/core/deploying/trimming/trimming-options?pivots=dotnet-8-0-->
+
+		<DebuggerSupport>false</DebuggerSupport>
+		<EnableUnsafeBinaryFormatterSerialization>false</EnableUnsafeBinaryFormatterSerialization>
+		<EnableUnsafeUTF7Encoding>false</EnableUnsafeUTF7Encoding>
+		<EventSourceSupport>false</EventSourceSupport>
+		<!--<HttpActivityPropagationSupport>false</HttpActivityPropagationSupport>-->
+		<InvariantGlobalization>true</InvariantGlobalization>
+		<MetadataUpdaterSupport>false</MetadataUpdaterSupport>
+		<MetricsSupport>false</MetricsSupport>
+		<!--<StackTraceSupport>false</StackTraceSupport>-->
+		<!--<UseNativeHttpHandler>true</UseNativeHttpHandler>-->
+		<UseSystemResourceKeys>true</UseSystemResourceKeys>
+		<TrimmerRemoveSymbols>true</TrimmerRemoveSymbols>
+		<!--<XmlResolverIsNetworkingEnabledByDefault>false</XmlResolverIsNetworkingEnabledByDefault>-->
+
+		<BuiltInComInteropSupport>false</BuiltInComInteropSupport>
+		<CustomResourceTypesSupport>false</CustomResourceTypesSupport>
+		<EnableUnsafeBinaryFormatterInDesigntimeLicenseContextSerialization>false</EnableUnsafeBinaryFormatterInDesigntimeLicenseContextSerialization>
+		<StartupHookSupport>false</StartupHookSupport>
+
+
+		<EnableConfigurationBindingGenerator>true</EnableConfigurationBindingGenerator>
+		<EnableRequestDelegateGenerator>true</EnableRequestDelegateGenerator>
+		<InterceptorsPreviewNamespaces>$(InterceptorsPreviewNamespaces);Microsoft.AspNetCore.Http.Generated</InterceptorsPreviewNamespaces>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<NativeLibrary Include="Lib\Maple.MonoGameAssistant.DllProxyStaticLib.lib" />
+		<LinkerArg Include="/LTCG" />
+		<LinkerArg Include="/MAP" />
+	</ItemGroup>
+
+
+
+
+	<ItemGroup>
+		<PackageReference Include="Maple.MonoGameAssistant.GameContext" Version="1.0.0-rc" />
+		<PackageReference Include="Maple.MonoGameAssistant.GameDTO" Version="1.0.1-rc" />
+		<PackageReference Include="Maple.MonoGameAssistant.MonoCollectorDataV2" Version="1.0.1-rc" />
+		<PackageReference Include="Maple.MonoGameAssistant.MonoCollectorGeneratorV2" Version="1.0.2-rc" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+		<PackageReference Include="Maple.MonoGameAssistant.WebApi" Version="1.0.1-rc" />
+
+	</ItemGroup>
+
+
+
+
+	<ItemGroup>
+	  <Folder Include="GameMetadata\" />
+	</ItemGroup>
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+</Project>
