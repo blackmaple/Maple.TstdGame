@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="Maple.TstdGame\Maple.TstdGame.csproj" Type="C#" />
+  <Properties Name="Visual Studio">
+    <Property Name="OpenWith" Value="Visual Studio Version 17" />
+  </Properties>
+</Solution>
