@@ -2,7 +2,7 @@
 using Maple.MonoGameAssistant.GameContext;
 using Maple.MonoGameAssistant.HotKey;
 using Maple.MonoGameAssistant.Model;
-using Maple.TstdGame.GameSourceGen;
+using Maple.TstdMetadata;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;

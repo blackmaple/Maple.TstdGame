@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Maple.MonoGameAssistant.Core" Version="1.0.1-rc" />
+		<PackageReference Include="Maple.MonoGameAssistant.GameDTO" Version="1.0.1-rc" />
+		<PackageReference Include="Maple.MonoGameAssistant.MonoCollectorDataV2" Version="1.0.1-rc" />
+		<PackageReference Include="Maple.MonoGameAssistant.MonoCollectorGeneratorV2" Version="1.0.2-rc" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+	</ItemGroup>
+</Project>

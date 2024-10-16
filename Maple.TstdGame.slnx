@@ -3,4 +3,5 @@
   <Properties Name="Visual Studio">
     <Property Name="OpenWith" Value="Visual Studio Version 17" />
   </Properties>
+  <Project Path="Maple.TstdMetadata\Maple.TstdMetadata.csproj" Type="C#" />
 </Solution>

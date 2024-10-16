@@ -19,9 +19,10 @@ namespace Maple.TstdGame.GameService
                 var webapp = WebApiServiceExtensions.AsRunWebApiService(p =>
                 {
                     p.GameName = "吞食天地:刘蜀霸业";
+                    p.MonoDataCollector = true;
                     p.QQ = "0";
                     p.Http = true;
-                    p.AutoOpenUrl = true;
+                    p.AutoOpenUrl = false;
                     p.Port = 49009;
                 }, services =>
                 {

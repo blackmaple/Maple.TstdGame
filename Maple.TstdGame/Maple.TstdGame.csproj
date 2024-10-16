@@ -55,6 +55,7 @@
 		<PackageReference Include="Maple.MonoGameAssistant.GameDTO" Version="1.0.1-rc" />
 		<PackageReference Include="Maple.MonoGameAssistant.MonoCollectorDataV2" Version="1.0.1-rc" />
 		<PackageReference Include="Maple.MonoGameAssistant.MonoCollectorGeneratorV2" Version="1.0.2-rc" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+		<PackageReference Include="Maple.MonoGameAssistant.UnityCore" Version="1.0.1-rc" />
 		<PackageReference Include="Maple.MonoGameAssistant.WebApi" Version="1.0.1-rc" />
 
 	</ItemGroup>
@@ -63,7 +64,7 @@
 
 
 	<ItemGroup>
-	  <Folder Include="GameMetadata\" />
+	  <ProjectReference Include="..\Maple.TstdMetadata\Maple.TstdMetadata.csproj" />
 	</ItemGroup>
 
 
