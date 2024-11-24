@@ -24,6 +24,10 @@ namespace Maple.TstdMetadata
 
         Silent = 0x00000004,
 
+        Dare = 0x00000008,
+
+        Disable = 0x00000010,
+
         BufSkill = 0x00000FFF,
 
         Trap = 0x00001000,
@@ -33,6 +37,8 @@ namespace Maple.TstdMetadata
         Water = 0x00004000,
 
         Stone = 0x00008000,
+
+        Thrunder = 0x00010000,
 
         Attack = 0x00080000,
 

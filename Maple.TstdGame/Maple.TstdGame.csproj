@@ -49,16 +49,16 @@
 
 
 
-
 	<ItemGroup>
-		<PackageReference Include="Maple.MonoGameAssistant.GameContext" Version="1.0.0-rc" />
-		<PackageReference Include="Maple.MonoGameAssistant.GameDTO" Version="1.0.1-rc" />
-		<PackageReference Include="Maple.MonoGameAssistant.MonoCollectorDataV2" Version="1.0.1-rc" />
-		<PackageReference Include="Maple.MonoGameAssistant.MonoCollectorGeneratorV2" Version="1.0.2-rc" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
-		<PackageReference Include="Maple.MonoGameAssistant.UnityCore" Version="1.0.1-rc" />
-		<PackageReference Include="Maple.MonoGameAssistant.WebApi" Version="1.0.1-rc" />
+		<PackageReference Include="Maple.MonoGameAssistant.GameContext" Version="1.0.90-rc" />
+		<PackageReference Include="Maple.MonoGameAssistant.GameDTO" Version="1.0.90-rc" />
+		<PackageReference Include="Maple.MonoGameAssistant.MonoCollectorDataV2" Version="1.0.90-rc" />
+		<PackageReference Include="Maple.MonoGameAssistant.MonoCollectorGeneratorV2" Version="1.0.90-rc" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+		<PackageReference Include="Maple.MonoGameAssistant.UnityCore" Version="1.0.90-rc" />
+		<PackageReference Include="Maple.MonoGameAssistant.WebApi" Version="1.0.90-rc" />
 
 	</ItemGroup>
+
 
 
 
@@ -72,7 +72,20 @@
 
 
 
+	<Target Name="PostPublishActions" AfterTargets="Publish">
+		<PropertyGroup>
+			<Time>$([System.DateTime]::Now.ToString("yyyyMMddHHmmss"))</Time>
+			<TargetDir>D:\TSTD_v1.19\</TargetDir>
+			<PublishDllPath>$(PublishDir)$(AssemblyName).dll</PublishDllPath>
+			<TargetFileName>$(AssemblyName).dll</TargetFileName>
+			<BackupFileName>$(AssemblyName).dll.bak_$(Time)</BackupFileName>
+		</PropertyGroup>
 
+		<Message Text="自动部署功能已经启动 $(PublishDir)" Importance="high" />
+
+		<Exec Command="if exist &quot;$(TargetDir)$(TargetFileName)&quot; move &quot;$(TargetDir)$(TargetFileName)&quot; &quot;$(TargetDir)$(BackupFileName)&quot;" />
+		<Exec Command="copy &quot;$(PublishDllPath)&quot; &quot;$(TargetDir)$(TargetFileName)&quot;" />
+	</Target>
 
 
 

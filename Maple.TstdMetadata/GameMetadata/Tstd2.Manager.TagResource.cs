@@ -16,7 +16,7 @@ namespace Maple.TstdMetadata
     /// [CloneableObject]=>[System.Object]
     /// 
     /// </summary>
-    //[Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorSettingsAttribute([65, 115, 115, 101, 109, 98, 108, 121, 45, 67, 83, 104, 97, 114, 112, 46, 100, 108, 108], 0x0200019AU)]
+    //[Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorSettingsAttribute([65, 115, 115, 101, 109, 98, 108, 121, 45, 67, 83, 104, 97, 114, 112, 46, 100, 108, 108], 0x020001B4U)]
     [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorSettingsAttribute([65, 115, 115, 101, 109, 98, 108, 121, 45, 67, 83, 104, 97, 114, 112, 46, 100, 108, 108], [84, 115, 116, 100, 50, 46, 77, 97, 110, 97, 103, 101, 114], [84, 97, 103, 82, 101, 115, 111, 117, 114, 99, 101])]
 
 
@@ -33,7 +33,7 @@ namespace Maple.TstdMetadata
         //public const string Const_ClassName = "TagResource";
         //public static byte[] Static_ClassName { get; } = [84, 97, 103, 82, 101, 115, 111, 117, 114, 99, 101];
 
-        //public const uint Const_TypeToken = 0x0200019AU;
+        //public const uint Const_TypeToken = 0x020001B4U;
 
 
 

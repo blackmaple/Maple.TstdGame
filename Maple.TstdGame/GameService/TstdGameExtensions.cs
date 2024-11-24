@@ -13,7 +13,7 @@ namespace Maple.TstdGame.GameService
         {
             _ = RunWebApiServiceAsync();
 
-            static async Task RunWebApiServiceAsync(int millisecondsDelay = 18 * 1000)
+            static async Task RunWebApiServiceAsync(int millisecondsDelay = 15 * 1000)
             {
 
                 var webapp = WebApiServiceExtensions.AsRunWebApiService(p =>
@@ -22,7 +22,7 @@ namespace Maple.TstdGame.GameService
                     p.MonoDataCollector = true;
                     p.QQ = "0";
                     p.Http = true;
-                    p.AutoOpenUrl = false;
+                    p.AutoOpenUrl = true;
                     p.Port = 49009;
                 }, services =>
                 {

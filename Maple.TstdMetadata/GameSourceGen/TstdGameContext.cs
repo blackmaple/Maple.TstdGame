@@ -11,11 +11,13 @@ typeof(MonoRuntimeContext),
 typeof(MonoCollectorClassInfo)
 )]
 
+    [MonoCollectorType(typeof(Inventorys))]
+    [MonoCollectorType(typeof(ItemSlot))]
     [MonoCollectorType(typeof(Character))]
     [MonoCollectorType(typeof(ConsumableItem))]
     [MonoCollectorType(typeof(Equipment))]
-    [MonoCollectorType(typeof(Inventorys))]
     [MonoCollectorType(typeof(Item))]
+
     [MonoCollectorType(typeof(GameManager))]
     [MonoCollectorType(typeof(TeamManager))]
 
@@ -23,6 +25,16 @@ typeof(MonoCollectorClassInfo)
 
     [MonoCollectorType(typeof(ResourceManager))]
     [MonoCollectorType(typeof(TagResource))]
+
+
+    [MonoCollectorType(typeof(CharacterModelData))]
+    [MonoCollectorType(typeof(BaseCharacterData))]
+
+    //[MonoCollectorType(typeof(ShopItemsData))]
+    [MonoCollectorType(typeof(InGameResource))]
+    [MonoCollectorType(typeof(SecureInt))]
+
+
     public partial class TstdGameContext
     {
 

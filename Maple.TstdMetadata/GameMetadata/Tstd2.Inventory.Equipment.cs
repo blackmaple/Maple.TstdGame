@@ -16,23 +16,23 @@ namespace Maple.TstdMetadata
     /// [Tstd2.Inventory.Item]=>[Tstd2.Manager.TagResource]=>[CloneableObject]=>[System.Object]
     /// 
     /// </summary>
-    //[Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorSettingsAttribute([65, 115, 115, 101, 109, 98, 108, 121, 45, 67, 83, 104, 97, 114, 112, 46, 100, 108, 108], 0x020001FFU)]
+    //[Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorSettingsAttribute([65, 115, 115, 101, 109, 98, 108, 121, 45, 67, 83, 104, 97, 114, 112, 46, 100, 108, 108], 0x020001FDU)]
     [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorSettingsAttribute([65, 115, 115, 101, 109, 98, 108, 121, 45, 67, 83, 104, 97, 114, 112, 46, 100, 108, 108], [84, 115, 116, 100, 50, 46, 73, 110, 118, 101, 110, 116, 111, 114, 121], [69, 113, 117, 105, 112, 109, 101, 110, 116])]
                 
     //  class static Tstd2.Inventory.Equipment Unload
     //  [MonoCollectorSearchFieldAttribute(typeof(nint),"Unload", "UNLOAD", true)]
                 
     // class 0x10 System.String tag
-    // [MonoCollectorSearchFieldAttribute(typeof(nint),"tag", "TAG")]
+      [MonoCollectorSearchFieldAttribute(typeof(PMonoString),"tag", "TAG")]
             
     // struct 0x18 System.Int32 id
-    // [MonoCollectorSearchFieldAttribute(typeof(System.Int32),"id", "ID")]
+      [MonoCollectorSearchFieldAttribute(typeof(System.Int32),"id", "ID")]
             
     // class 0x20 System.String itemName
-    // [MonoCollectorSearchFieldAttribute(typeof(nint),"itemName", "ITEM_NAME")]
+      [MonoCollectorSearchFieldAttribute(typeof(PMonoString),"itemName", "ITEM_NAME")]
             
     // class 0x28 System.String desc
-    // [MonoCollectorSearchFieldAttribute(typeof(nint),"desc", "DESC")]
+      [MonoCollectorSearchFieldAttribute(typeof(PMonoString),"desc", "DESC")]
             
     // class 0x30 UnityEngine.Sprite icon
     // [MonoCollectorSearchFieldAttribute(typeof(nint),"icon", "ICON")]
@@ -83,7 +83,7 @@ namespace Maple.TstdMetadata
         //public const string Const_ClassName = "Equipment";
         //public static byte[] Static_ClassName { get; } = [69, 113, 117, 105, 112, 109, 101, 110, 116];
 
-        //public const uint Const_TypeToken = 0x020001FFU;
+        //public const uint Const_TypeToken = 0x020001FDU;
 
 
 
@@ -235,6 +235,15 @@ namespace Maple.TstdMetadata
             /// <returns>class System.String</returns>
             /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("GetId")]
             /// static extern nint GET_ID (nint item);
+
+            
+            /// <summary>
+            /// static  System.String GetItemColorString(Tstd2.Inventory.Item item)
+            /// </summary>
+            /// <param name="item">class Tstd2.Inventory.Item</param>
+            /// <returns>class System.String</returns>
+            /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("GetItemColorString")]
+            /// static extern nint GET_ITEM_COLOR_STRING (nint item);
 
             
             /// <summary>

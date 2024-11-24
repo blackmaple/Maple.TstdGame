@@ -16,7 +16,7 @@ namespace Maple.TstdMetadata
     /// [System.Object]
     /// 
     /// </summary>
-    //[Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorSettingsAttribute([65, 115, 115, 101, 109, 98, 108, 121, 45, 67, 83, 104, 97, 114, 112, 46, 100, 108, 108], 0x02000244U)]
+    //[Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorSettingsAttribute([65, 115, 115, 101, 109, 98, 108, 121, 45, 67, 83, 104, 97, 114, 112, 46, 100, 108, 108], 0x02000241U)]
     [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorSettingsAttribute([65, 115, 115, 101, 109, 98, 108, 121, 45, 67, 83, 104, 97, 114, 112, 46, 100, 108, 108], [84, 115, 116, 100, 50, 46, 67, 104, 97, 114, 97, 99, 116, 101, 114, 115], [67, 104, 97, 114, 97, 99, 116, 101, 114])]
 
     //  class static System.Int32[] u2r
@@ -26,13 +26,13 @@ namespace Maple.TstdMetadata
     //  [MonoCollectorSearchFieldAttribute(typeof(nint),"u2rX", "U2R_X", true)]
 
     // class 0x10 Tstd2.Characters.BaseCharacterData _data
-    // [MonoCollectorSearchFieldAttribute(typeof(nint),"_data", "_DATA")]
+      [MonoCollectorSearchFieldAttribute(typeof(BaseCharacterData.Ptr_BaseCharacterData),"_data", "_DATA")]
 
     // struct 0x18 System.Int32 Lv
-    [MonoCollectorSearchFieldAttribute(typeof(System.Int32), "Lv", "LV")]
+    // [MonoCollectorSearchFieldAttribute(typeof(System.Int32),"Lv", "LV")]
 
     // class 0x20 Tstd2.Framework.StatList stat
-    [MonoCollectorSearchFieldAttribute(typeof(StatList.Ptr_StatList), "stat", "STAT")]
+    // [MonoCollectorSearchFieldAttribute(typeof(nint),"stat", "STAT")]
 
     // class 0x28 System.Collections.Generic.List<System.String> EnemyPriorityAttackTargets
     // [MonoCollectorSearchFieldAttribute(typeof(nint),"EnemyPriorityAttackTargets", "ENEMY_PRIORITY_ATTACK_TARGETS")]
@@ -44,10 +44,10 @@ namespace Maple.TstdMetadata
     // [MonoCollectorSearchFieldAttribute(typeof(nint),"Formations", "FORMATIONS")]
 
     // struct 0x40 System.Int32 fixedDamage
-    [MonoCollectorSearchFieldAttribute(typeof(System.Int32), "fixedDamage", "FIXED_DAMAGE")]
+    // [MonoCollectorSearchFieldAttribute(typeof(System.Int32),"fixedDamage", "FIXED_DAMAGE")]
 
     // class 0x48 Tstd2.Framework.StatList _addedStat
-    [MonoCollectorSearchFieldAttribute(typeof(StatList.Ptr_StatList), "_addedStat", "_ADDED_STAT")]
+    // [MonoCollectorSearchFieldAttribute(typeof(nint),"_addedStat", "_ADDED_STAT")]
 
     // class 0x50 Tstd2.Characters.CharacterEquipment _equipments
     // [MonoCollectorSearchFieldAttribute(typeof(nint),"_equipments", "_EQUIPMENTS")]
@@ -74,7 +74,7 @@ namespace Maple.TstdMetadata
     // [MonoCollectorSearchFieldAttribute(typeof(System.Int32),"_maxMp", "_MAX_MP")]
 
     // enum 0x88 Tstd2.Characters.Immunity <immunityFlag>k__BackingField
-    [MonoCollectorSearchFieldAttribute(typeof(Immunity), "<immunityFlag>k__BackingField", "IMMUNITY_FLAG")]
+    // [MonoCollectorSearchFieldAttribute(typeof(Tstd2.Characters.Immunity),"<immunityFlag>k__BackingField", "IMMUNITY_FLAG")]
 
     // class 0x90 System.Action<Tstd2.Characters.CharacterEquipment> changedEquipmentEvent
     // [MonoCollectorSearchFieldAttribute(typeof(nint),"changedEquipmentEvent", "CHANGED_EQUIPMENT_EVENT")]
@@ -92,7 +92,7 @@ namespace Maple.TstdMetadata
         //public const string Const_ClassName = "Character";
         //public static byte[] Static_ClassName { get; } = [67, 104, 97, 114, 97, 99, 116, 101, 114];
 
-        //public const uint Const_TypeToken = 0x02000244U;
+        //public const uint Const_TypeToken = 0x02000241U;
 
 
 
@@ -216,16 +216,16 @@ namespace Maple.TstdMetadata
         ///   System.Int32 get_Atk()
         /// </summary>
         /// <returns>struct System.Int32</returns>
-        [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_Atk")]
-        extern System.Int32 GET_ATK();
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_Atk")]
+        ///  extern System.Int32 GET_ATK ();
 
 
         /// <summary>
         ///   System.Int32 get_AttackDodge()
         /// </summary>
         /// <returns>struct System.Int32</returns>
-        [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_AttackDodge")]
-        extern System.Int32 GET_ATTACK_DODGE();
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_AttackDodge")]
+        ///  extern System.Int32 GET_ATTACK_DODGE ();
 
 
         /// <summary>
@@ -240,8 +240,8 @@ namespace Maple.TstdMetadata
         ///   System.Int32 get_AttackTimes()
         /// </summary>
         /// <returns>struct System.Int32</returns>
-        [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_AttackTimes")]
-        extern System.Int32 GET_ATTACK_TIMES();
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_AttackTimes")]
+        ///  extern System.Int32 GET_ATTACK_TIMES ();
 
 
         /// <summary>
@@ -280,16 +280,16 @@ namespace Maple.TstdMetadata
         ///   System.Single get_CritPower()
         /// </summary>
         /// <returns>struct System.Single</returns>
-        [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_CritPower")]
-        extern System.Single GET_CRIT_POWER();
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_CritPower")]
+        ///  extern System.Single GET_CRIT_POWER ();
 
 
         /// <summary>
         ///   System.Int32 get_CritRate()
         /// </summary>
         /// <returns>struct System.Int32</returns>
-        [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_CritRate")]
-        extern System.Int32 GET_CRIT_RATE();
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_CritRate")]
+        ///  extern System.Int32 GET_CRIT_RATE ();
 
 
         /// <summary>
@@ -304,96 +304,96 @@ namespace Maple.TstdMetadata
         ///   System.Int32 get_Def()
         /// </summary>
         /// <returns>struct System.Int32</returns>
-        [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_Def")]
-        extern System.Int32 GET_DEF();
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_Def")]
+        ///  extern System.Int32 GET_DEF ();
 
 
         /// <summary>
         ///   Tstd2.Characters.CharacterEquipment get_Equipments()
         /// </summary>
         /// <returns>class Tstd2.Characters.CharacterEquipment</returns>
-        [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_Equipments")]
-        extern nint GET_EQUIPMENTS();
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_Equipments")]
+        ///  extern nint GET_EQUIPMENTS ();
 
 
         /// <summary>
         ///   System.Int32 get_HitRate()
         /// </summary>
         /// <returns>struct System.Int32</returns>
-        [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_HitRate")]
-        extern System.Int32 GET_HIT_RATE();
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_HitRate")]
+        ///  extern System.Int32 GET_HIT_RATE ();
 
 
         /// <summary>
         ///   System.Int32 get_Hp()
         /// </summary>
         /// <returns>struct System.Int32</returns>
-        [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_Hp")]
-        extern System.Int32 GET_HP();
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_Hp")]
+        ///  extern System.Int32 GET_HP ();
 
 
         /// <summary>
         ///   System.Single get_HpRatio()
         /// </summary>
         /// <returns>struct System.Single</returns>
-        [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_HpRatio")]
-        extern System.Single GET_HP_RATIO();
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_HpRatio")]
+        ///  extern System.Single GET_HP_RATIO ();
 
 
         /// <summary>
         ///   System.String get_Id()
         /// </summary>
         /// <returns>class System.String</returns>
-        [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_Id")]
-        extern nint GET_ID();
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_Id")]
+        ///  extern nint GET_ID ();
 
 
         /// <summary>
         ///   Tstd2.Characters.Immunity get_immunityFlag()
         /// </summary>
         /// <returns>enum Tstd2.Characters.Immunity</returns>
-        [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_immunityFlag")]
-        extern Immunity GET_IMMUNITY_FLAG();
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_immunityFlag")]
+        ///  extern Tstd2.Characters.Immunity GET_IMMUNITY_FLAG ();
 
 
         /// <summary>
         ///   System.Boolean get_IsDead()
         /// </summary>
         /// <returns>struct System.Boolean</returns>
-        [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_IsDead")]
-        extern System.Boolean GET_IS_DEAD();
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_IsDead")]
+        ///  extern System.Boolean GET_IS_DEAD ();
 
 
         /// <summary>
         ///   System.Boolean get_IsRewardCharacter()
         /// </summary>
         /// <returns>struct System.Boolean</returns>
-        [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_IsRewardCharacter")]
-        extern System.Boolean GET_IS_REWARD_CHARACTER();
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_IsRewardCharacter")]
+        ///  extern System.Boolean GET_IS_REWARD_CHARACTER ();
 
 
         /// <summary>
         ///   System.Int32 get_Ler()
         /// </summary>
         /// <returns>struct System.Int32</returns>
-        [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_Ler")]
-        extern System.Int32 GET_LER();
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_Ler")]
+        ///  extern System.Int32 GET_LER ();
 
 
         /// <summary>
         ///   System.Int32 get_MaxHp()
         /// </summary>
         /// <returns>struct System.Int32</returns>
-        [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_MaxHp")]
-        extern System.Int32 GET_MAX_HP();
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_MaxHp")]
+        ///  extern System.Int32 GET_MAX_HP ();
 
 
         /// <summary>
         ///   System.Int32 get_MaxMp()
         /// </summary>
         /// <returns>struct System.Int32</returns>
-        [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_MaxMp")]
-        extern System.Int32 GET_MAX_MP();
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_MaxMp")]
+        ///  extern System.Int32 GET_MAX_MP ();
 
 
         /// <summary>
@@ -416,16 +416,16 @@ namespace Maple.TstdMetadata
         ///   System.Int32 get_Mp()
         /// </summary>
         /// <returns>struct System.Int32</returns>
-        [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_Mp")]
-        extern System.Int32 GET_MP();
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_Mp")]
+        ///  extern System.Int32 GET_MP ();
 
 
         /// <summary>
         ///   System.String get_Name()
         /// </summary>
         /// <returns>class System.String</returns>
-        [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_Name")]
-        extern PMonoString GET_NAME();
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_Name")]
+        ///  extern nint GET_NAME ();
 
 
         /// <summary>
@@ -450,6 +450,14 @@ namespace Maple.TstdMetadata
         /// <returns>struct System.Int32</returns>
         /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_SkillAtkAdd")]
         ///  extern System.Int32 GET_SKILL_ATK_ADD ();
+
+
+        /// <summary>
+        ///   System.Int32 get_SkillCritRate()
+        /// </summary>
+        /// <returns>struct System.Int32</returns>
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_SkillCritRate")]
+        ///  extern System.Int32 GET_SKILL_CRIT_RATE ();
 
 
         /// <summary>
@@ -547,8 +555,8 @@ namespace Maple.TstdMetadata
         /// <param name="hp">struct System.Int32</param>
         /// <param name="resurrect">struct System.Boolean</param>
         /// <returns>struct System.Int32</returns>
-        [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("Heal")]
-        extern System.Int32 HEAL(System.Int32 hp, System.Boolean resurrect);
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("Heal")]
+        ///  extern System.Int32 HEAL (System.Int32 hp, System.Boolean resurrect);
 
 
         /// <summary>
@@ -612,7 +620,7 @@ namespace Maple.TstdMetadata
         /// <param name="id">class System.String</param>
         /// <returns>class Tstd2.Characters.Character</returns>
         [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("LoadPlayerCharacter")]
-        static extern nint LOAD_PLAYER_CHARACTER(nint id);
+        static extern Character.Ptr_Character LOAD_PLAYER_CHARACTER(PMonoString id);
 
 
         /// <summary>
@@ -657,8 +665,8 @@ namespace Maple.TstdMetadata
         /// </summary>
         /// <param name="value">struct System.Int32</param>
         /// <returns>struct System.Void</returns>
-        [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("set_Hp")]
-        extern void SET_HP(System.Int32 value);
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("set_Hp")]
+        ///  extern void SET_HP (System.Int32 value);
 
 
         /// <summary>
@@ -666,8 +674,8 @@ namespace Maple.TstdMetadata
         /// </summary>
         /// <param name="value">enum Tstd2.Characters.Immunity</param>
         /// <returns>struct System.Void</returns>
-        [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("set_immunityFlag")]
-        extern void SET_IMMUNITY_FLAG(Immunity value);
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("set_immunityFlag")]
+        ///  extern void SET_IMMUNITY_FLAG (Tstd2.Characters.Immunity value);
 
 
         /// <summary>
@@ -675,8 +683,8 @@ namespace Maple.TstdMetadata
         /// </summary>
         /// <param name="value">struct System.Int32</param>
         /// <returns>struct System.Void</returns>
-        [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("set_MaxHp")]
-        extern void SET_MAX_HP(System.Int32 value);
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("set_MaxHp")]
+        ///  extern void SET_MAX_HP (System.Int32 value);
 
 
         /// <summary>
@@ -684,8 +692,8 @@ namespace Maple.TstdMetadata
         /// </summary>
         /// <param name="value">struct System.Int32</param>
         /// <returns>struct System.Void</returns>
-        [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("set_MaxMp")]
-        extern void SET_MAX_MP(System.Int32 value);
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("set_MaxMp")]
+        ///  extern void SET_MAX_MP (System.Int32 value);
 
 
         /// <summary>
@@ -693,8 +701,8 @@ namespace Maple.TstdMetadata
         /// </summary>
         /// <param name="value">struct System.Int32</param>
         /// <returns>struct System.Void</returns>
-        [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("set_Mp")]
-        extern void SET_MP(System.Int32 value);
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("set_Mp")]
+        ///  extern void SET_MP (System.Int32 value);
 
 
         /// <summary>
@@ -703,8 +711,8 @@ namespace Maple.TstdMetadata
         /// <param name="type">enum Tstd2.Framework.StatType</param>
         /// <param name="value">struct System.Int32</param>
         /// <returns>struct System.Void</returns>
-        [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("SetAddedStatValue")]
-        extern void SET_ADDED_STAT_VALUE(StatType type, System.Int32 value);
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("SetAddedStatValue")]
+        ///  extern void SET_ADDED_STAT_VALUE (Tstd2.Framework.StatType type, System.Int32 value);
 
 
 

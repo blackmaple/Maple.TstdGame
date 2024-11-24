@@ -16,7 +16,7 @@ namespace Maple.TstdMetadata
     /// [Tstd2.Inventory.Item]=>[Tstd2.Manager.TagResource]=>[CloneableObject]=>[System.Object]
     /// 
     /// </summary>
-    //[Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorSettingsAttribute([65, 115, 115, 101, 109, 98, 108, 121, 45, 67, 83, 104, 97, 114, 112, 46, 100, 108, 108], 0x020001FCU)]
+    //[Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorSettingsAttribute([65, 115, 115, 101, 109, 98, 108, 121, 45, 67, 83, 104, 97, 114, 112, 46, 100, 108, 108], 0x020001FAU)]
     [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorSettingsAttribute([65, 115, 115, 101, 109, 98, 108, 121, 45, 67, 83, 104, 97, 114, 112, 46, 100, 108, 108], [84, 115, 116, 100, 50, 46, 73, 110, 118, 101, 110, 116, 111, 114, 121], [67, 111, 110, 115, 117, 109, 97, 98, 108, 101, 73, 116, 101, 109])]
     
                 
@@ -111,7 +111,7 @@ namespace Maple.TstdMetadata
         //public const string Const_ClassName = "ConsumableItem";
         //public static byte[] Static_ClassName { get; } = [67, 111, 110, 115, 117, 109, 97, 98, 108, 101, 73, 116, 101, 109];
 
-        //public const uint Const_TypeToken = 0x020001FCU;
+        //public const uint Const_TypeToken = 0x020001FAU;
 
 
 
@@ -249,6 +249,15 @@ namespace Maple.TstdMetadata
             /// <returns>class System.String</returns>
             /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("GetId")]
             /// static extern nint GET_ID (nint item);
+
+            
+            /// <summary>
+            /// static  System.String GetItemColorString(Tstd2.Inventory.Item item)
+            /// </summary>
+            /// <param name="item">class Tstd2.Inventory.Item</param>
+            /// <returns>class System.String</returns>
+            /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("GetItemColorString")]
+            /// static extern nint GET_ITEM_COLOR_STRING (nint item);
 
             
             /// <summary>

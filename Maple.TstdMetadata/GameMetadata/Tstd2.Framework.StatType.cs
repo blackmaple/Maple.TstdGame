@@ -44,6 +44,8 @@ namespace Maple.TstdMetadata
 
         SkillAtkAdd = 0x0000000C,
 
+        SkillCrit = 0x0000000D,
+
     }
 
 

@@ -6,25 +6,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static Maple.TstdMetadata.SecureInt;
 
 namespace Maple.TstdMetadata
 {
 
 
     /// <summary>
-    /// class ["Assembly-CSharp.dll"."Tstd2.Manager"."TeamManager"]
-    /// [Tstd2.Framework.SingleInstance<Tstd2.Manager.TeamManager>]=>[UnityEngine.MonoBehaviour]=>[UnityEngine.Behaviour]=>[UnityEngine.Component]=>[UnityEngine.Object]=>[System.Object]
+    /// class ["Assembly-CSharp.dll".""."InGameResource"]
+    /// [Tstd2.Framework.SingleInstance<InGameResource>]=>[UnityEngine.MonoBehaviour]=>[UnityEngine.Behaviour]=>[UnityEngine.Component]=>[UnityEngine.Object]=>[System.Object]
     /// 
     /// </summary>
-    //[Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorSettingsAttribute([65, 115, 115, 101, 109, 98, 108, 121, 45, 67, 83, 104, 97, 114, 112, 46, 100, 108, 108], 0x020001B5U)]
-    [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorSettingsAttribute([65, 115, 115, 101, 109, 98, 108, 121, 45, 67, 83, 104, 97, 114, 112, 46, 100, 108, 108], [84, 115, 116, 100, 50, 46, 77, 97, 110, 97, 103, 101, 114], [84, 101, 97, 109, 77, 97, 110, 97, 103, 101, 114])]
+    //[Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorSettingsAttribute([65, 115, 115, 101, 109, 98, 108, 121, 45, 67, 83, 104, 97, 114, 112, 46, 100, 108, 108], 0x02000014U)]
+    [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorSettingsAttribute([65, 115, 115, 101, 109, 98, 108, 121, 45, 67, 83, 104, 97, 114, 112, 46, 100, 108, 108], [], [73, 110, 71, 97, 109, 101, 82, 101, 115, 111, 117, 114, 99, 101])]
 
-    //  struct static UnityEngine.Color FamiliarWithTerrainHpBarColor
-    //  [MonoCollectorSearchFieldAttribute(typeof(UnityEngine.Color),"FamiliarWithTerrainHpBarColor", "FAMILIAR_WITH_TERRAIN_HP_BAR_COLOR", true)]
-
-    //  class static Tstd2.Manager.TeamManager Instance
-       [MonoCollectorSearchFieldAttribute(typeof(TeamManager.Ptr_TeamManager),"Instance", "INSTANCE", true)]
+    //  class static InGameResource Instance
+    [MonoCollectorSearchFieldAttribute(typeof(InGameResource.Ptr_InGameResource), "Instance", "INSTANCE", true)]
 
     //  struct static System.Int32 OffsetOfInstanceIDInCPlusPlusObject
     //  [MonoCollectorSearchFieldAttribute(typeof(System.Int32),"OffsetOfInstanceIDInCPlusPlusObject", "OFFSET_OF_INSTANCE_ID_IN_C_PLUS_PLUS_OBJECT", true)]
@@ -32,110 +28,53 @@ namespace Maple.TstdMetadata
     // struct 0x10 System.IntPtr m_CachedPtr
     // [MonoCollectorSearchFieldAttribute(typeof(System.IntPtr),"m_CachedPtr", "M_CACHED_PTR")]
 
-    // struct 0x18 System.Int32 maxPlayerMoveCount
-    // [MonoCollectorSearchFieldAttribute(typeof(System.Int32),"maxPlayerMoveCount", "MAX_PLAYER_MOVE_COUNT")]
+    // class 0x18 System.Collections.Generic.List<SuperTiled2Unity.TypePrefabReplacement> m_PrefabReplacements
+    // [MonoCollectorSearchFieldAttribute(typeof(nint),"m_PrefabReplacements", "M_PREFAB_REPLACEMENTS")]
 
-    // struct 0x1C System.Int32 maxNpcMoveCount
-    // [MonoCollectorSearchFieldAttribute(typeof(System.Int32),"maxNpcMoveCount", "MAX_NPC_MOVE_COUNT")]
+    // class 0x20 UnityEngine.Sprite profile
+    // [MonoCollectorSearchFieldAttribute(typeof(nint),"profile", "PROFILE")]
 
-    // struct 0x20 System.Int32 maxJoinBattleCount
-    // [MonoCollectorSearchFieldAttribute(typeof(System.Int32),"maxJoinBattleCount", "MAX_JOIN_BATTLE_COUNT")]
+    // class 0x28 UnityEngine.Texture2D moveTexture
+    // [MonoCollectorSearchFieldAttribute(typeof(nint),"moveTexture", "MOVE_TEXTURE")]
 
-    // struct 0x24 System.Int32 maxJoinCharactersCount
-    // [MonoCollectorSearchFieldAttribute(typeof(System.Int32),"maxJoinCharactersCount", "MAX_JOIN_CHARACTERS_COUNT")]
+    // class 0x30 UnityEngine.Material colorSprite
+    // [MonoCollectorSearchFieldAttribute(typeof(nint),"colorSprite", "COLOR_SPRITE")]
 
-    // class 0x28 Tstd2.Skills.Formation defaultFormation
-    // [MonoCollectorSearchFieldAttribute(typeof(nint),"defaultFormation", "DEFAULT_FORMATION")]
+    // struct 0x38 System.Single m_DefaultPixelsPerUnit
+    // [MonoCollectorSearchFieldAttribute(typeof(System.Single),"m_DefaultPixelsPerUnit", "M_DEFAULT_PIXELS_PER_UNIT")]
 
-    // struct 0x30 System.Int32 defaultMp
-    // [MonoCollectorSearchFieldAttribute(typeof(System.Int32),"defaultMp", "DEFAULT_MP")]
+    // struct 0x3C System.Int32 m_DefaultEdgesPerEllipse
+    // [MonoCollectorSearchFieldAttribute(typeof(System.Int32),"m_DefaultEdgesPerEllipse", "M_DEFAULT_EDGES_PER_ELLIPSE")]
 
-    // class 0x38 System.Collections.Generic.List<Tstd2.Characters.Character> characters
-      [MonoCollectorSearchFieldAttribute(typeof(PMonoList_D<Character.Ptr_Character>),"characters", "CHARACTERS")]
+    // struct 0x40 System.Int32 m_AnimationFramerate
+    // [MonoCollectorSearchFieldAttribute(typeof(System.Int32),"m_AnimationFramerate", "M_ANIMATION_FRAMERATE")]
 
-    // class 0x40 System.Collections.Generic.List<Tstd2.Characters.Character> npcCharacters
-     [MonoCollectorSearchFieldAttribute(typeof(PMonoList_D<Character.Ptr_Character>), "npcCharacters", "NPC_CHARACTERS")]
+    // class 0x48 UnityEngine.Material m_DefaultMaterial
+    // [MonoCollectorSearchFieldAttribute(typeof(nint),"m_DefaultMaterial", "M_DEFAULT_MATERIAL")]
 
-    // class 0x48 System.Collections.Generic.List<Tstd2.Characters.Character> alternateCharacters
-      [MonoCollectorSearchFieldAttribute(typeof(PMonoList_D<Character.Ptr_Character>), "alternateCharacters", "ALTERNATE_CHARACTERS")]
+    // class 0x50 System.Collections.Generic.List<SuperTiled2Unity.LayerMaterialMatch> m_MaterialMatchings
+    // [MonoCollectorSearchFieldAttribute(typeof(nint),"m_MaterialMatchings", "M_MATERIAL_MATCHINGS")]
 
-    // class 0x50 System.Collections.Generic.List<Tstd2.Characters.Character> tempCharacters
-     [MonoCollectorSearchFieldAttribute(typeof(PMonoList_D<Character.Ptr_Character>), "tempCharacters", "TEMP_CHARACTERS")]
+    // class 0x58 System.Collections.Generic.List<SuperTiled2Unity.CustomObjectType> m_CustomObjectTypes
+    // [MonoCollectorSearchFieldAttribute(typeof(nint),"m_CustomObjectTypes", "M_CUSTOM_OBJECT_TYPES")]
 
-    // struct 0x58 SecureInt Lv
-      [MonoCollectorSearchFieldAttribute(typeof(Ref_SecureInt),"Lv", "LV")]
+    // enum 0x60 UnityEngine.CompositeCollider2D.GeometryType m_CollisionGeometryType
+    // [MonoCollectorSearchFieldAttribute(typeof(UnityEngine.CompositeCollider2D.GeometryType),"m_CollisionGeometryType", "M_COLLISION_GEOMETRY_TYPE")]
 
-    // class 0x60 Tstd2.Inventory.Inventorys inventory
-    [MonoCollectorSearchFieldAttribute(typeof(Inventorys.Ptr_Inventorys), "inventory", "INVENTORY")]
-
-    // class 0x68 Tstd2.Characters.Character _adviser
-    // [MonoCollectorSearchFieldAttribute(typeof(nint),"_adviser", "_ADVISER")]
-
-    // class 0x70 System.Collections.Generic.List<Tstd2.Skills.Skill> _skills
-    // [MonoCollectorSearchFieldAttribute(typeof(nint),"_skills", "_SKILLS")]
-
-    // class 0x78 System.Collections.Generic.List<Tstd2.Skills.Formation> _formations
-    // [MonoCollectorSearchFieldAttribute(typeof(nint),"_formations", "_FORMATIONS")]
-
-    // struct 0x80 SecureInt _money
-    // [MonoCollectorSearchFieldAttribute(typeof(SecureInt),"_money", "_MONEY")]
-
-    // struct 0x88 SecureInt _exp
-    // [MonoCollectorSearchFieldAttribute(typeof(SecureInt),"_exp", "_EXP")]
-
-    // struct 0x90 SecureInt _mp
-    // [MonoCollectorSearchFieldAttribute(typeof(SecureInt),"_mp", "_MP")]
-
-    // struct 0x98 SecureInt _maxMp
-    // [MonoCollectorSearchFieldAttribute(typeof(SecureInt),"_maxMp", "_MAX_MP")]
-
-    // class 0xA0 Tstd2.Skills.Formation _currentFormation
-    // [MonoCollectorSearchFieldAttribute(typeof(nint),"_currentFormation", "_CURRENT_FORMATION")]
-
-    // struct 0xA8 System.Int32 goodEvilValue
-    // [MonoCollectorSearchFieldAttribute(typeof(System.Int32),"goodEvilValue", "GOOD_EVIL_VALUE")]
-
-    // class 0xB0 System.Collections.Generic.List<System.String> unlockAchievements
-    // [MonoCollectorSearchFieldAttribute(typeof(nint),"unlockAchievements", "UNLOCK_ACHIEVEMENTS")]
-
-    // class 0xB8 System.String equipmentAchievement
-    // [MonoCollectorSearchFieldAttribute(typeof(nint),"equipmentAchievement", "EQUIPMENT_ACHIEVEMENT")]
-
-    // struct 0xC0 System.Int32 NextExp
-    // [MonoCollectorSearchFieldAttribute(typeof(System.Int32),"NextExp", "NEXT_EXP")]
-
-    // class 0xC8 Tstd2.Settings.ExpData ExpData
-    // [MonoCollectorSearchFieldAttribute(typeof(nint),"ExpData", "EXP_DATA")]
-
-    // struct 0xD0 System.Boolean _isTestConfig
-    // [MonoCollectorSearchFieldAttribute(typeof(System.Boolean),"_isTestConfig", "_IS_TEST_CONFIG")]
-
-    // class 0xD8 System.Collections.Generic.Dictionary<System.String,System.Int32> _events
-    // [MonoCollectorSearchFieldAttribute(typeof(nint),"_events", "_EVENTS")]
-
-    // struct 0xE0 System.Int32 AvoidEnemySteps
-    // [MonoCollectorSearchFieldAttribute(typeof(System.Int32),"AvoidEnemySteps", "AVOID_ENEMY_STEPS")]
-
-    // struct 0xE4 System.Int32 AntivirusSteps
-    // [MonoCollectorSearchFieldAttribute(typeof(System.Int32),"AntivirusSteps", "ANTIVIRUS_STEPS")]
-
-    // struct 0xE8 System.Single <MpRatio>k__BackingField
-    // [MonoCollectorSearchFieldAttribute(typeof(System.Single),"<MpRatio>k__BackingField", "MP_RATIO")]
-
-    // class 0xF0 System.Action<Tstd2.Manager.TeamManager> CharactersChangedEvent
-    [MonoCollectorSearchFieldAttribute(typeof(nint), "CharactersChangedEvent", "CHARACTERS_CHANGED_EVENT")]
-    public partial class TeamManager
+    // class 0x68 System.Collections.Generic.List<InGameResource.WordReplacement> replaceWord
+    // [MonoCollectorSearchFieldAttribute(typeof(nint),"replaceWord", "REPLACE_WORD")]
+    public partial class InGameResource
     {
         //public const string Const_ImageName = "Assembly-CSharp.dll";
         //public static byte[] Static_ImageName { get; } = [65, 115, 115, 101, 109, 98, 108, 121, 45, 67, 83, 104, 97, 114, 112, 46, 100, 108, 108];
 
-        //public const string Const_Namespace = "Tstd2.Manager";
-        //public static byte[] Static_Namespace { get; } = [84, 115, 116, 100, 50, 46, 77, 97, 110, 97, 103, 101, 114];
+        //public const string Const_Namespace = "";
+        //public static byte[] Static_Namespace { get; } = [];
 
-        //public const string Const_ClassName = "TeamManager";
-        //public static byte[] Static_ClassName { get; } = [84, 101, 97, 109, 77, 97, 110, 97, 103, 101, 114];
+        //public const string Const_ClassName = "InGameResource";
+        //public static byte[] Static_ClassName { get; } = [73, 110, 71, 97, 109, 101, 82, 101, 115, 111, 117, 114, 99, 101];
 
-        //public const uint Const_TypeToken = 0x020001B5U;
+        //public const uint Const_TypeToken = 0x02000014U;
 
 
 
@@ -154,14 +93,14 @@ namespace Maple.TstdMetadata
 
 
         [System.Runtime.InteropServices.StructLayoutAttribute(System.Runtime.InteropServices.LayoutKind.Sequential)]
-        public readonly unsafe partial struct Ptr_TeamManager(nint ptr)
+        public readonly unsafe partial struct Ptr_InGameResource(nint ptr)
         {
 
             [System.Runtime.InteropServices.MarshalAsAttribute(System.Runtime.InteropServices.UnmanagedType.SysInt)]
             readonly nint _ptr = ptr;
-            public static implicit operator Ptr_TeamManager(nint ptr) => new(ptr);
-            public static implicit operator nint(Ptr_TeamManager obj) => obj._ptr;
-            public static implicit operator bool(Ptr_TeamManager obj) => obj.Valid();
+            public static implicit operator Ptr_InGameResource(nint ptr) => new(ptr);
+            public static implicit operator nint(Ptr_InGameResource obj) => obj._ptr;
+            public static implicit operator bool(Ptr_InGameResource obj) => obj.Valid();
 
             public override string ToString()
             {
@@ -178,9 +117,9 @@ namespace Maple.TstdMetadata
     }
 
     /// <summary>
-    /// ["Assembly-CSharp.dll"."Tstd2.Manager"."TeamManager"]
+    /// ["Assembly-CSharp.dll".""."InGameResource"]
     /// </summary>
-    public partial class TeamManager
+    public partial class InGameResource
     {
 
 
@@ -194,157 +133,11 @@ namespace Maple.TstdMetadata
 
 
         /// <summary>
-        ///   Tstd2.Characters.Character <GameStart>b__135_0(System.String v)
-        /// </summary>
-        /// <param name="v">class System.String</param>
-        /// <returns>class Tstd2.Characters.Character</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("<GameStart>b__135_0")]
-        ///  extern nint <GAME_START>B__135_0 (nint v);
-
-
-        /// <summary>
-        ///   Tstd2.Characters.Character <GameStart>b__135_1(System.String v)
-        /// </summary>
-        /// <param name="v">class System.String</param>
-        /// <returns>class Tstd2.Characters.Character</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("<GameStart>b__135_1")]
-        ///  extern nint <GAME_START>B__135_1 (nint v);
-
-
-        /// <summary>
-        ///   Tstd2.Characters.Character <GameStart>b__135_2(System.String v)
-        /// </summary>
-        /// <param name="v">class System.String</param>
-        /// <returns>class Tstd2.Characters.Character</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("<GameStart>b__135_2")]
-        ///  extern nint <GAME_START>B__135_2 (nint v);
-
-
-        /// <summary>
-        ///   System.Void <GameStart>b__135_3(Tstd2.Characters.Character ch)
-        /// </summary>
-        /// <param name="ch">class Tstd2.Characters.Character</param>
-        /// <returns>struct System.Void</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("<GameStart>b__135_3")]
-        ///  extern void <GAME_START>B__135_3 (nint ch);
-
-
-        /// <summary>
-        ///   System.Void <GameStart>b__135_4(System.String e)
-        /// </summary>
-        /// <param name="e">class System.String</param>
-        /// <returns>struct System.Void</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("<GameStart>b__135_4")]
-        ///  extern void <GAME_START>B__135_4 (nint e);
-
-
-        /// <summary>
-        ///   System.Boolean <get_AdviserIndex>b__50_0(Tstd2.Characters.Character ch)
-        /// </summary>
-        /// <param name="ch">class Tstd2.Characters.Character</param>
-        /// <returns>struct System.Boolean</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("<get_AdviserIndex>b__50_0")]
-        ///  extern System.Boolean <GET_ADVISER_INDEX>B__50_0 (nint ch);
-
-
-        /// <summary>
-        ///   System.Void <InitEvents>b__109_0(System.String key)
-        /// </summary>
-        /// <param name="key">class System.String</param>
-        /// <returns>struct System.Void</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("<InitEvents>b__109_0")]
-        ///  extern void <INIT_EVENTS>B__109_0 (nint key);
-
-
-        /// <summary>
-        ///   System.Void add_CharactersChangedEvent(System.Action<Tstd2.Manager.TeamManager> value)
-        /// </summary>
-        /// <param name="value">class System.Action<Tstd2.Manager.TeamManager></param>
-        /// <returns>struct System.Void</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("add_CharactersChangedEvent")]
-        ///  extern void ADD_CHARACTERS_CHANGED_EVENT (nint value);
-
-
-        /// <summary>
-        ///   System.Void AddCurrentCharacterFromTempById(System.String id, System.Boolean remove)
-        /// </summary>
-        /// <param name="id">class System.String</param>
-        /// <param name="remove">struct System.Boolean</param>
-        /// <returns>struct System.Void</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("AddCurrentCharacterFromTempById")]
-        ///  extern void ADD_CURRENT_CHARACTER_FROM_TEMP_BY_ID (nint id, System.Boolean remove);
-
-
-        /// <summary>
-        ///   System.Void AddCurrentCharacterFromTempByOrder(System.Int32 n, System.Boolean remove)
-        /// </summary>
-        /// <param name="n">struct System.Int32</param>
-        /// <param name="remove">struct System.Boolean</param>
-        /// <returns>struct System.Void</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("AddCurrentCharacterFromTempByOrder")]
-        ///  extern void ADD_CURRENT_CHARACTER_FROM_TEMP_BY_ORDER (System.Int32 n, System.Boolean remove);
-
-
-        /// <summary>
-        ///   System.Void AddExp(System.Int32 exp)
-        /// </summary>
-        /// <param name="exp">struct System.Int32</param>
-        /// <returns>struct System.Void</returns>
-        [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("AddExp")]
-        extern void ADD_EXP(System.Int32 exp);
-
-
-        /// <summary>
-        ///   System.Void AddGoodEvilValue(System.Int32 _add)
-        /// </summary>
-        /// <param name="_add">struct System.Int32</param>
-        /// <returns>struct System.Void</returns>
-        [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("AddGoodEvilValue")]
-        extern void ADD_GOOD_EVIL_VALUE(System.Int32 _add);
-
-
-        /// <summary>
-        ///   System.Void AddTempCharacterById(System.String id)
-        /// </summary>
-        /// <param name="id">class System.String</param>
-        /// <returns>struct System.Void</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("AddTempCharacterById")]
-        ///  extern void ADD_TEMP_CHARACTER_BY_ID (nint id);
-
-
-        /// <summary>
-        ///   System.Void AddTempCharacterByOrder(System.Int32 n)
-        /// </summary>
-        /// <param name="n">struct System.Int32</param>
-        /// <returns>struct System.Void</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("AddTempCharacterByOrder")]
-        ///  extern void ADD_TEMP_CHARACTER_BY_ORDER (System.Int32 n);
-
-
-        /// <summary>
         ///   System.Void Awake()
         /// </summary>
         /// <returns>struct System.Void</returns>
         /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("Awake")]
         ///  extern void AWAKE ();
-
-
-        /// <summary>
-        ///   System.Int32 CalcMaxMp(System.Int32 ler)
-        /// </summary>
-        /// <param name="ler">struct System.Int32</param>
-        /// <returns>struct System.Int32</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("CalcMaxMp")]
-        ///  extern System.Int32 CALC_MAX_MP (System.Int32 ler);
-
-
-        /// <summary>
-        ///   System.Void ChangedCharactersOrder(System.Collections.Generic.List<Tstd2.Characters.Character> orderedCharacters)
-        /// </summary>
-        /// <param name="orderedCharacters">class System.Collections.Generic.List<Tstd2.Characters.Character></param>
-        /// <returns>struct System.Void</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("ChangedCharactersOrder")]
-        ///  extern void CHANGED_CHARACTERS_ORDER (nint orderedCharacters);
 
 
         /// <summary>
@@ -355,14 +148,6 @@ namespace Maple.TstdMetadata
         /// <returns>struct System.Void</returns>
         /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("CheckNullArgument")]
         /// static extern void CHECK_NULL_ARGUMENT (nint arg, nint message);
-
-
-        /// <summary>
-        ///   System.Void ClearTempCharacters()
-        /// </summary>
-        /// <returns>struct System.Void</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("ClearTempCharacters")]
-        ///  extern void CLEAR_TEMP_CHARACTERS ();
 
 
         /// <summary>
@@ -400,15 +185,6 @@ namespace Maple.TstdMetadata
         /// <returns>struct System.Boolean</returns>
         /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("Equals")]
         ///  extern System.Boolean EQUALS (nint other);
-
-
-        /// <summary>
-        ///   System.Void EquipmentAchievement(System.String tag)
-        /// </summary>
-        /// <param name="tag">class System.String</param>
-        /// <returns>struct System.Void</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("EquipmentAchievement")]
-        ///  extern void EQUIPMENT_ACHIEVEMENT (nint tag);
 
 
         /// <summary>
@@ -457,144 +233,6 @@ namespace Maple.TstdMetadata
 
 
         /// <summary>
-        ///   System.Void ForceRefresh()
-        /// </summary>
-        /// <returns>struct System.Void</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("ForceRefresh")]
-        ///  extern void FORCE_REFRESH ();
-
-
-        /// <summary>
-        ///   System.Void GameInit(Tstd2.Settings.GameConfig config)
-        /// </summary>
-        /// <param name="config">class Tstd2.Settings.GameConfig</param>
-        /// <returns>struct System.Void</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("GameInit")]
-        ///  extern void GAME_INIT (nint config);
-
-
-        /// <summary>
-        ///   System.Void GameStart(Tstd2.Settings.GameConfig config)
-        /// </summary>
-        /// <param name="config">class Tstd2.Settings.GameConfig</param>
-        /// <returns>struct System.Void</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("GameStart")]
-        ///  extern void GAME_START (nint config);
-
-
-        /// <summary>
-        ///   Tstd2.Characters.Character get_Adviser()
-        /// </summary>
-        /// <returns>class Tstd2.Characters.Character</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_Adviser")]
-        ///  extern nint GET_ADVISER ();
-
-
-        /// <summary>
-        ///   System.Collections.Generic.List<Tstd2.Skills.Formation> get_AdviserFormations()
-        /// </summary>
-        /// <returns>class System.Collections.Generic.List<Tstd2.Skills.Formation></returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_AdviserFormations")]
-        ///  extern nint GET_ADVISER_FORMATIONS ();
-
-
-        /// <summary>
-        ///   System.Int32 get_AdviserIndex()
-        /// </summary>
-        /// <returns>struct System.Int32</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_AdviserIndex")]
-        ///  extern System.Int32 GET_ADVISER_INDEX ();
-
-
-        /// <summary>
-        ///   System.Int32 get_AdviserMaxMp()
-        /// </summary>
-        /// <returns>struct System.Int32</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_AdviserMaxMp")]
-        ///  extern System.Int32 GET_ADVISER_MAX_MP ();
-
-
-        /// <summary>
-        ///   System.Int32 get_AdviserMinLer()
-        /// </summary>
-        /// <returns>struct System.Int32</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_AdviserMinLer")]
-        ///  extern System.Int32 GET_ADVISER_MIN_LER ();
-
-
-        /// <summary>
-        ///   System.String get_AdviserName()
-        /// </summary>
-        /// <returns>class System.String</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_AdviserName")]
-        ///  extern nint GET_ADVISER_NAME ();
-
-
-        /// <summary>
-        ///   UnityEngine.Sprite get_AdviserProfile()
-        /// </summary>
-        /// <returns>class UnityEngine.Sprite</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_AdviserProfile")]
-        ///  extern nint GET_ADVISER_PROFILE ();
-
-
-        /// <summary>
-        ///   System.Collections.Generic.List<Tstd2.Skills.Skill> get_AdviserSkills()
-        /// </summary>
-        /// <returns>class System.Collections.Generic.List<Tstd2.Skills.Skill></returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_AdviserSkills")]
-        ///  extern nint GET_ADVISER_SKILLS ();
-
-
-        /// <summary>
-        ///   System.Collections.Generic.List<Tstd2.Characters.Character> get_AliveCharacters()
-        /// </summary>
-        /// <returns>class System.Collections.Generic.List<Tstd2.Characters.Character></returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_AliveCharacters")]
-        ///  extern nint GET_ALIVE_CHARACTERS ();
-
-
-        /// <summary>
-        ///   System.Collections.Generic.List<Tstd2.Characters.Character> get_Characters()
-        /// </summary>
-        /// <returns>class System.Collections.Generic.List<Tstd2.Characters.Character></returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_Characters")]
-        ///  extern nint GET_CHARACTERS ();
-
-
-        /// <summary>
-        ///   Tstd2.Skills.Formation get_CurrentFormation()
-        /// </summary>
-        /// <returns>class Tstd2.Skills.Formation</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_CurrentFormation")]
-        ///  extern nint GET_CURRENT_FORMATION ();
-
-
-        /// <summary>
-        ///   System.Collections.Generic.List<Tstd2.Skills.Formation> get_CurrentFormations()
-        /// </summary>
-        /// <returns>class System.Collections.Generic.List<Tstd2.Skills.Formation></returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_CurrentFormations")]
-        ///  extern nint GET_CURRENT_FORMATIONS ();
-
-
-        /// <summary>
-        ///   System.Collections.Generic.List<Tstd2.Skills.Skill> get_CurrentSkills()
-        /// </summary>
-        /// <returns>class System.Collections.Generic.List<Tstd2.Skills.Skill></returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_CurrentSkills")]
-        ///  extern nint GET_CURRENT_SKILLS ();
-
-
-        /// <summary>
-        ///   System.Collections.Generic.List<Tstd2.Characters.Character> get_DeadCharacters()
-        /// </summary>
-        /// <returns>class System.Collections.Generic.List<Tstd2.Characters.Character></returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_DeadCharacters")]
-        ///  extern nint GET_DEAD_CHARACTERS ();
-
-
-        /// <summary>
         ///   System.Boolean get_enabled()
         /// </summary>
         /// <returns>struct System.Boolean</returns>
@@ -603,67 +241,11 @@ namespace Maple.TstdMetadata
 
 
         /// <summary>
-        ///   System.Collections.Generic.List<System.String> get_EventKeys()
-        /// </summary>
-        /// <returns>class System.Collections.Generic.List<System.String></returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_EventKeys")]
-        ///  extern nint GET_EVENT_KEYS ();
-
-
-        /// <summary>
-        ///   System.Int32 get_Exp()
-        /// </summary>
-        /// <returns>struct System.Int32</returns>
-        [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_Exp")]
-        extern System.Int32 GET_EXP();
-
-
-        /// <summary>
-        ///   System.Collections.Generic.List<Tstd2.Skills.Formation> get_FormationsInBattle()
-        /// </summary>
-        /// <returns>class System.Collections.Generic.List<Tstd2.Skills.Formation></returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_FormationsInBattle")]
-        ///  extern nint GET_FORMATIONS_IN_BATTLE ();
-
-
-        /// <summary>
-        ///   System.Collections.Generic.List<Tstd2.Skills.Formation> get_FormationsInNormal()
-        /// </summary>
-        /// <returns>class System.Collections.Generic.List<Tstd2.Skills.Formation></returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_FormationsInNormal")]
-        ///  extern nint GET_FORMATIONS_IN_NORMAL ();
-
-
-        /// <summary>
         ///   UnityEngine.GameObject get_gameObject()
         /// </summary>
         /// <returns>class UnityEngine.GameObject</returns>
         /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_gameObject")]
         ///  extern nint GET_GAME_OBJECT ();
-
-
-        /// <summary>
-        ///   Tstd2.Characters.Character get_General()
-        /// </summary>
-        /// <returns>class Tstd2.Characters.Character</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_General")]
-        ///  extern nint GET_GENERAL ();
-
-
-        /// <summary>
-        ///   System.String get_GeneralName()
-        /// </summary>
-        /// <returns>class System.String</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_GeneralName")]
-        ///  extern nint GET_GENERAL_NAME ();
-
-
-        /// <summary>
-        ///   UnityEngine.Sprite get_GeneralProfile()
-        /// </summary>
-        /// <returns>class UnityEngine.Sprite</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_GeneralProfile")]
-        ///  extern nint GET_GENERAL_PROFILE ();
 
 
         /// <summary>
@@ -683,78 +265,6 @@ namespace Maple.TstdMetadata
 
 
         /// <summary>
-        ///   System.Boolean get_IsCanJoinCurrentCharacters()
-        /// </summary>
-        /// <returns>struct System.Boolean</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_IsCanJoinCurrentCharacters")]
-        ///  extern System.Boolean GET_IS_CAN_JOIN_CURRENT_CHARACTERS ();
-
-
-        /// <summary>
-        ///   System.Collections.Generic.List<Tstd2.Characters.Character> get_JoinBattleCharacters()
-        /// </summary>
-        /// <returns>class System.Collections.Generic.List<Tstd2.Characters.Character></returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_JoinBattleCharacters")]
-        ///  extern nint GET_JOIN_BATTLE_CHARACTERS ();
-
-
-        /// <summary>
-        ///   System.Int32 get_MaxMoveCount()
-        /// </summary>
-        /// <returns>struct System.Int32</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_MaxMoveCount")]
-        ///  extern System.Int32 GET_MAX_MOVE_COUNT ();
-
-
-        /// <summary>
-        ///   System.Int32 get_MaxMp()
-        /// </summary>
-        /// <returns>struct System.Int32</returns>
-        [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_MaxMp")]
-        extern System.Int32 GET_MAX_MP();
-
-
-        /// <summary>
-        /// static  System.Int32 get_MaxValue()
-        /// </summary>
-        /// <returns>struct System.Int32</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_MaxValue")]
-        /// static extern System.Int32 GET_MAX_VALUE ();
-
-
-        /// <summary>
-        ///   System.Int32 get_Money()
-        /// </summary>
-        /// <returns>struct System.Int32</returns>
-        [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_Money")]
-        extern System.Int32 GET_MONEY();
-
-
-        /// <summary>
-        ///   System.Collections.Generic.List<Tstd2.Characters.Character> get_MoveCharacters()
-        /// </summary>
-        /// <returns>class System.Collections.Generic.List<Tstd2.Characters.Character></returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_MoveCharacters")]
-        ///  extern nint GET_MOVE_CHARACTERS ();
-
-
-        /// <summary>
-        ///   System.Int32 get_MP()
-        /// </summary>
-        /// <returns>struct System.Int32</returns>
-        [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_MP")]
-        extern System.Int32 GET_MP();
-
-
-        /// <summary>
-        ///   System.Single get_MpRatio()
-        /// </summary>
-        /// <returns>struct System.Single</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_MpRatio")]
-        ///  extern System.Single GET_MP_RATIO ();
-
-
-        /// <summary>
         ///   System.String get_name()
         /// </summary>
         /// <returns>class System.String</returns>
@@ -763,43 +273,11 @@ namespace Maple.TstdMetadata
 
 
         /// <summary>
-        ///   System.Collections.Generic.List<Tstd2.Characters.Character> get_NpcMoveCharacters()
-        /// </summary>
-        /// <returns>class System.Collections.Generic.List<Tstd2.Characters.Character></returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_NpcMoveCharacters")]
-        ///  extern nint GET_NPC_MOVE_CHARACTERS ();
-
-
-        /// <summary>
-        ///   System.Collections.Generic.List<Tstd2.Skills.Skill> get_SkillsInBattle()
-        /// </summary>
-        /// <returns>class System.Collections.Generic.List<Tstd2.Skills.Skill></returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_SkillsInBattle")]
-        ///  extern nint GET_SKILLS_IN_BATTLE ();
-
-
-        /// <summary>
-        ///   System.Collections.Generic.List<Tstd2.Skills.Skill> get_SkillsInNormal()
-        /// </summary>
-        /// <returns>class System.Collections.Generic.List<Tstd2.Skills.Skill></returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_SkillsInNormal")]
-        ///  extern nint GET_SKILLS_IN_NORMAL ();
-
-
-        /// <summary>
         ///   System.String get_tag()
         /// </summary>
         /// <returns>class System.String</returns>
         /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_tag")]
         ///  extern nint GET_TAG ();
-
-
-        /// <summary>
-        ///   System.String get_TeamName()
-        /// </summary>
-        /// <returns>class System.String</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_TeamName")]
-        ///  extern nint GET_TEAM_NAME ();
 
 
         /// <summary>
@@ -827,6 +305,15 @@ namespace Maple.TstdMetadata
 
 
         /// <summary>
+        ///   Tstd2.Characters.CharacterModelData GetCharacterModelData(System.String name)
+        /// </summary>
+        /// <param name="name">class System.String</param>
+        /// <returns>class Tstd2.Characters.CharacterModelData</returns>
+        [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("GetCharacterModelData")]
+        extern CharacterModelData.Ptr_CharacterModelData GET_CHARACTER_MODEL_DATA(nint name);
+
+
+        /// <summary>
         ///   System.Void GetComponentFastPath(System.Type type, System.IntPtr oneFurtherThanResultValue)
         /// </summary>
         /// <param name="type">abstract class System.Type</param>
@@ -844,15 +331,6 @@ namespace Maple.TstdMetadata
         /// <returns>struct System.Void</returns>
         /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("GetComponentsForListInternal")]
         ///  extern void GET_COMPONENTS_FOR_LIST_INTERNAL (nint searchType, nint resultList);
-
-
-        /// <summary>
-        ///   System.Int32 GetEventValue(System.String key)
-        /// </summary>
-        /// <param name="key">class System.String</param>
-        /// <returns>struct System.Int32</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("GetEventValue")]
-        ///  extern System.Int32 GET_EVENT_VALUE (nint key);
 
 
         /// <summary>
@@ -889,6 +367,15 @@ namespace Maple.TstdMetadata
 
 
         /// <summary>
+        ///   UnityEngine.GameObject GetPrefabReplacement(System.String type)
+        /// </summary>
+        /// <param name="type">class System.String</param>
+        /// <returns>class UnityEngine.GameObject</returns>
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("GetPrefabReplacement")]
+        ///  extern nint GET_PREFAB_REPLACEMENT (nint type);
+
+
+        /// <summary>
         ///   System.String GetScriptClassName()
         /// </summary>
         /// <returns>class System.String</returns>
@@ -897,21 +384,12 @@ namespace Maple.TstdMetadata
 
 
         /// <summary>
-        ///   System.Void HealAllHp(System.Boolean resurrect)
+        ///   Tstd2.Settings.ShopItemsData GetShopItemData(System.String name)
         /// </summary>
-        /// <param name="resurrect">struct System.Boolean</param>
-        /// <returns>struct System.Void</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("HealAllHp")]
-        ///  extern void HEAL_ALL_HP (System.Boolean resurrect);
-
-
-        /// <summary>
-        ///   System.Void InitEvents(System.Collections.Generic.List<System.String> keys)
-        /// </summary>
-        /// <param name="keys">class System.Collections.Generic.List<System.String></param>
-        /// <returns>struct System.Void</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("InitEvents")]
-        ///  extern void INIT_EVENTS (nint keys);
+        /// <param name="name">class System.String</param>
+        /// <returns>class Tstd2.Settings.ShopItemsData</returns>
+        [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("GetShopItemData")]
+        extern nint GET_SHOP_ITEM_DATA(PMonoString name);
 
 
         /// <summary>
@@ -1032,24 +510,6 @@ namespace Maple.TstdMetadata
 
 
         /// <summary>
-        ///   System.Boolean IsAdviser(Tstd2.Characters.Character character)
-        /// </summary>
-        /// <param name="character">class Tstd2.Characters.Character</param>
-        /// <returns>struct System.Boolean</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("IsAdviser")]
-        ///  extern System.Boolean IS_ADVISER (nint character);
-
-
-        /// <summary>
-        ///   System.Boolean IsCanLeaveCurrentCharacters(Tstd2.Characters.Character character)
-        /// </summary>
-        /// <param name="character">class Tstd2.Characters.Character</param>
-        /// <returns>struct System.Boolean</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("IsCanLeaveCurrentCharacters")]
-        ///  extern System.Boolean IS_CAN_LEAVE_CURRENT_CHARACTERS (nint character);
-
-
-        /// <summary>
         /// static  System.Boolean IsNativeObjectAlive(UnityEngine.Object o)
         /// </summary>
         /// <param name="o">class UnityEngine.Object</param>
@@ -1065,96 +525,6 @@ namespace Maple.TstdMetadata
         /// <returns>struct System.Boolean</returns>
         /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("IsObjectMonoBehaviour")]
         /// static extern System.Boolean IS_OBJECT_MONO_BEHAVIOUR (nint obj);
-
-
-        /// <summary>
-        ///   System.Int32 ItemCount(Tstd2.Inventory.Item item, System.Boolean calcEquip)
-        /// </summary>
-        /// <param name="item">class Tstd2.Inventory.Item</param>
-        /// <param name="calcEquip">struct System.Boolean</param>
-        /// <returns>struct System.Int32</returns>
-        [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("ItemCount")]
-        extern System.Int32 ITEM_COUNT(nint item, System.Boolean calcEquip);
-
-
-        /// <summary>
-        ///   System.Void JoinAlternateCharacters(Tstd2.Characters.Character character, System.Boolean healHp)
-        /// </summary>
-        /// <param name="character">class Tstd2.Characters.Character</param>
-        /// <param name="healHp">struct System.Boolean</param>
-        /// <returns>struct System.Void</returns>
-        [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("JoinAlternateCharacters")]
-        extern void JOIN_ALTERNATE_CHARACTERS(nint character, System.Boolean healHp);
-
-
-        /// <summary>
-        ///   System.Void JoinCurrentCharacters(Tstd2.Characters.Character character, System.Boolean autoEquip, System.Boolean healHp, System.Int32 index)
-        /// </summary>
-        /// <param name="character">class Tstd2.Characters.Character</param>
-        /// <param name="autoEquip">struct System.Boolean</param>
-        /// <param name="healHp">struct System.Boolean</param>
-        /// <param name="index">struct System.Int32</param>
-        /// <returns>struct System.Void</returns>
-        [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("JoinCurrentCharacters")]
-        extern void JOIN_CURRENT_CHARACTERS(nint character, System.Boolean autoEquip, System.Boolean healHp, System.Int32 index);
-
-
-        /// <summary>
-        ///   System.Void JoinNpcCharacters(Tstd2.Characters.Character character)
-        /// </summary>
-        /// <param name="character">class Tstd2.Characters.Character</param>
-        /// <returns>struct System.Void</returns>
-        [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("JoinNpcCharacters")]
-        extern void JOIN_NPC_CHARACTERS(nint character);
-
-
-        /// <summary>
-        ///   System.Boolean JoinTeam(Tstd2.Characters.Character character, System.Boolean autoEquip, System.Boolean healHp)
-        /// </summary>
-        /// <param name="character">class Tstd2.Characters.Character</param>
-        /// <param name="autoEquip">struct System.Boolean</param>
-        /// <param name="healHp">struct System.Boolean</param>
-        /// <returns>struct System.Boolean</returns>
-        [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("JoinTeam")]
-        extern System.Boolean JOIN_TEAM(nint character, System.Boolean autoEquip, System.Boolean healHp);
-
-
-        /// <summary>
-        ///   System.Void LeaveAlternateCharacters(Tstd2.Characters.Character character, System.Boolean autoUnload)
-        /// </summary>
-        /// <param name="character">class Tstd2.Characters.Character</param>
-        /// <param name="autoUnload">struct System.Boolean</param>
-        /// <returns>struct System.Void</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("LeaveAlternateCharacters")]
-        ///  extern void LEAVE_ALTERNATE_CHARACTERS (nint character, System.Boolean autoUnload);
-
-
-        /// <summary>
-        ///   System.Void LeaveNpcCharacters(Tstd2.Characters.Character character, System.Boolean autoUnload)
-        /// </summary>
-        /// <param name="character">class Tstd2.Characters.Character</param>
-        /// <param name="autoUnload">struct System.Boolean</param>
-        /// <returns>struct System.Void</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("LeaveNpcCharacters")]
-        ///  extern void LEAVE_NPC_CHARACTERS (nint character, System.Boolean autoUnload);
-
-
-        /// <summary>
-        ///   System.Void LevelTo(System.Int32 lv)
-        /// </summary>
-        /// <param name="lv">struct System.Int32</param>
-        /// <returns>struct System.Void</returns>
-        [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("LevelTo")]
-        extern void LEVEL_TO(System.Int32 lv);
-
-
-        /// <summary>
-        ///   System.Int32 MaxMpInLv(System.Int32 lv)
-        /// </summary>
-        /// <param name="lv">struct System.Int32</param>
-        /// <returns>struct System.Int32</returns>
-        [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("MaxMpInLv")]
-        extern System.Int32 MAX_MP_IN_LV(System.Int32 lv);
 
 
         /// <summary>
@@ -1196,33 +566,6 @@ namespace Maple.TstdMetadata
 
 
         /// <summary>
-        ///   System.Void remove_CharactersChangedEvent(System.Action<Tstd2.Manager.TeamManager> value)
-        /// </summary>
-        /// <param name="value">class System.Action<Tstd2.Manager.TeamManager></param>
-        /// <returns>struct System.Void</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("remove_CharactersChangedEvent")]
-        ///  extern void REMOVE_CHARACTERS_CHANGED_EVENT (nint value);
-
-
-        /// <summary>
-        ///   System.Void set_Adviser(Tstd2.Characters.Character value)
-        /// </summary>
-        /// <param name="value">class Tstd2.Characters.Character</param>
-        /// <returns>struct System.Void</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("set_Adviser")]
-        ///  extern void SET_ADVISER (nint value);
-
-
-        /// <summary>
-        ///   System.Void set_CurrentFormation(Tstd2.Skills.Formation value)
-        /// </summary>
-        /// <param name="value">class Tstd2.Skills.Formation</param>
-        /// <returns>struct System.Void</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("set_CurrentFormation")]
-        ///  extern void SET_CURRENT_FORMATION (nint value);
-
-
-        /// <summary>
         ///   System.Void set_enabled(System.Boolean value)
         /// </summary>
         /// <param name="value">struct System.Boolean</param>
@@ -1232,57 +575,12 @@ namespace Maple.TstdMetadata
 
 
         /// <summary>
-        ///   System.Void set_Exp(System.Int32 value)
-        /// </summary>
-        /// <param name="value">struct System.Int32</param>
-        /// <returns>struct System.Void</returns>
-        [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("set_Exp")]
-        extern void SET_EXP(System.Int32 value);
-
-
-        /// <summary>
         ///   System.Void set_hideFlags(UnityEngine.HideFlags value)
         /// </summary>
         /// <param name="value">enum UnityEngine.HideFlags</param>
         /// <returns>struct System.Void</returns>
         /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("set_hideFlags")]
         ///  extern void SET_HIDE_FLAGS (UnityEngine.HideFlags value);
-
-
-        /// <summary>
-        ///   System.Void set_MaxMp(System.Int32 value)
-        /// </summary>
-        /// <param name="value">struct System.Int32</param>
-        /// <returns>struct System.Void</returns>
-        [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("set_MaxMp")]
-        extern void SET_MAX_MP(System.Int32 value);
-
-
-        /// <summary>
-        ///   System.Void set_Money(System.Int32 value)
-        /// </summary>
-        /// <param name="value">struct System.Int32</param>
-        /// <returns>struct System.Void</returns>
-        [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("set_Money")]
-        extern void SET_MONEY(System.Int32 value);
-
-
-        /// <summary>
-        ///   System.Void set_MP(System.Int32 value)
-        /// </summary>
-        /// <param name="value">struct System.Int32</param>
-        /// <returns>struct System.Void</returns>
-        [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("set_MP")]
-        extern void SET_MP(System.Int32 value);
-
-
-        /// <summary>
-        ///   System.Void set_MpRatio(System.Single value)
-        /// </summary>
-        /// <param name="value">struct System.Single</param>
-        /// <returns>struct System.Void</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("set_MpRatio")]
-        ///  extern void SET_MP_RATIO (System.Single value);
 
 
         /// <summary>
@@ -1310,16 +608,6 @@ namespace Maple.TstdMetadata
         /// <returns>struct System.Void</returns>
         /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("set_useGUILayout")]
         ///  extern void SET_USE_GUI_LAYOUT (System.Boolean value);
-
-
-        /// <summary>
-        ///   System.Void SetEventKey(System.String key, System.Int32 value)
-        /// </summary>
-        /// <param name="key">class System.String</param>
-        /// <param name="value">struct System.Int32</param>
-        /// <returns>struct System.Void</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("SetEventKey")]
-        ///  extern void SET_EVENT_KEY (nint key, System.Int32 value);
 
 
         /// <summary>
@@ -1394,21 +682,12 @@ namespace Maple.TstdMetadata
         ///  extern void STOP_COROUTINE_MANAGED (nint routine);
 
 
-        /// <summary>
-        ///   System.Void UnlockAchievements(System.String tag)
-        /// </summary>
-        /// <param name="tag">class System.String</param>
-        /// <returns>struct System.Void</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("UnlockAchievements")]
-        ///  extern void UNLOCK_ACHIEVEMENTS (nint tag);
-
-
 
         /// <summary>
         ///   System.Void .ctor()
         /// </summary>
         /// <returns>struct System.Void</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute(".ctor", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute(".ctor", Search = typeof(Search_InGameResource))]
         ///  extern void .CTOR_00 ();
 
 
@@ -1416,7 +695,7 @@ namespace Maple.TstdMetadata
         ///   System.Void .ctor()
         /// </summary>
         /// <returns>struct System.Void</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute(".ctor", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute(".ctor", Search = typeof(Search_InGameResource))]
         ///  extern void .CTOR_01 ();
 
 
@@ -1424,7 +703,7 @@ namespace Maple.TstdMetadata
         ///   System.Void .ctor()
         /// </summary>
         /// <returns>struct System.Void</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute(".ctor", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute(".ctor", Search = typeof(Search_InGameResource))]
         ///  extern void .CTOR_02 ();
 
 
@@ -1432,7 +711,7 @@ namespace Maple.TstdMetadata
         ///   System.Void .ctor()
         /// </summary>
         /// <returns>struct System.Void</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute(".ctor", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute(".ctor", Search = typeof(Search_InGameResource))]
         ///  extern void .CTOR_03 ();
 
 
@@ -1440,7 +719,7 @@ namespace Maple.TstdMetadata
         ///   System.Void .ctor()
         /// </summary>
         /// <returns>struct System.Void</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute(".ctor", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute(".ctor", Search = typeof(Search_InGameResource))]
         ///  extern void .CTOR_04 ();
 
 
@@ -1448,7 +727,7 @@ namespace Maple.TstdMetadata
         ///   System.Void .ctor()
         /// </summary>
         /// <returns>struct System.Void</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute(".ctor", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute(".ctor", Search = typeof(Search_InGameResource))]
         ///  extern void .CTOR_05 ();
 
 
@@ -1459,7 +738,7 @@ namespace Maple.TstdMetadata
         /// <param name="parameter">class System.Object</param>
         /// <param name="options">enum UnityEngine.SendMessageOptions</param>
         /// <returns>struct System.Void</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("BroadcastMessage", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("BroadcastMessage", Search = typeof(Search_InGameResource))]
         ///  extern void BROADCAST_MESSAGE_00 (nint methodName, nint parameter, UnityEngine.SendMessageOptions options);
 
 
@@ -1469,7 +748,7 @@ namespace Maple.TstdMetadata
         /// <param name="methodName">class System.String</param>
         /// <param name="parameter">class System.Object</param>
         /// <returns>struct System.Void</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("BroadcastMessage", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("BroadcastMessage", Search = typeof(Search_InGameResource))]
         ///  extern void BROADCAST_MESSAGE_01 (nint methodName, nint parameter);
 
 
@@ -1478,7 +757,7 @@ namespace Maple.TstdMetadata
         /// </summary>
         /// <param name="methodName">class System.String</param>
         /// <returns>struct System.Void</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("BroadcastMessage", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("BroadcastMessage", Search = typeof(Search_InGameResource))]
         ///  extern void BROADCAST_MESSAGE_02 (nint methodName);
 
 
@@ -1488,7 +767,7 @@ namespace Maple.TstdMetadata
         /// <param name="methodName">class System.String</param>
         /// <param name="options">enum UnityEngine.SendMessageOptions</param>
         /// <returns>struct System.Void</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("BroadcastMessage", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("BroadcastMessage", Search = typeof(Search_InGameResource))]
         ///  extern void BROADCAST_MESSAGE_03 (nint methodName, UnityEngine.SendMessageOptions options);
 
 
@@ -1496,7 +775,7 @@ namespace Maple.TstdMetadata
         ///   System.Void CancelInvoke()
         /// </summary>
         /// <returns>struct System.Void</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("CancelInvoke", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("CancelInvoke", Search = typeof(Search_InGameResource))]
         ///  extern void CANCEL_INVOKE_00 ();
 
 
@@ -1505,7 +784,7 @@ namespace Maple.TstdMetadata
         /// </summary>
         /// <param name="methodName">class System.String</param>
         /// <returns>struct System.Void</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("CancelInvoke", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("CancelInvoke", Search = typeof(Search_InGameResource))]
         ///  extern void CANCEL_INVOKE_01 (nint methodName);
 
 
@@ -1515,7 +794,7 @@ namespace Maple.TstdMetadata
         /// <param name="self">class UnityEngine.MonoBehaviour</param>
         /// <param name="methodName">class System.String</param>
         /// <returns>struct System.Void</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("CancelInvoke", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("CancelInvoke", Search = typeof(Search_InGameResource))]
         /// static extern void CANCEL_INVOKE_02 (nint self, nint methodName);
 
 
@@ -1525,7 +804,7 @@ namespace Maple.TstdMetadata
         /// <param name="obj">class UnityEngine.Object</param>
         /// <param name="t">struct System.Single</param>
         /// <returns>struct System.Void</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("Destroy", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("Destroy", Search = typeof(Search_InGameResource))]
         /// static extern void DESTROY_00 (nint obj, System.Single t);
 
 
@@ -1534,7 +813,7 @@ namespace Maple.TstdMetadata
         /// </summary>
         /// <param name="obj">class UnityEngine.Object</param>
         /// <returns>struct System.Void</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("Destroy", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("Destroy", Search = typeof(Search_InGameResource))]
         /// static extern void DESTROY_01 (nint obj);
 
 
@@ -1544,7 +823,7 @@ namespace Maple.TstdMetadata
         /// <param name="obj">class UnityEngine.Object</param>
         /// <param name="allowDestroyingAssets">struct System.Boolean</param>
         /// <returns>struct System.Void</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("DestroyImmediate", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("DestroyImmediate", Search = typeof(Search_InGameResource))]
         /// static extern void DESTROY_IMMEDIATE_00 (nint obj, System.Boolean allowDestroyingAssets);
 
 
@@ -1553,7 +832,7 @@ namespace Maple.TstdMetadata
         /// </summary>
         /// <param name="obj">class UnityEngine.Object</param>
         /// <returns>struct System.Void</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("DestroyImmediate", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("DestroyImmediate", Search = typeof(Search_InGameResource))]
         /// static extern void DESTROY_IMMEDIATE_01 (nint obj);
 
 
@@ -1563,7 +842,7 @@ namespace Maple.TstdMetadata
         /// <param name="obj">class UnityEngine.Object</param>
         /// <param name="t">struct System.Single</param>
         /// <returns>struct System.Void</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("DestroyObject", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("DestroyObject", Search = typeof(Search_InGameResource))]
         /// static extern void DESTROY_OBJECT_00 (nint obj, System.Single t);
 
 
@@ -1572,7 +851,7 @@ namespace Maple.TstdMetadata
         /// </summary>
         /// <param name="obj">class UnityEngine.Object</param>
         /// <returns>struct System.Void</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("DestroyObject", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("DestroyObject", Search = typeof(Search_InGameResource))]
         /// static extern void DESTROY_OBJECT_01 (nint obj);
 
 
@@ -1580,7 +859,7 @@ namespace Maple.TstdMetadata
         /// static  T FindAnyObjectByType()
         /// </summary>
         /// <returns>class T</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("FindAnyObjectByType", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("FindAnyObjectByType", Search = typeof(Search_InGameResource))]
         /// static extern nint FIND_ANY_OBJECT_BY_TYPE_00 ();
 
 
@@ -1589,7 +868,7 @@ namespace Maple.TstdMetadata
         /// </summary>
         /// <param name="findObjectsInactive">enum UnityEngine.FindObjectsInactive</param>
         /// <returns>class T</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("FindAnyObjectByType", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("FindAnyObjectByType", Search = typeof(Search_InGameResource))]
         /// static extern nint FIND_ANY_OBJECT_BY_TYPE_01 (UnityEngine.FindObjectsInactive findObjectsInactive);
 
 
@@ -1598,7 +877,7 @@ namespace Maple.TstdMetadata
         /// </summary>
         /// <param name="type">abstract class System.Type</param>
         /// <returns>class UnityEngine.Object</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("FindAnyObjectByType", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("FindAnyObjectByType", Search = typeof(Search_InGameResource))]
         /// static extern nint FIND_ANY_OBJECT_BY_TYPE_02 (nint type);
 
 
@@ -1608,35 +887,15 @@ namespace Maple.TstdMetadata
         /// <param name="type">abstract class System.Type</param>
         /// <param name="findObjectsInactive">enum UnityEngine.FindObjectsInactive</param>
         /// <returns>class UnityEngine.Object</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("FindAnyObjectByType", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("FindAnyObjectByType", Search = typeof(Search_InGameResource))]
         /// static extern nint FIND_ANY_OBJECT_BY_TYPE_03 (nint type, UnityEngine.FindObjectsInactive findObjectsInactive);
-
-
-        /// <summary>
-        /// static  Tstd2.Characters.Character FindCharacterById(System.Collections.Generic.List<Tstd2.Characters.Character> characters, System.String id)
-        /// </summary>
-        /// <param name="characters">class System.Collections.Generic.List<Tstd2.Characters.Character></param>
-        /// <param name="id">class System.String</param>
-        /// <returns>class Tstd2.Characters.Character</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("FindCharacterById", Search = typeof(Search_TeamManager))]
-        /// static extern nint FIND_CHARACTER_BY_ID_00 (nint characters, nint id);
-
-
-        /// <summary>
-        /// static  Tstd2.Characters.Character FindCharacterById(System.Collections.Generic.List<Tstd2.Characters.Character>[] charactersList, System.String id)
-        /// </summary>
-        /// <param name="charactersList">class System.Collections.Generic.List<Tstd2.Characters.Character>[]</param>
-        /// <param name="id">class System.String</param>
-        /// <returns>class Tstd2.Characters.Character</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("FindCharacterById", Search = typeof(Search_TeamManager))]
-        /// static extern nint FIND_CHARACTER_BY_ID_01 (nint charactersList, nint id);
 
 
         /// <summary>
         /// static  T FindFirstObjectByType()
         /// </summary>
         /// <returns>class T</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("FindFirstObjectByType", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("FindFirstObjectByType", Search = typeof(Search_InGameResource))]
         /// static extern nint FIND_FIRST_OBJECT_BY_TYPE_00 ();
 
 
@@ -1645,7 +904,7 @@ namespace Maple.TstdMetadata
         /// </summary>
         /// <param name="findObjectsInactive">enum UnityEngine.FindObjectsInactive</param>
         /// <returns>class T</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("FindFirstObjectByType", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("FindFirstObjectByType", Search = typeof(Search_InGameResource))]
         /// static extern nint FIND_FIRST_OBJECT_BY_TYPE_01 (UnityEngine.FindObjectsInactive findObjectsInactive);
 
 
@@ -1654,7 +913,7 @@ namespace Maple.TstdMetadata
         /// </summary>
         /// <param name="type">abstract class System.Type</param>
         /// <returns>class UnityEngine.Object</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("FindFirstObjectByType", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("FindFirstObjectByType", Search = typeof(Search_InGameResource))]
         /// static extern nint FIND_FIRST_OBJECT_BY_TYPE_02 (nint type);
 
 
@@ -1664,7 +923,7 @@ namespace Maple.TstdMetadata
         /// <param name="type">abstract class System.Type</param>
         /// <param name="findObjectsInactive">enum UnityEngine.FindObjectsInactive</param>
         /// <returns>class UnityEngine.Object</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("FindFirstObjectByType", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("FindFirstObjectByType", Search = typeof(Search_InGameResource))]
         /// static extern nint FIND_FIRST_OBJECT_BY_TYPE_03 (nint type, UnityEngine.FindObjectsInactive findObjectsInactive);
 
 
@@ -1672,7 +931,7 @@ namespace Maple.TstdMetadata
         /// static  T FindObjectOfType()
         /// </summary>
         /// <returns>class T</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("FindObjectOfType", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("FindObjectOfType", Search = typeof(Search_InGameResource))]
         /// static extern nint FIND_OBJECT_OF_TYPE_00 ();
 
 
@@ -1681,7 +940,7 @@ namespace Maple.TstdMetadata
         /// </summary>
         /// <param name="includeInactive">struct System.Boolean</param>
         /// <returns>class T</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("FindObjectOfType", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("FindObjectOfType", Search = typeof(Search_InGameResource))]
         /// static extern nint FIND_OBJECT_OF_TYPE_01 (System.Boolean includeInactive);
 
 
@@ -1690,7 +949,7 @@ namespace Maple.TstdMetadata
         /// </summary>
         /// <param name="type">abstract class System.Type</param>
         /// <returns>class UnityEngine.Object</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("FindObjectOfType", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("FindObjectOfType", Search = typeof(Search_InGameResource))]
         /// static extern nint FIND_OBJECT_OF_TYPE_02 (nint type);
 
 
@@ -1700,7 +959,7 @@ namespace Maple.TstdMetadata
         /// <param name="type">abstract class System.Type</param>
         /// <param name="includeInactive">struct System.Boolean</param>
         /// <returns>class UnityEngine.Object</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("FindObjectOfType", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("FindObjectOfType", Search = typeof(Search_InGameResource))]
         /// static extern nint FIND_OBJECT_OF_TYPE_03 (nint type, System.Boolean includeInactive);
 
 
@@ -1710,7 +969,7 @@ namespace Maple.TstdMetadata
         /// <param name="type">abstract class System.Type</param>
         /// <param name="sortMode">enum UnityEngine.FindObjectsSortMode</param>
         /// <returns>class UnityEngine.Object[]</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("FindObjectsByType", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("FindObjectsByType", Search = typeof(Search_InGameResource))]
         /// static extern nint FIND_OBJECTS_BY_TYPE_00 (nint type, UnityEngine.FindObjectsSortMode sortMode);
 
 
@@ -1721,7 +980,7 @@ namespace Maple.TstdMetadata
         /// <param name="findObjectsInactive">enum UnityEngine.FindObjectsInactive</param>
         /// <param name="sortMode">enum UnityEngine.FindObjectsSortMode</param>
         /// <returns>class UnityEngine.Object[]</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("FindObjectsByType", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("FindObjectsByType", Search = typeof(Search_InGameResource))]
         /// static extern nint FIND_OBJECTS_BY_TYPE_01 (nint type, UnityEngine.FindObjectsInactive findObjectsInactive, UnityEngine.FindObjectsSortMode sortMode);
 
 
@@ -1730,7 +989,7 @@ namespace Maple.TstdMetadata
         /// </summary>
         /// <param name="sortMode">enum UnityEngine.FindObjectsSortMode</param>
         /// <returns>class T[]</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("FindObjectsByType", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("FindObjectsByType", Search = typeof(Search_InGameResource))]
         /// static extern nint FIND_OBJECTS_BY_TYPE_02 (UnityEngine.FindObjectsSortMode sortMode);
 
 
@@ -1740,7 +999,7 @@ namespace Maple.TstdMetadata
         /// <param name="findObjectsInactive">enum UnityEngine.FindObjectsInactive</param>
         /// <param name="sortMode">enum UnityEngine.FindObjectsSortMode</param>
         /// <returns>class T[]</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("FindObjectsByType", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("FindObjectsByType", Search = typeof(Search_InGameResource))]
         /// static extern nint FIND_OBJECTS_BY_TYPE_03 (UnityEngine.FindObjectsInactive findObjectsInactive, UnityEngine.FindObjectsSortMode sortMode);
 
 
@@ -1749,7 +1008,7 @@ namespace Maple.TstdMetadata
         /// </summary>
         /// <param name="type">abstract class System.Type</param>
         /// <returns>class UnityEngine.Object[]</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("FindObjectsOfType", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("FindObjectsOfType", Search = typeof(Search_InGameResource))]
         /// static extern nint FIND_OBJECTS_OF_TYPE_00 (nint type);
 
 
@@ -1759,7 +1018,7 @@ namespace Maple.TstdMetadata
         /// <param name="type">abstract class System.Type</param>
         /// <param name="includeInactive">struct System.Boolean</param>
         /// <returns>class UnityEngine.Object[]</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("FindObjectsOfType", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("FindObjectsOfType", Search = typeof(Search_InGameResource))]
         /// static extern nint FIND_OBJECTS_OF_TYPE_01 (nint type, System.Boolean includeInactive);
 
 
@@ -1767,7 +1026,7 @@ namespace Maple.TstdMetadata
         /// static  T[] FindObjectsOfType()
         /// </summary>
         /// <returns>class T[]</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("FindObjectsOfType", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("FindObjectsOfType", Search = typeof(Search_InGameResource))]
         /// static extern nint FIND_OBJECTS_OF_TYPE_02 ();
 
 
@@ -1776,7 +1035,7 @@ namespace Maple.TstdMetadata
         /// </summary>
         /// <param name="includeInactive">struct System.Boolean</param>
         /// <returns>class T[]</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("FindObjectsOfType", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("FindObjectsOfType", Search = typeof(Search_InGameResource))]
         /// static extern nint FIND_OBJECTS_OF_TYPE_03 (System.Boolean includeInactive);
 
 
@@ -1785,7 +1044,7 @@ namespace Maple.TstdMetadata
         /// </summary>
         /// <param name="type">abstract class System.Type</param>
         /// <returns>class UnityEngine.Component</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("GetComponent", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("GetComponent", Search = typeof(Search_InGameResource))]
         ///  extern nint GET_COMPONENT_00 (nint type);
 
 
@@ -1793,7 +1052,7 @@ namespace Maple.TstdMetadata
         ///   T GetComponent()
         /// </summary>
         /// <returns>class T</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("GetComponent", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("GetComponent", Search = typeof(Search_InGameResource))]
         ///  extern nint GET_COMPONENT_01 ();
 
 
@@ -1802,7 +1061,7 @@ namespace Maple.TstdMetadata
         /// </summary>
         /// <param name="type">class System.String</param>
         /// <returns>class UnityEngine.Component</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("GetComponent", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("GetComponent", Search = typeof(Search_InGameResource))]
         ///  extern nint GET_COMPONENT_02 (nint type);
 
 
@@ -1812,7 +1071,7 @@ namespace Maple.TstdMetadata
         /// <param name="t">abstract class System.Type</param>
         /// <param name="includeInactive">struct System.Boolean</param>
         /// <returns>class UnityEngine.Component</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("GetComponentInChildren", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("GetComponentInChildren", Search = typeof(Search_InGameResource))]
         ///  extern nint GET_COMPONENT_IN_CHILDREN_00 (nint t, System.Boolean includeInactive);
 
 
@@ -1821,7 +1080,7 @@ namespace Maple.TstdMetadata
         /// </summary>
         /// <param name="t">abstract class System.Type</param>
         /// <returns>class UnityEngine.Component</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("GetComponentInChildren", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("GetComponentInChildren", Search = typeof(Search_InGameResource))]
         ///  extern nint GET_COMPONENT_IN_CHILDREN_01 (nint t);
 
 
@@ -1830,7 +1089,7 @@ namespace Maple.TstdMetadata
         /// </summary>
         /// <param name="includeInactive">struct System.Boolean</param>
         /// <returns>class T</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("GetComponentInChildren", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("GetComponentInChildren", Search = typeof(Search_InGameResource))]
         ///  extern nint GET_COMPONENT_IN_CHILDREN_02 (System.Boolean includeInactive);
 
 
@@ -1838,7 +1097,7 @@ namespace Maple.TstdMetadata
         ///   T GetComponentInChildren()
         /// </summary>
         /// <returns>class T</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("GetComponentInChildren", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("GetComponentInChildren", Search = typeof(Search_InGameResource))]
         ///  extern nint GET_COMPONENT_IN_CHILDREN_03 ();
 
 
@@ -1848,7 +1107,7 @@ namespace Maple.TstdMetadata
         /// <param name="t">abstract class System.Type</param>
         /// <param name="includeInactive">struct System.Boolean</param>
         /// <returns>class UnityEngine.Component</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("GetComponentInParent", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("GetComponentInParent", Search = typeof(Search_InGameResource))]
         ///  extern nint GET_COMPONENT_IN_PARENT_00 (nint t, System.Boolean includeInactive);
 
 
@@ -1857,7 +1116,7 @@ namespace Maple.TstdMetadata
         /// </summary>
         /// <param name="t">abstract class System.Type</param>
         /// <returns>class UnityEngine.Component</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("GetComponentInParent", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("GetComponentInParent", Search = typeof(Search_InGameResource))]
         ///  extern nint GET_COMPONENT_IN_PARENT_01 (nint t);
 
 
@@ -1866,7 +1125,7 @@ namespace Maple.TstdMetadata
         /// </summary>
         /// <param name="includeInactive">struct System.Boolean</param>
         /// <returns>class T</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("GetComponentInParent", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("GetComponentInParent", Search = typeof(Search_InGameResource))]
         ///  extern nint GET_COMPONENT_IN_PARENT_02 (System.Boolean includeInactive);
 
 
@@ -1874,7 +1133,7 @@ namespace Maple.TstdMetadata
         ///   T GetComponentInParent()
         /// </summary>
         /// <returns>class T</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("GetComponentInParent", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("GetComponentInParent", Search = typeof(Search_InGameResource))]
         ///  extern nint GET_COMPONENT_IN_PARENT_03 ();
 
 
@@ -1883,7 +1142,7 @@ namespace Maple.TstdMetadata
         /// </summary>
         /// <param name="type">abstract class System.Type</param>
         /// <returns>class UnityEngine.Component[]</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("GetComponents", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("GetComponents", Search = typeof(Search_InGameResource))]
         ///  extern nint GET_COMPONENTS_00 (nint type);
 
 
@@ -1893,7 +1152,7 @@ namespace Maple.TstdMetadata
         /// <param name="type">abstract class System.Type</param>
         /// <param name="results">class System.Collections.Generic.List<UnityEngine.Component></param>
         /// <returns>struct System.Void</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("GetComponents", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("GetComponents", Search = typeof(Search_InGameResource))]
         ///  extern void GET_COMPONENTS_01 (nint type, nint results);
 
 
@@ -1902,7 +1161,7 @@ namespace Maple.TstdMetadata
         /// </summary>
         /// <param name="results">class System.Collections.Generic.List<T></param>
         /// <returns>struct System.Void</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("GetComponents", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("GetComponents", Search = typeof(Search_InGameResource))]
         ///  extern void GET_COMPONENTS_02 (nint results);
 
 
@@ -1910,7 +1169,7 @@ namespace Maple.TstdMetadata
         ///   T[] GetComponents()
         /// </summary>
         /// <returns>class T[]</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("GetComponents", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("GetComponents", Search = typeof(Search_InGameResource))]
         ///  extern nint GET_COMPONENTS_03 ();
 
 
@@ -1920,7 +1179,7 @@ namespace Maple.TstdMetadata
         /// <param name="t">abstract class System.Type</param>
         /// <param name="includeInactive">struct System.Boolean</param>
         /// <returns>class UnityEngine.Component[]</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("GetComponentsInChildren", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("GetComponentsInChildren", Search = typeof(Search_InGameResource))]
         ///  extern nint GET_COMPONENTS_IN_CHILDREN_00 (nint t, System.Boolean includeInactive);
 
 
@@ -1929,7 +1188,7 @@ namespace Maple.TstdMetadata
         /// </summary>
         /// <param name="t">abstract class System.Type</param>
         /// <returns>class UnityEngine.Component[]</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("GetComponentsInChildren", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("GetComponentsInChildren", Search = typeof(Search_InGameResource))]
         ///  extern nint GET_COMPONENTS_IN_CHILDREN_01 (nint t);
 
 
@@ -1938,7 +1197,7 @@ namespace Maple.TstdMetadata
         /// </summary>
         /// <param name="includeInactive">struct System.Boolean</param>
         /// <returns>class T[]</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("GetComponentsInChildren", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("GetComponentsInChildren", Search = typeof(Search_InGameResource))]
         ///  extern nint GET_COMPONENTS_IN_CHILDREN_02 (System.Boolean includeInactive);
 
 
@@ -1948,7 +1207,7 @@ namespace Maple.TstdMetadata
         /// <param name="includeInactive">struct System.Boolean</param>
         /// <param name="result">class System.Collections.Generic.List<T></param>
         /// <returns>struct System.Void</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("GetComponentsInChildren", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("GetComponentsInChildren", Search = typeof(Search_InGameResource))]
         ///  extern void GET_COMPONENTS_IN_CHILDREN_03 (System.Boolean includeInactive, nint result);
 
 
@@ -1956,7 +1215,7 @@ namespace Maple.TstdMetadata
         ///   T[] GetComponentsInChildren()
         /// </summary>
         /// <returns>class T[]</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("GetComponentsInChildren", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("GetComponentsInChildren", Search = typeof(Search_InGameResource))]
         ///  extern nint GET_COMPONENTS_IN_CHILDREN_04 ();
 
 
@@ -1965,7 +1224,7 @@ namespace Maple.TstdMetadata
         /// </summary>
         /// <param name="results">class System.Collections.Generic.List<T></param>
         /// <returns>struct System.Void</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("GetComponentsInChildren", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("GetComponentsInChildren", Search = typeof(Search_InGameResource))]
         ///  extern void GET_COMPONENTS_IN_CHILDREN_05 (nint results);
 
 
@@ -1975,7 +1234,7 @@ namespace Maple.TstdMetadata
         /// <param name="t">abstract class System.Type</param>
         /// <param name="includeInactive">struct System.Boolean</param>
         /// <returns>class UnityEngine.Component[]</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("GetComponentsInParent", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("GetComponentsInParent", Search = typeof(Search_InGameResource))]
         ///  extern nint GET_COMPONENTS_IN_PARENT_00 (nint t, System.Boolean includeInactive);
 
 
@@ -1984,7 +1243,7 @@ namespace Maple.TstdMetadata
         /// </summary>
         /// <param name="t">abstract class System.Type</param>
         /// <returns>class UnityEngine.Component[]</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("GetComponentsInParent", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("GetComponentsInParent", Search = typeof(Search_InGameResource))]
         ///  extern nint GET_COMPONENTS_IN_PARENT_01 (nint t);
 
 
@@ -1993,7 +1252,7 @@ namespace Maple.TstdMetadata
         /// </summary>
         /// <param name="includeInactive">struct System.Boolean</param>
         /// <returns>class T[]</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("GetComponentsInParent", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("GetComponentsInParent", Search = typeof(Search_InGameResource))]
         ///  extern nint GET_COMPONENTS_IN_PARENT_02 (System.Boolean includeInactive);
 
 
@@ -2003,7 +1262,7 @@ namespace Maple.TstdMetadata
         /// <param name="includeInactive">struct System.Boolean</param>
         /// <param name="results">class System.Collections.Generic.List<T></param>
         /// <returns>struct System.Void</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("GetComponentsInParent", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("GetComponentsInParent", Search = typeof(Search_InGameResource))]
         ///  extern void GET_COMPONENTS_IN_PARENT_03 (System.Boolean includeInactive, nint results);
 
 
@@ -2011,7 +1270,7 @@ namespace Maple.TstdMetadata
         ///   T[] GetComponentsInParent()
         /// </summary>
         /// <returns>class T[]</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("GetComponentsInParent", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("GetComponentsInParent", Search = typeof(Search_InGameResource))]
         ///  extern nint GET_COMPONENTS_IN_PARENT_04 ();
 
 
@@ -2022,7 +1281,7 @@ namespace Maple.TstdMetadata
         /// <param name="position">struct UnityEngine.Vector3</param>
         /// <param name="rotation">struct UnityEngine.Quaternion</param>
         /// <returns>class UnityEngine.Object</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("Instantiate", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("Instantiate", Search = typeof(Search_InGameResource))]
         /// static extern nint INSTANTIATE_00 (nint original, UnityEngine.Vector3 position, UnityEngine.Quaternion rotation);
 
 
@@ -2034,7 +1293,7 @@ namespace Maple.TstdMetadata
         /// <param name="rotation">struct UnityEngine.Quaternion</param>
         /// <param name="parent">class UnityEngine.Transform</param>
         /// <returns>class UnityEngine.Object</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("Instantiate", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("Instantiate", Search = typeof(Search_InGameResource))]
         /// static extern nint INSTANTIATE_01 (nint original, UnityEngine.Vector3 position, UnityEngine.Quaternion rotation, nint parent);
 
 
@@ -2043,7 +1302,7 @@ namespace Maple.TstdMetadata
         /// </summary>
         /// <param name="original">class UnityEngine.Object</param>
         /// <returns>class UnityEngine.Object</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("Instantiate", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("Instantiate", Search = typeof(Search_InGameResource))]
         /// static extern nint INSTANTIATE_02 (nint original);
 
 
@@ -2053,7 +1312,7 @@ namespace Maple.TstdMetadata
         /// <param name="original">class UnityEngine.Object</param>
         /// <param name="parent">class UnityEngine.Transform</param>
         /// <returns>class UnityEngine.Object</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("Instantiate", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("Instantiate", Search = typeof(Search_InGameResource))]
         /// static extern nint INSTANTIATE_03 (nint original, nint parent);
 
 
@@ -2064,7 +1323,7 @@ namespace Maple.TstdMetadata
         /// <param name="parent">class UnityEngine.Transform</param>
         /// <param name="instantiateInWorldSpace">struct System.Boolean</param>
         /// <returns>class UnityEngine.Object</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("Instantiate", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("Instantiate", Search = typeof(Search_InGameResource))]
         /// static extern nint INSTANTIATE_04 (nint original, nint parent, System.Boolean instantiateInWorldSpace);
 
 
@@ -2073,7 +1332,7 @@ namespace Maple.TstdMetadata
         /// </summary>
         /// <param name="original">class T</param>
         /// <returns>class T</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("Instantiate", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("Instantiate", Search = typeof(Search_InGameResource))]
         /// static extern nint INSTANTIATE_05 (nint original);
 
 
@@ -2084,7 +1343,7 @@ namespace Maple.TstdMetadata
         /// <param name="position">struct UnityEngine.Vector3</param>
         /// <param name="rotation">struct UnityEngine.Quaternion</param>
         /// <returns>class T</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("Instantiate", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("Instantiate", Search = typeof(Search_InGameResource))]
         /// static extern nint INSTANTIATE_06 (nint original, UnityEngine.Vector3 position, UnityEngine.Quaternion rotation);
 
 
@@ -2096,7 +1355,7 @@ namespace Maple.TstdMetadata
         /// <param name="rotation">struct UnityEngine.Quaternion</param>
         /// <param name="parent">class UnityEngine.Transform</param>
         /// <returns>class T</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("Instantiate", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("Instantiate", Search = typeof(Search_InGameResource))]
         /// static extern nint INSTANTIATE_07 (nint original, UnityEngine.Vector3 position, UnityEngine.Quaternion rotation, nint parent);
 
 
@@ -2106,7 +1365,7 @@ namespace Maple.TstdMetadata
         /// <param name="original">class T</param>
         /// <param name="parent">class UnityEngine.Transform</param>
         /// <returns>class T</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("Instantiate", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("Instantiate", Search = typeof(Search_InGameResource))]
         /// static extern nint INSTANTIATE_08 (nint original, nint parent);
 
 
@@ -2117,7 +1376,7 @@ namespace Maple.TstdMetadata
         /// <param name="parent">class UnityEngine.Transform</param>
         /// <param name="worldPositionStays">struct System.Boolean</param>
         /// <returns>class T</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("Instantiate", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("Instantiate", Search = typeof(Search_InGameResource))]
         /// static extern nint INSTANTIATE_09 (nint original, nint parent, System.Boolean worldPositionStays);
 
 
@@ -2125,7 +1384,7 @@ namespace Maple.TstdMetadata
         ///   System.Boolean IsInvoking()
         /// </summary>
         /// <returns>struct System.Boolean</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("IsInvoking", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("IsInvoking", Search = typeof(Search_InGameResource))]
         ///  extern System.Boolean IS_INVOKING_00 ();
 
 
@@ -2134,7 +1393,7 @@ namespace Maple.TstdMetadata
         /// </summary>
         /// <param name="methodName">class System.String</param>
         /// <returns>struct System.Boolean</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("IsInvoking", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("IsInvoking", Search = typeof(Search_InGameResource))]
         ///  extern System.Boolean IS_INVOKING_01 (nint methodName);
 
 
@@ -2144,29 +1403,8 @@ namespace Maple.TstdMetadata
         /// <param name="self">class UnityEngine.MonoBehaviour</param>
         /// <param name="methodName">class System.String</param>
         /// <returns>struct System.Boolean</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("IsInvoking", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("IsInvoking", Search = typeof(Search_InGameResource))]
         /// static extern System.Boolean IS_INVOKING_02 (nint self, nint methodName);
-
-
-        /// <summary>
-        ///   System.Void LeaveCurrentCharacters(Tstd2.Characters.Character character, System.Int32 index, System.Boolean autoUnload)
-        /// </summary>
-        /// <param name="character">class Tstd2.Characters.Character</param>
-        /// <param name="index">struct System.Int32</param>
-        /// <param name="autoUnload">struct System.Boolean</param>
-        /// <returns>struct System.Void</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("LeaveCurrentCharacters", Search = typeof(Search_TeamManager))]
-        ///  extern void LEAVE_CURRENT_CHARACTERS_00 (nint character, System.Int32 index, System.Boolean autoUnload);
-
-
-        /// <summary>
-        ///   System.Void LeaveCurrentCharacters(Tstd2.Characters.Character character, System.Boolean autoUnload)
-        /// </summary>
-        /// <param name="character">class Tstd2.Characters.Character</param>
-        /// <param name="autoUnload">struct System.Boolean</param>
-        /// <returns>struct System.Void</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("LeaveCurrentCharacters", Search = typeof(Search_TeamManager))]
-        ///  extern void LEAVE_CURRENT_CHARACTERS_01 (nint character, System.Boolean autoUnload);
 
 
         /// <summary>
@@ -2175,7 +1413,7 @@ namespace Maple.TstdMetadata
         /// <param name="methodName">class System.String</param>
         /// <param name="value">class System.Object</param>
         /// <returns>struct System.Void</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("SendMessage", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("SendMessage", Search = typeof(Search_InGameResource))]
         ///  extern void SEND_MESSAGE_00 (nint methodName, nint value);
 
 
@@ -2184,7 +1422,7 @@ namespace Maple.TstdMetadata
         /// </summary>
         /// <param name="methodName">class System.String</param>
         /// <returns>struct System.Void</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("SendMessage", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("SendMessage", Search = typeof(Search_InGameResource))]
         ///  extern void SEND_MESSAGE_01 (nint methodName);
 
 
@@ -2195,7 +1433,7 @@ namespace Maple.TstdMetadata
         /// <param name="value">class System.Object</param>
         /// <param name="options">enum UnityEngine.SendMessageOptions</param>
         /// <returns>struct System.Void</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("SendMessage", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("SendMessage", Search = typeof(Search_InGameResource))]
         ///  extern void SEND_MESSAGE_02 (nint methodName, nint value, UnityEngine.SendMessageOptions options);
 
 
@@ -2205,7 +1443,7 @@ namespace Maple.TstdMetadata
         /// <param name="methodName">class System.String</param>
         /// <param name="options">enum UnityEngine.SendMessageOptions</param>
         /// <returns>struct System.Void</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("SendMessage", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("SendMessage", Search = typeof(Search_InGameResource))]
         ///  extern void SEND_MESSAGE_03 (nint methodName, UnityEngine.SendMessageOptions options);
 
 
@@ -2216,7 +1454,7 @@ namespace Maple.TstdMetadata
         /// <param name="value">class System.Object</param>
         /// <param name="options">enum UnityEngine.SendMessageOptions</param>
         /// <returns>struct System.Void</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("SendMessageUpwards", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("SendMessageUpwards", Search = typeof(Search_InGameResource))]
         ///  extern void SEND_MESSAGE_UPWARDS_00 (nint methodName, nint value, UnityEngine.SendMessageOptions options);
 
 
@@ -2226,7 +1464,7 @@ namespace Maple.TstdMetadata
         /// <param name="methodName">class System.String</param>
         /// <param name="value">class System.Object</param>
         /// <returns>struct System.Void</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("SendMessageUpwards", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("SendMessageUpwards", Search = typeof(Search_InGameResource))]
         ///  extern void SEND_MESSAGE_UPWARDS_01 (nint methodName, nint value);
 
 
@@ -2235,7 +1473,7 @@ namespace Maple.TstdMetadata
         /// </summary>
         /// <param name="methodName">class System.String</param>
         /// <returns>struct System.Void</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("SendMessageUpwards", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("SendMessageUpwards", Search = typeof(Search_InGameResource))]
         ///  extern void SEND_MESSAGE_UPWARDS_02 (nint methodName);
 
 
@@ -2245,7 +1483,7 @@ namespace Maple.TstdMetadata
         /// <param name="methodName">class System.String</param>
         /// <param name="options">enum UnityEngine.SendMessageOptions</param>
         /// <returns>struct System.Void</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("SendMessageUpwards", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("SendMessageUpwards", Search = typeof(Search_InGameResource))]
         ///  extern void SEND_MESSAGE_UPWARDS_03 (nint methodName, UnityEngine.SendMessageOptions options);
 
 
@@ -2254,7 +1492,7 @@ namespace Maple.TstdMetadata
         /// </summary>
         /// <param name="methodName">class System.String</param>
         /// <returns>class UnityEngine.Coroutine</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("StartCoroutine", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("StartCoroutine", Search = typeof(Search_InGameResource))]
         ///  extern nint START_COROUTINE_00 (nint methodName);
 
 
@@ -2264,7 +1502,7 @@ namespace Maple.TstdMetadata
         /// <param name="methodName">class System.String</param>
         /// <param name="value">class System.Object</param>
         /// <returns>class UnityEngine.Coroutine</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("StartCoroutine", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("StartCoroutine", Search = typeof(Search_InGameResource))]
         ///  extern nint START_COROUTINE_01 (nint methodName, nint value);
 
 
@@ -2273,7 +1511,7 @@ namespace Maple.TstdMetadata
         /// </summary>
         /// <param name="routine">interface System.Collections.IEnumerator</param>
         /// <returns>class UnityEngine.Coroutine</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("StartCoroutine", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("StartCoroutine", Search = typeof(Search_InGameResource))]
         ///  extern nint START_COROUTINE_02 (nint routine);
 
 
@@ -2282,7 +1520,7 @@ namespace Maple.TstdMetadata
         /// </summary>
         /// <param name="routine">interface System.Collections.IEnumerator</param>
         /// <returns>struct System.Void</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("StopCoroutine", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("StopCoroutine", Search = typeof(Search_InGameResource))]
         ///  extern void STOP_COROUTINE_00 (nint routine);
 
 
@@ -2291,7 +1529,7 @@ namespace Maple.TstdMetadata
         /// </summary>
         /// <param name="routine">class UnityEngine.Coroutine</param>
         /// <returns>struct System.Void</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("StopCoroutine", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("StopCoroutine", Search = typeof(Search_InGameResource))]
         ///  extern void STOP_COROUTINE_01 (nint routine);
 
 
@@ -2300,7 +1538,7 @@ namespace Maple.TstdMetadata
         /// </summary>
         /// <param name="methodName">class System.String</param>
         /// <returns>struct System.Void</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("StopCoroutine", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("StopCoroutine", Search = typeof(Search_InGameResource))]
         ///  extern void STOP_COROUTINE_02 (nint methodName);
 
 
@@ -2308,7 +1546,7 @@ namespace Maple.TstdMetadata
         ///   System.String ToString()
         /// </summary>
         /// <returns>class System.String</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("ToString", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("ToString", Search = typeof(Search_InGameResource))]
         ///  extern nint TO_STRING_00 ();
 
 
@@ -2317,7 +1555,7 @@ namespace Maple.TstdMetadata
         /// </summary>
         /// <param name="obj">class UnityEngine.Object</param>
         /// <returns>class System.String</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("ToString", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("ToString", Search = typeof(Search_InGameResource))]
         /// static extern nint TO_STRING_01 (nint obj);
 
 
@@ -2327,7 +1565,7 @@ namespace Maple.TstdMetadata
         /// <param name="type">abstract class System.Type</param>
         /// <param name="component">class UnityEngine.Component&</param>
         /// <returns>struct System.Boolean</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("TryGetComponent", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("TryGetComponent", Search = typeof(Search_InGameResource))]
         ///  extern System.Boolean TRY_GET_COMPONENT_00 (nint type, nint component);
 
 
@@ -2336,11 +1574,11 @@ namespace Maple.TstdMetadata
         /// </summary>
         /// <param name="component">class T&</param>
         /// <returns>struct System.Boolean</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("TryGetComponent", Search = typeof(Search_TeamManager))]
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("TryGetComponent", Search = typeof(Search_InGameResource))]
         ///  extern System.Boolean TRY_GET_COMPONENT_01 (nint component);
 
 
-        /// public static partial class Search_TeamManager
+        /// public static partial class Search_InGameResource
         /// {
         /// 
         ///     
@@ -2570,26 +1808,6 @@ namespace Maple.TstdMetadata
         /// </summary>
         /// public static bool FIND_ANY_OBJECT_BY_TYPE_03 (Maple.MonoGameAssistant.Model.MonoMethodInfoDTO monoMethodInfoDTO)
         ///     =>  Maple.MonoGameAssistant.MonoCollector.MonoCollectorExtensions.SearchMonoMethodInfo(monoMethodInfoDTO, "FindAnyObjectByType", "System.Type", "UnityEngine.FindObjectsInactive");
-        ///     
-        ///  
-        /// 
-
-
-        /// <summary>
-        /// static  Tstd2.Characters.Character FindCharacterById(System.Collections.Generic.List<Tstd2.Characters.Character> characters, System.String id)
-        /// </summary>
-        /// public static bool FIND_CHARACTER_BY_ID_00 (Maple.MonoGameAssistant.Model.MonoMethodInfoDTO monoMethodInfoDTO)
-        ///     =>  Maple.MonoGameAssistant.MonoCollector.MonoCollectorExtensions.SearchMonoMethodInfo(monoMethodInfoDTO, "FindCharacterById", "System.Collections.Generic.List<Tstd2.Characters.Character>", "System.String");
-        ///     
-        ///  
-        /// 
-
-
-        /// <summary>
-        /// static  Tstd2.Characters.Character FindCharacterById(System.Collections.Generic.List<Tstd2.Characters.Character>[] charactersList, System.String id)
-        /// </summary>
-        /// public static bool FIND_CHARACTER_BY_ID_01 (Maple.MonoGameAssistant.Model.MonoMethodInfoDTO monoMethodInfoDTO)
-        ///     =>  Maple.MonoGameAssistant.MonoCollector.MonoCollectorExtensions.SearchMonoMethodInfo(monoMethodInfoDTO, "FindCharacterById", "System.Collections.Generic.List<Tstd2.Characters.Character>[]", "System.String");
         ///     
         ///  
         /// 
@@ -3140,26 +2358,6 @@ namespace Maple.TstdMetadata
         /// </summary>
         /// public static bool IS_INVOKING_02 (Maple.MonoGameAssistant.Model.MonoMethodInfoDTO monoMethodInfoDTO)
         ///     =>  Maple.MonoGameAssistant.MonoCollector.MonoCollectorExtensions.SearchMonoMethodInfo(monoMethodInfoDTO, "IsInvoking", "UnityEngine.MonoBehaviour", "System.String");
-        ///     
-        ///  
-        /// 
-
-
-        /// <summary>
-        ///   System.Void LeaveCurrentCharacters(Tstd2.Characters.Character character, System.Int32 index, System.Boolean autoUnload)
-        /// </summary>
-        /// public static bool LEAVE_CURRENT_CHARACTERS_00 (Maple.MonoGameAssistant.Model.MonoMethodInfoDTO monoMethodInfoDTO)
-        ///     =>  Maple.MonoGameAssistant.MonoCollector.MonoCollectorExtensions.SearchMonoMethodInfo(monoMethodInfoDTO, "LeaveCurrentCharacters", "Tstd2.Characters.Character", "System.Int32", "System.Boolean");
-        ///     
-        ///  
-        /// 
-
-
-        /// <summary>
-        ///   System.Void LeaveCurrentCharacters(Tstd2.Characters.Character character, System.Boolean autoUnload)
-        /// </summary>
-        /// public static bool LEAVE_CURRENT_CHARACTERS_01 (Maple.MonoGameAssistant.Model.MonoMethodInfoDTO monoMethodInfoDTO)
-        ///     =>  Maple.MonoGameAssistant.MonoCollector.MonoCollectorExtensions.SearchMonoMethodInfo(monoMethodInfoDTO, "LeaveCurrentCharacters", "Tstd2.Characters.Character", "System.Boolean");
         ///     
         ///  
         /// 
