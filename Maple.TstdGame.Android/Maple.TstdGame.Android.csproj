@@ -42,6 +42,10 @@
 
 	</ItemGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\Maple.TstdMetadata\Maple.TstdMetadata.csproj" />
+	</ItemGroup>
+
 
 
 
