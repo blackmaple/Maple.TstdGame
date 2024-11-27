@@ -28,7 +28,7 @@ namespace Maple.TstdGame.Android
             return this.MonoTaskAsync(static p => p.GetTstdGameEnvironment());
         }
 
-        public async Task<TstdGameEnvironment> GetTstdGameEnvironmentIfNotLoadedAsync()
+        public async Task<TstdGameEnvironment> GetTstdGameEnvironmentThrowIfNotLoadedAsync()
         {
             var env = await this.MonoTaskAsync(p => p.GetTstdGameEnvironment()).ConfigureAwait(false);
             return env.InGame() ? env : GameException.ThrowIfNotLoaded<TstdGameEnvironment>();
@@ -41,12 +41,12 @@ namespace Maple.TstdGame.Android
         }
         public override async ValueTask<GameCurrencyInfoDTO> GetCurrencyInfoAsync(GameCurrencyObjectDTO currencyObjectDTO)
         {
-            var gameEnv = await this.GetTstdGameEnvironmentIfNotLoadedAsync().ConfigureAwait(false);
+            var gameEnv = await this.GetTstdGameEnvironmentThrowIfNotLoadedAsync().ConfigureAwait(false);
             return await this.MonoTaskAsync(static (p, args) => args.gameEnv.GetGameCurrencyInfo(args.currencyObjectDTO), (gameEnv, currencyObjectDTO)).ConfigureAwait(false);
         }
         public override async ValueTask<GameCurrencyInfoDTO> UpdateCurrencyInfoAsync(GameCurrencyModifyDTO currencyModifyDTO)
         {
-            var gameEnv = await this.GetTstdGameEnvironmentIfNotLoadedAsync().ConfigureAwait(false);
+            var gameEnv = await this.GetTstdGameEnvironmentThrowIfNotLoadedAsync().ConfigureAwait(false);
             return await this.MonoTaskAsync(static (p, args) => args.gameEnv.UpdateGameCurrencyInfo(args.currencyModifyDTO), (gameEnv, currencyModifyDTO)).ConfigureAwait(false);
         }
 
@@ -57,12 +57,12 @@ namespace Maple.TstdGame.Android
         }
         public override async ValueTask<GameInventoryInfoDTO> GetInventoryInfoAsync(GameInventoryObjectDTO inventoryObjectDTO)
         {
-            var gameEnv = await this.GetTstdGameEnvironmentIfNotLoadedAsync().ConfigureAwait(false);
+            var gameEnv = await this.GetTstdGameEnvironmentThrowIfNotLoadedAsync().ConfigureAwait(false);
             return await this.MonoTaskAsync(static (p, args) => args.gameEnv.GetGameInventoryInfo(args.inventoryObjectDTO), (gameEnv, inventoryObjectDTO)).ConfigureAwait(false);
         }
         public override async ValueTask<GameInventoryInfoDTO> UpdateInventoryInfoAsync(GameInventoryModifyDTO inventoryObjectDTO)
         {
-            var gameEnv = await this.GetTstdGameEnvironmentIfNotLoadedAsync().ConfigureAwait(false);
+            var gameEnv = await this.GetTstdGameEnvironmentThrowIfNotLoadedAsync().ConfigureAwait(false);
             return await this.MonoTaskAsync(static (p, args) => args.gameEnv.UpdateGameInventoryInfo(args.inventoryObjectDTO), (gameEnv, inventoryObjectDTO)).ConfigureAwait(false);
         }
     }
