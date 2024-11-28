@@ -296,7 +296,7 @@ namespace Maple.TstdMetadata
             Unsafe.SkipInit(out ptr_Character);
             foreach (var character in @this.Ptr_TeamManager.CHARACTERS)
             {
-                if (character._DATA.MODEL_DATA.TAG.AsReadOnlySpan().SequenceEqual(tagId))
+                if (character._DATA.TAG.AsReadOnlySpan().SequenceEqual(tagId))
                 {
                     ptr_Character = character;
                     return true;
@@ -304,7 +304,7 @@ namespace Maple.TstdMetadata
             }
             foreach (var character in @this.Ptr_TeamManager.TEMP_CHARACTERS)
             {
-                if (character._DATA.MODEL_DATA.TAG.AsReadOnlySpan().SequenceEqual(tagId))
+                if (character._DATA.TAG.AsReadOnlySpan().SequenceEqual(tagId))
                 {
                     ptr_Character = character;
                     return true;
@@ -312,7 +312,7 @@ namespace Maple.TstdMetadata
             }
             foreach (var character in @this.Ptr_TeamManager.ALTERNATE_CHARACTERS)
             {
-                if (character._DATA.MODEL_DATA.TAG.AsReadOnlySpan().SequenceEqual(tagId))
+                if (character._DATA.TAG.AsReadOnlySpan().SequenceEqual(tagId))
                 {
                     ptr_Character = character;
                     return true;
@@ -320,7 +320,7 @@ namespace Maple.TstdMetadata
             }
             foreach (var character in @this.Ptr_TeamManager.NPC_CHARACTERS)
             {
-                if (character._DATA.MODEL_DATA.TAG.AsReadOnlySpan().SequenceEqual(tagId))
+                if (character._DATA.TAG.AsReadOnlySpan().SequenceEqual(tagId))
                 {
                     ptr_Character = character;
                     return true;
