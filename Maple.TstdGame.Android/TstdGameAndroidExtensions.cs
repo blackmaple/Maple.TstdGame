@@ -6,7 +6,9 @@ using Maple.MonoGameAssistant.AndroidJNI.Context;
 using Maple.MonoGameAssistant.AndroidJNI.JNI.Primitive;
 using Maple.MonoGameAssistant.AndroidJNI.JNI.Reference;
 using Maple.MonoGameAssistant.AndroidJNI.JNI.Value;
+using Maple.MonoGameAssistant.Logger;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using System.Runtime.InteropServices;
 using unsafe ApiActionDelegate = delegate* unmanaged<Maple.MonoGameAssistant.AndroidJNI.JNI.Value.PTR_JNI_ENV, Maple.MonoGameAssistant.AndroidJNI.JNI.Reference.JOBJECT, Maple.MonoGameAssistant.AndroidJNI.JNI.Primitive.JINT, Maple.MonoGameAssistant.AndroidJNI.JNI.Reference.JSTRING, Maple.MonoGameAssistant.AndroidJNI.JNI.Primitive.JBOOLEAN>;
 using unsafe TestActionDelegate = delegate* unmanaged<Maple.MonoGameAssistant.AndroidJNI.JNI.Value.PTR_JNI_ENV, Maple.MonoGameAssistant.AndroidJNI.JNI.Reference.JOBJECT, Maple.MonoGameAssistant.AndroidJNI.JNI.Reference.JSTRING, Maple.MonoGameAssistant.AndroidJNI.JNI.Primitive.JBOOLEAN>;
@@ -67,7 +69,7 @@ namespace Maple.TstdGame.Android
                     return;
                 }
                 Thread.Sleep(10000);
-                var host = context.CreateAndroidService(p => { p.GameName = "吞食天地:刘蜀霸王"; }, p => p.AddGameContextService<TstdGameAndroidService>());
+                var host = context.CreateAndroidService(p => { p.GameName = "吞食天地:刘蜀霸王"; p.QQ = "^-^"; }, p => p.AddGameContextService<TstdGameAndroidService>());
                 host.Run();
             }
         }
@@ -75,7 +77,7 @@ namespace Maple.TstdGame.Android
         public const string JavaClassFullName = "com/android/maple/service/MapleService";
 
         static AndroidApiContext? ApiContext { get; set; }
-
+        
         [UnmanagedCallersOnly(EntryPoint = nameof(JNI_OnLoad))]
         public static JINT JNI_OnLoad(PTR_JAVA_VM javaVM, JOBJECT reserved)
         {

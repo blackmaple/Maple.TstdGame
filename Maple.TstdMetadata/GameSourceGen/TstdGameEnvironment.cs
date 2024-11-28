@@ -63,7 +63,7 @@ namespace Maple.TstdMetadata
         public static void LoadResourceData(this TstdGameEnvironment @this)
         {
 
-            @this. InitResource();
+            @this.InitResource();
 
             var resources = @this.ResourceManager._DICTIONARY4;
 
@@ -273,7 +273,7 @@ namespace Maple.TstdMetadata
                 var first = TstdGameEnvironment.CacheCharacters.Find(p => p.ObjectId == objectDTO.InventoryObject);
                 if (first is not null)
                 {
-                    var count = @this.TryFindCharacter(first.ObjectId,out _) ? 1 : 0;
+                    var count = @this.TryFindCharacter(first.ObjectId, out _) ? 1 : 0;
                     return new GameInventoryInfoDTO() { ObjectId = first.ObjectId, InventoryCount = count };
                 }
                 return GameException.Throw<GameInventoryInfoDTO>($"NOT FOUND:{objectDTO.InventoryObject}");
@@ -379,10 +379,8 @@ namespace Maple.TstdMetadata
                 }
                 if (ptr_Character.Valid())
                 {
-                    if (@this.Ptr_TeamManager.JOIN_TEAM(ptr_Character, true, true))
-                    {
-                        return new GameInventoryInfoDTO() { ObjectId = modifyDTO.InventoryObject, InventoryCount = 1 };
-                    }
+                    @this.Ptr_TeamManager.JOIN_ALTERNATE_CHARACTERS(ptr_Character, true);
+                    return new GameInventoryInfoDTO() { ObjectId = modifyDTO.InventoryObject, InventoryCount = 1 };
                 }
             }
             else if (@this.TryUpdateGameInventoryInfoImp(modifyDTO, category == EnumGameInventoryType.Equipment, out var gameInventory))
