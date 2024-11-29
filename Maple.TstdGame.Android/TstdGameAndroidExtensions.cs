@@ -85,6 +85,8 @@ namespace Maple.TstdGame.Android
             {
                 api.GameName = "吞食天地:刘蜀霸王";
                 api.GameDesc = "^-^";
+                //延迟启动 等待游戏初始化
+                Thread.Sleep(10000);
                 return api.CreateGameAndroidService<TstdGameAndroidService>();
             });
         }
