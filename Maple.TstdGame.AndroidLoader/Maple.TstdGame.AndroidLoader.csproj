@@ -36,7 +36,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Maple.MonoGameAssistant.AndroidCore" Version="1.0.91-rc" />
+		<PackageReference Include="Maple.MonoGameAssistant.AndroidCore" Version="1.0.92-rc" />
 	</ItemGroup>
 
  
