@@ -16,7 +16,7 @@ namespace Maple.TstdGame.GameService
             static async Task RunWebApiServiceAsync(int millisecondsDelay = 15 * 1000)
             {
 
-                var webapp = WebApiServiceExtensions.AsRunWebApiService(p =>
+                var webapp = WebApiServiceExtensions.AsRunWebApiService(static p =>
                 {
                     p.GameName = "吞食天地:刘蜀霸业";
                     p.MonoDataCollector = true;
@@ -24,10 +24,7 @@ namespace Maple.TstdGame.GameService
                     p.Http = true;
                     p.AutoOpenUrl = true;
                     p.Port = 49009;
-                }, services =>
-                {
-                    services.UseGameContextService<TstdGameService>();
-                });
+                }, static services => services.UseGameContextService<TstdGameService>());
                 //延迟启动
                 await Task.Delay(millisecondsDelay).ConfigureAwait(false);
                 await webapp.RunAsync().ConfigureAwait(false);
