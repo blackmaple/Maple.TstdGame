@@ -14,18 +14,18 @@ namespace Maple.TstdGame.AndroidLoader
 
 
 
-        [UnmanagedCallersOnly(EntryPoint = nameof(JNI_OnUnload))]
-        public static void JNI_OnUnload(PTR_JAVA_VM javaVM, JOBJECT reserved)
-            => TstdGameAndroidLoader.JNI_OnUnload(javaVM, reserved);
+        //[UnmanagedCallersOnly(EntryPoint = nameof(JNI_OnUnload))]
+        //public static void JNI_OnUnload(PTR_JAVA_VM javaVM, JOBJECT reserved)
+        //    => TstdGameAndroidLoader.JNI_OnUnload(javaVM, reserved);
 
 
-        [UnmanagedCallersOnly(EntryPoint = nameof(ApiAction))]
-        public static JBOOLEAN ApiAction(PTR_JNI_ENV jniEnv, JOBJECT instance, JINT actionIndex, JSTRING json)
-            => TstdGameAndroidLoader.ApiAction(jniEnv, instance, actionIndex, json);
+        //[UnmanagedCallersOnly(EntryPoint = nameof(ApiAction))]
+        //public static JBOOLEAN ApiAction(PTR_JNI_ENV jniEnv, JOBJECT instance, JINT actionIndex, JSTRING json)
+        //    => TstdGameAndroidLoader.ApiAction(jniEnv, instance, actionIndex, json);
 
-        [UnmanagedCallersOnly(EntryPoint = nameof(TestAction))]
-        public static JBOOLEAN TestAction(PTR_JNI_ENV jniEnv, JOBJECT instance, JSTRING text)
-            => TstdGameAndroidLoader.TestAction(jniEnv, instance, text);
+        //[UnmanagedCallersOnly(EntryPoint = nameof(TestAction))]
+        //public static JBOOLEAN TestAction(PTR_JNI_ENV jniEnv, JOBJECT instance, JSTRING packageName)
+        //    => TstdGameAndroidLoader.TestAction(jniEnv, instance, packageName);
 
 
 
