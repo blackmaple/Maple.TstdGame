@@ -46,13 +46,7 @@ namespace Maple.TstdMetadata
             return Character.Ptr_Character.LOAD_PLAYER_CHARACTER(tagId);
         }
 
-        public void InitResource()
-        {
-            using var tagId = Context.T2("maple");
-            _ = Character.Ptr_Character.LOAD_PLAYER_CHARACTER(tagId);
-            _ = Item.Ptr_Item.LOAD_EQUIPMENT(tagId);
-            _ = Item.Ptr_Item.LOAD_ITEM(tagId);
-        }
+
     }
 
     public static class TstdGameContextExtensions
@@ -60,121 +54,127 @@ namespace Maple.TstdMetadata
         public static TstdGameEnvironment GetTstdGameEnvironment(this TstdGameContext @this)
             => new(@this);
 
-        public static void LoadResourceData(this TstdGameEnvironment @this)
+        static void InitResource(this TstdGameEnvironment @this)
         {
+            using var tagId = @this.Context.T2("maple");
+            _ = Character.Ptr_Character.LOAD_PLAYER_CHARACTER(tagId);
+            _ = Item.Ptr_Item.LOAD_EQUIPMENT(tagId);
+            _ = Item.Ptr_Item.LOAD_ITEM(tagId);
+        }
+        public static void LoadResourceDataIfThrowNotInit(this TstdGameEnvironment @this)
+        {
+            var resources = @this.ResourceManager._DICTIONARY4;
+            if (false == resources.Valid())
+            {
+                GameException.Throw("NOT INIT:ResourceManager");
+            }
 
             @this.InitResource();
-
-            var resources = @this.ResourceManager._DICTIONARY4;
-
-            if (resources.Valid())
+            foreach (var resource in resources.AsRefArray())
             {
-                foreach (var resource in resources.AsRefArray())
+                var span_key = resource.Key.AsReadOnlySpan();
+                if (span_key.SequenceEqual(ResourceModule.ResourceModule_PlayerCharacters))
                 {
-                    var span_key = resource.Key.AsReadOnlySpan();
-                    if (span_key.SequenceEqual(ResourceModule.ResourceModule_PlayerCharacters))
+
+                    var tags = resource.Value.AsRefArray();
+                    foreach (var tag in tags)
                     {
 
-                        var tags = resource.Value.AsRefArray();
-                        foreach (var tag in tags)
+                        var tagId = tag.Value.TAG;
+
+                        var objectId = tagId.ToString()!;
+
+                        //  var pCharacter = Character.Ptr_Character.LOAD_PLAYER_CHARACTER(tagId);
+                        var pCharacter = @this.Ptr_InGameResource.GET_CHARACTER_MODEL_DATA(tagId);
+                        if (pCharacter)
                         {
 
-                            var tagId = tag.Value.TAG;
-
-                            var objectId = tagId.ToString()!;
-
-                            //  var pCharacter = Character.Ptr_Character.LOAD_PLAYER_CHARACTER(tagId);
-                            var pCharacter = @this.Ptr_InGameResource.GET_CHARACTER_MODEL_DATA(tagId);
-                            if (pCharacter)
+                            TstdGameEnvironment.CacheCharacters.Add(new GameInventoryDisplayDTO()
                             {
-
-                                TstdGameEnvironment.CacheCharacters.Add(new GameInventoryDisplayDTO()
-                                {
-                                    ObjectId = objectId,
-                                    DisplayCategory = EnumGameInventoryType.Character.ToString(),
-                                    DisplayName = pCharacter.CHARACTER_NAME.ToString(),
-                                    DisplayDesc = pCharacter.STYLE_NAME.ToString(),
-                                });
-                                @this.Logger.LogInformation("{key}-{tag}", ResourceModule.ResourceModule_PlayerCharacters, objectId);
-
-                            }
-                        }
-                    }
-                    else if (span_key.SequenceEqual(ResourceModule.ResourceModule_Equipments))
-                    {
-                        var tags = resource.Value.AsRefArray();
-                        foreach (var tag in tags)
-                        {
-                            var tagId = tag.Value.TAG;
-                            var objectId = tagId.ToString()!;
-                            var pItem = Item.Ptr_Item.LOAD_EQUIPMENT(tagId);
-                            if (pItem)
-                            {
-
-                                TstdGameEnvironment.CacheEquipment.Add(new GameInventoryDisplayDTO()
-                                {
-                                    ObjectId = objectId,
-                                    DisplayCategory = EnumGameInventoryType.Equipment.ToString(),
-                                    DisplayName = pItem.ITEM_NAME.ToString(),
-                                    DisplayDesc = pItem.DESC.ToString(),
-                                });
-                                @this.Logger.LogInformation("{key}-{tag}", ResourceModule.ResourceModule_Equipments, objectId);
-
-                            }
-                        }
-
-                    }
-                    else if (span_key.SequenceEqual(ResourceModule.ResourceModule_Consumables))
-                    {
-                        var tags = resource.Value.AsRefArray();
-                        foreach (var tag in tags)
-                        {
-                            var tagId = tag.Value.TAG;
-                            var objectId = tagId.ToString()!;
-                            var pItem = Item.Ptr_Item.LOAD_ITEM(tagId);
-                            if (pItem)
-                            {
-
-                                TstdGameEnvironment.CacheConsumables.Add(new GameInventoryDisplayDTO()
-                                {
-                                    ObjectId = objectId,
-                                    DisplayCategory = EnumGameInventoryType.Consumable.ToString(),
-                                    DisplayName = pItem.ITEM_NAME.ToString(),
-                                    DisplayDesc = pItem.DESC.ToString(),
-                                });
-                                @this.Logger.LogInformation("{key}-{tag}", ResourceModule.ResourceModule_Consumables, objectId);
-
-                            }
+                                ObjectId = objectId,
+                                DisplayCategory = EnumGameInventoryType.Character.ToString(),
+                                DisplayName = pCharacter.CHARACTER_NAME.ToString(),
+                                DisplayDesc = pCharacter.STYLE_NAME.ToString(),
+                            });
+                            @this.Logger.LogInformation("{key}-{tag}", ResourceModule.ResourceModule_PlayerCharacters, objectId);
 
                         }
                     }
-                    else if (span_key.SequenceEqual(ResourceModule.ResourceModule_Items))
+                }
+                else if (span_key.SequenceEqual(ResourceModule.ResourceModule_Equipments))
+                {
+                    var tags = resource.Value.AsRefArray();
+                    foreach (var tag in tags)
                     {
-                        var tags = resource.Value.AsRefArray();
-                        foreach (var tag in tags)
+                        var tagId = tag.Value.TAG;
+                        var objectId = tagId.ToString()!;
+                        var pItem = Item.Ptr_Item.LOAD_EQUIPMENT(tagId);
+                        if (pItem)
                         {
-                            var tagId = tag.Value.TAG;
-                            var objectId = tagId.ToString()!;
-                            var pItem = Item.Ptr_Item.LOAD_ITEM(tagId);
-                            if (pItem)
+
+                            TstdGameEnvironment.CacheEquipment.Add(new GameInventoryDisplayDTO()
                             {
-
-                                TstdGameEnvironment.CacheItems.Add(new GameInventoryDisplayDTO()
-                                {
-                                    ObjectId = objectId,
-                                    DisplayCategory = EnumGameInventoryType.Item.ToString(),
-                                    DisplayName = pItem.ITEM_NAME.ToString(),
-                                    DisplayDesc = pItem.DESC.ToString(),
-                                });
-                                @this.Logger.LogInformation("{key}-{tag}", ResourceModule.ResourceModule_Items, objectId);
-
-                            }
-
+                                ObjectId = objectId,
+                                DisplayCategory = EnumGameInventoryType.Equipment.ToString(),
+                                DisplayName = pItem.ITEM_NAME.ToString(),
+                                DisplayDesc = pItem.DESC.ToString(),
+                            });
+                            @this.Logger.LogInformation("{key}-{tag}", ResourceModule.ResourceModule_Equipments, objectId);
 
                         }
                     }
 
                 }
+                else if (span_key.SequenceEqual(ResourceModule.ResourceModule_Consumables))
+                {
+                    var tags = resource.Value.AsRefArray();
+                    foreach (var tag in tags)
+                    {
+                        var tagId = tag.Value.TAG;
+                        var objectId = tagId.ToString()!;
+                        var pItem = Item.Ptr_Item.LOAD_ITEM(tagId);
+                        if (pItem)
+                        {
+
+                            TstdGameEnvironment.CacheConsumables.Add(new GameInventoryDisplayDTO()
+                            {
+                                ObjectId = objectId,
+                                DisplayCategory = EnumGameInventoryType.Consumable.ToString(),
+                                DisplayName = pItem.ITEM_NAME.ToString(),
+                                DisplayDesc = pItem.DESC.ToString(),
+                            });
+                            @this.Logger.LogInformation("{key}-{tag}", ResourceModule.ResourceModule_Consumables, objectId);
+
+                        }
+
+                    }
+                }
+                else if (span_key.SequenceEqual(ResourceModule.ResourceModule_Items))
+                {
+                    var tags = resource.Value.AsRefArray();
+                    foreach (var tag in tags)
+                    {
+                        var tagId = tag.Value.TAG;
+                        var objectId = tagId.ToString()!;
+                        var pItem = Item.Ptr_Item.LOAD_ITEM(tagId);
+                        if (pItem)
+                        {
+
+                            TstdGameEnvironment.CacheItems.Add(new GameInventoryDisplayDTO()
+                            {
+                                ObjectId = objectId,
+                                DisplayCategory = EnumGameInventoryType.Item.ToString(),
+                                DisplayName = pItem.ITEM_NAME.ToString(),
+                                DisplayDesc = pItem.DESC.ToString(),
+                            });
+                            @this.Logger.LogInformation("{key}-{tag}", ResourceModule.ResourceModule_Items, objectId);
+
+                        }
+
+
+                    }
+                }
+
             }
 
 

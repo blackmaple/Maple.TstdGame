@@ -2,6 +2,7 @@
 using Maple.MonoGameAssistant.AndroidJNI.JNI.Primitive;
 using Maple.MonoGameAssistant.AndroidJNI.JNI.Reference;
 using Maple.MonoGameAssistant.AndroidJNI.JNI.Value;
+using Maple.MonoGameAssistant.Common;
 using Maple.MonoGameAssistant.Logger;
 using Microsoft.Extensions.Logging;
 using System.Runtime.InteropServices;
@@ -19,9 +20,9 @@ namespace Maple.TstdGame.AndroidLoader
     {
         const string JavaClassFullName = "com/android/maple/service/MapleService";
 
-        const string AndroidDataPath = "/sdcard/Android/data";
-        const string PackageName = "com.guzz.lsby";
-        const string Mods = "maple";
+        //const string AndroidDataPath = "/sdcard/Android/data";
+        //const string PackageName = "com.guzz.lsby";
+        //const string Mods = "maple";
 
         readonly struct Ptr_Func_ApiAction(nint ptr)
         {
@@ -76,78 +77,67 @@ namespace Maple.TstdGame.AndroidLoader
         static Ptr_Func_OnLoad Func_OnLoad;
         static Ptr_Func_OnUnload Func_OnUnload;
 
-    //    [UnmanagedCallersOnly(EntryPoint = nameof(JNI_OnLoad))]
+        //    [UnmanagedCallersOnly(EntryPoint = nameof(JNI_OnLoad))]
         public static JINT JNI_OnLoad(PTR_JAVA_VM javaVM, JOBJECT reserved)
         {
-            MonoGameLoggerExtensions.SetAndroidEnvironment();
             ILogger logger = MonoGameLogger.Default;
-          
-            var lib = System.IO.Path.Combine(AndroidDataPath, PackageName, Mods,"libgame.so");
 
-            
-            if (File.Exists(lib))
+            logger.LogInformation("1");
+            if (NativeLibrary.TryLoad("libmaplecore.so", out var handle))
             {
-                //var javaVirtualMachineContext = new JavaVirtualMachineContext(javaVM);
-                //if (javaVirtualMachineContext.TryGetEnv(out var jniEnvironmentContext))
+                logger.LogInformation("3");
+
+                logger.LogInformation("{P}", handle.ToString("X8"));
+                //if (NativeLibrary.TryGetExport(handle, nameof(JNI_OnUnload), out var ptr_JNI_OnUnload))
                 //{
-                //    jniEnvironmentContext.RegisterNativeMethod(JavaClassFullName, nameof(TestAction), "(Ljava/lang/String;)Z", Ptr_Func_TestAction.Create(&TstdGameAndroidExport.TestAction));
-                //    jniEnvironmentContext.RegisterNativeMethod(JavaClassFullName, nameof(ApiAction), "(ILjava/lang/String;)Z", Ptr_Func_ApiAction.Create(&TstdGameAndroidExport.ApiAction));
+                //    logger.LogInformation("{P}", ptr_JNI_OnUnload.ToString("X8"));
 
+                //    Func_OnUnload = new Ptr_Func_OnUnload(ptr_JNI_OnUnload);
                 //}
-                if (NativeLibrary.TryLoad(lib, out var handle))
+                //if (NativeLibrary.TryGetExport(handle, nameof(ApiAction), out var ptr_ApiAction))
+                //{
+                //    logger.LogInformation("{P}", ptr_ApiAction.ToString("X8"));
+                //    Func_ApiAction = new Ptr_Func_ApiAction(ptr_ApiAction);
+                //}
+                //if (NativeLibrary.TryGetExport(handle, nameof(TestAction), out var ptr_TestAction))
+                //{
+                //    logger.LogInformation("{P}", ptr_TestAction.ToString("X8"));
+                //    Func_TestAction = new Ptr_Func_TestAction(ptr_TestAction);
+                //}
+                if (NativeLibrary.TryGetExport(handle, nameof(JNI_OnLoad), out var ptr_JNI_OnLoad))
                 {
-                    logger.LogInformation("{P}", handle.ToString("X8"));
-                    //if (NativeLibrary.TryGetExport(handle, nameof(JNI_OnUnload), out var ptr_JNI_OnUnload))
-                    //{
-                    //    logger.LogInformation("{P}", ptr_JNI_OnUnload.ToString("X8"));
-
-                    //    Func_OnUnload = new Ptr_Func_OnUnload(ptr_JNI_OnUnload);
-                    //}
-                    //if (NativeLibrary.TryGetExport(handle, nameof(ApiAction), out var ptr_ApiAction))
-                    //{
-                    //    logger.LogInformation("{P}", ptr_ApiAction.ToString("X8"));
-                    //    Func_ApiAction = new Ptr_Func_ApiAction(ptr_ApiAction);
-                    //}
-                    //if (NativeLibrary.TryGetExport(handle, nameof(TestAction), out var ptr_TestAction))
-                    //{
-                    //    logger.LogInformation("{P}", ptr_TestAction.ToString("X8"));
-                    //    Func_TestAction = new Ptr_Func_TestAction(ptr_TestAction);
-                    //}
-                    if (NativeLibrary.TryGetExport(handle, nameof(JNI_OnLoad), out var ptr_JNI_OnLoad))
-                    {
-                        logger.LogInformation("{P}", ptr_JNI_OnLoad.ToString("X8"));
-                        Func_OnLoad = new Ptr_Func_OnLoad(ptr_JNI_OnLoad);
-                        return Func_OnLoad.Invoke(javaVM, reserved);
-                    }
-
+                    logger.LogInformation("{P}", ptr_JNI_OnLoad.ToString("X8"));
+                    Func_OnLoad = new Ptr_Func_OnLoad(ptr_JNI_OnLoad);
+                    return Func_OnLoad.Invoke(javaVM, reserved);
                 }
+
             }
-
-
 
 
             return JavaVirtualMachineContext.JNI_VERSION_1_6;
         }
 
-  ////      [UnmanagedCallersOnly(EntryPoint = nameof(JNI_OnUnload))]
-  //      public static void JNI_OnUnload(PTR_JAVA_VM javaVM, JOBJECT reserved)
-  //      {
-  //          if (Func_OnUnload)
-  //          {
-  //              Func_OnUnload.Invoke(javaVM, reserved);
-  //          }
-  //      }
+        ////      [UnmanagedCallersOnly(EntryPoint = nameof(JNI_OnUnload))]
+        //      public static void JNI_OnUnload(PTR_JAVA_VM javaVM, JOBJECT reserved)
+        //      {
+        //          if (Func_OnUnload)
+        //          {
+        //              Func_OnUnload.Invoke(javaVM, reserved);
+        //          }
+        //      }
 
-  ////      [UnmanagedCallersOnly(EntryPoint = nameof(ApiAction))]
-  //      public static JBOOLEAN ApiAction(PTR_JNI_ENV jniEnv, JOBJECT instance, JINT actionIndex, JSTRING json)
-  //          => Func_ApiAction ? Func_ApiAction.Invoke(jniEnv, instance, actionIndex, json) : false;
+        ////      [UnmanagedCallersOnly(EntryPoint = nameof(ApiAction))]
+        //      public static JBOOLEAN ApiAction(PTR_JNI_ENV jniEnv, JOBJECT instance, JINT actionIndex, JSTRING json)
+        //          => Func_ApiAction ? Func_ApiAction.Invoke(jniEnv, instance, actionIndex, json) : false;
 
-  ////      [UnmanagedCallersOnly(EntryPoint = nameof(TestAction))]
-  //      public static JBOOLEAN TestAction(PTR_JNI_ENV jniEnv, JOBJECT instance, JSTRING text)
-  //          => Func_TestAction ? Func_TestAction.Invoke(jniEnv, instance, text) : false;
+        ////      [UnmanagedCallersOnly(EntryPoint = nameof(TestAction))]
+        //      public static JBOOLEAN TestAction(PTR_JNI_ENV jniEnv, JOBJECT instance, JSTRING text)
+        //          => Func_TestAction ? Func_TestAction.Invoke(jniEnv, instance, text) : false;
 
 
     }
 
 
+
+   
 }

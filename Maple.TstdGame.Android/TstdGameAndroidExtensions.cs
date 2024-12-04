@@ -1,17 +1,9 @@
-﻿using Maple.MonoGameAssistant.AndroidCore;
-using Maple.MonoGameAssistant.AndroidCore.Api;
+﻿using Maple.MonoGameAssistant.AndroidCore.Api;
 using Maple.MonoGameAssistant.AndroidCore.HostedService;
-using Maple.MonoGameAssistant.AndroidJNI.Classes;
-using Maple.MonoGameAssistant.AndroidJNI.Context;
 using Maple.MonoGameAssistant.AndroidJNI.JNI.Primitive;
 using Maple.MonoGameAssistant.AndroidJNI.JNI.Reference;
 using Maple.MonoGameAssistant.AndroidJNI.JNI.Value;
-using Maple.MonoGameAssistant.Logger;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using System.Runtime.InteropServices;
-using unsafe ApiActionDelegate = delegate* unmanaged<Maple.MonoGameAssistant.AndroidJNI.JNI.Value.PTR_JNI_ENV, Maple.MonoGameAssistant.AndroidJNI.JNI.Reference.JOBJECT, Maple.MonoGameAssistant.AndroidJNI.JNI.Primitive.JINT, Maple.MonoGameAssistant.AndroidJNI.JNI.Reference.JSTRING, Maple.MonoGameAssistant.AndroidJNI.JNI.Primitive.JBOOLEAN>;
-using unsafe TestActionDelegate = delegate* unmanaged<Maple.MonoGameAssistant.AndroidJNI.JNI.Value.PTR_JNI_ENV, Maple.MonoGameAssistant.AndroidJNI.JNI.Reference.JOBJECT, Maple.MonoGameAssistant.AndroidJNI.JNI.Reference.JSTRING, Maple.MonoGameAssistant.AndroidJNI.JNI.Primitive.JBOOLEAN>;
 
 namespace Maple.TstdGame.Android
 {
@@ -84,9 +76,8 @@ namespace Maple.TstdGame.Android
             return AndroidApiExtensions.JNI_OnLoadImp(javaVM, reserved, static api =>
             {
                 api.GameName = "吞食天地:刘蜀霸王";
-                api.GameDesc = "^-^";
-                //延迟启动 等待游戏初始化
-                Thread.Sleep(10000);
+                api.GameDesc = "^-^ QQ:75351663";
+                api.DelayStartupSeconds = 10;
                 return api.CreateGameAndroidService<TstdGameAndroidService>();
             });
         }
@@ -101,30 +92,30 @@ namespace Maple.TstdGame.Android
         //    return JavaVirtualMachineContext.JNI_VERSION_1_6;
         //}
 
-        [UnmanagedCallersOnly(EntryPoint = nameof(JNI_OnUnload))]
-        public static void JNI_OnUnload(PTR_JAVA_VM javaVM, JOBJECT reserved)
-        {
-            AndroidApiExtensions.JNI_OnUnloadImp(javaVM, reserved);
-        }
-        //public static void JNI_OnUnloadImp(PTR_JAVA_VM javaVM, JOBJECT reserved)
+        //[UnmanagedCallersOnly(EntryPoint = nameof(JNI_OnUnload))]
+        //public static void JNI_OnUnload(PTR_JAVA_VM javaVM, JOBJECT reserved)
         //{
+        //    AndroidApiExtensions.JNI_OnUnloadImp(javaVM, reserved);
         //}
+        ////public static void JNI_OnUnloadImp(PTR_JAVA_VM javaVM, JOBJECT reserved)
+        ////{
+        ////}
 
-        [UnmanagedCallersOnly(EntryPoint = nameof(ApiAction))]
-        public static JBOOLEAN ApiAction(PTR_JNI_ENV jniEnv, JOBJECT instance, JINT actionIndex, JSTRING json)
-        {
-            return AndroidApiExtensions.ApiActionImp(jniEnv, instance, actionIndex, json);
-        }
-        //public static JBOOLEAN ApiActionImp(PTR_JNI_ENV jniEnv, JOBJECT instance, JINT actionIndex, JSTRING json)
+        //[UnmanagedCallersOnly(EntryPoint = nameof(ApiAction))]
+        //public static JBOOLEAN ApiAction(PTR_JNI_ENV jniEnv, JOBJECT instance, JINT actionIndex, JSTRING json)
         //{
-        //    return ApiContext?.TryWrite(AndroidApiArgs.Create(jniEnv, instance, actionIndex, json)) ?? false;
+        //    return AndroidApiExtensions.ApiActionImp(jniEnv, instance, actionIndex, json);
         //}
+        ////public static JBOOLEAN ApiActionImp(PTR_JNI_ENV jniEnv, JOBJECT instance, JINT actionIndex, JSTRING json)
+        ////{
+        ////    return ApiContext?.TryWrite(AndroidApiArgs.Create(jniEnv, instance, actionIndex, json)) ?? false;
+        ////}
 
-        [UnmanagedCallersOnly(EntryPoint = nameof(TestAction))]
-        public static JBOOLEAN TestAction(PTR_JNI_ENV jniEnv, JOBJECT instance, JSTRING text)
-        {
-            return AndroidApiExtensions.TestActionImp(jniEnv, instance, text);
-        }
+        //[UnmanagedCallersOnly(EntryPoint = nameof(TestAction))]
+        //public static JBOOLEAN TestAction(PTR_JNI_ENV jniEnv, JOBJECT instance, JSTRING text)
+        //{
+        //    return AndroidApiExtensions.TestActionImp(jniEnv, instance, text);
+        //}
         //public static JBOOLEAN TestActionImp(PTR_JNI_ENV jniEnv, JOBJECT instance, JSTRING text)
         //{
         //    if (JniEnvironmentContext.TryCreateJniEnvironmentContext(jniEnv, out var jniEnvironmentContext))

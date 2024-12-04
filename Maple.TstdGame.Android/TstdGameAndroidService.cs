@@ -1,4 +1,4 @@
-﻿using Maple.MonoGameAssistant.AndroidCore.Api;
+﻿using Maple.MonoGameAssistant.AndroidCore;
 using Maple.MonoGameAssistant.Core;
 using Maple.MonoGameAssistant.GameDTO;
 using Maple.MonoGameAssistant.Model;
@@ -19,9 +19,15 @@ namespace Maple.TstdGame.Android
             return TstdGameContext.LoadGameContext(this.RuntimeContext, MonoGameAssistant.MonoCollectorDataV2.EnumMonoCollectorTypeVersion.APP, this.Logger);
         }
 
-        protected override async ValueTask LoadGameDataAsync()
+        //protected override async ValueTask LoadGameDataAsync()
+        //{
+        //    await this.MonoTaskAsync(static p => p.GetTstdGameEnvironment().LoadResourceData()).ConfigureAwait(false);
+        //}
+
+        public override async ValueTask<GameSessionInfoDTO> GetSessionInfoAsync()
         {
-            await this.MonoTaskAsync(static p => p.GetTstdGameEnvironment().LoadResourceData()).ConfigureAwait(false);
+            await this.MonoTaskAsync(static p => p.GetTstdGameEnvironment().LoadResourceDataIfThrowNotInit()).ConfigureAwait(false);
+            return await base.GetSessionInfoAsync().ConfigureAwait(false);
         }
 
         public Task<TstdGameEnvironment> GetTstdGameEnvironmentAsync()
