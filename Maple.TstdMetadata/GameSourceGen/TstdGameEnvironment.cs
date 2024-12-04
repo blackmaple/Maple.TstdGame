@@ -3,6 +3,7 @@ using Maple.MonoGameAssistant.GameDTO;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Resources;
 using System.Runtime.CompilerServices;
 using static Maple.TstdMetadata.Character;
 using static Maple.TstdMetadata.ItemSlot;
@@ -61,6 +62,20 @@ namespace Maple.TstdMetadata
             _ = Item.Ptr_Item.LOAD_EQUIPMENT(tagId);
             _ = Item.Ptr_Item.LOAD_ITEM(tagId);
         }
+
+        public static void WaitLoadResourceData(this TstdGameEnvironment @this)
+        {
+            SpinWait.SpinUntil(() =>
+            {
+                var resources = @this.ResourceManager._DICTIONARY4;
+                if (resources.Valid())
+                {
+                    return @this.LoadResourceData(@this.ResourceManager._DICTIONARY4);
+                }
+                return false;
+            });
+        }
+
         public static void LoadResourceDataIfThrowNotInit(this TstdGameEnvironment @this)
         {
             var resources = @this.ResourceManager._DICTIONARY4;
@@ -69,6 +84,12 @@ namespace Maple.TstdMetadata
                 GameException.Throw("NOT INIT:ResourceManager");
             }
 
+            @this.LoadResourceData(resources);
+
+        }
+
+        public static bool LoadResourceData(this TstdGameEnvironment @this, Maple.MonoGameAssistant.Core.PMonoDictionary_OptimizationDefault<Maple.MonoGameAssistant.Core.PMonoString, Maple.MonoGameAssistant.Core.PMonoDictionary_OptimizationDefault<Maple.MonoGameAssistant.Core.PMonoString, Maple.TstdMetadata.TagResource.Ptr_TagResource>> resources)
+        {
             @this.InitResource();
             foreach (var resource in resources.AsRefArray())
             {
@@ -96,7 +117,7 @@ namespace Maple.TstdMetadata
                                 DisplayName = pCharacter.CHARACTER_NAME.ToString(),
                                 DisplayDesc = pCharacter.STYLE_NAME.ToString(),
                             });
-                            @this.Logger.LogInformation("{key}-{tag}", ResourceModule.ResourceModule_PlayerCharacters, objectId);
+                            //        @this.Logger.LogInformation("{key}-{tag}", ResourceModule.ResourceModule_PlayerCharacters, objectId);
 
                         }
                     }
@@ -119,7 +140,7 @@ namespace Maple.TstdMetadata
                                 DisplayName = pItem.ITEM_NAME.ToString(),
                                 DisplayDesc = pItem.DESC.ToString(),
                             });
-                            @this.Logger.LogInformation("{key}-{tag}", ResourceModule.ResourceModule_Equipments, objectId);
+                            //           @this.Logger.LogInformation("{key}-{tag}", ResourceModule.ResourceModule_Equipments, objectId);
 
                         }
                     }
@@ -143,7 +164,7 @@ namespace Maple.TstdMetadata
                                 DisplayName = pItem.ITEM_NAME.ToString(),
                                 DisplayDesc = pItem.DESC.ToString(),
                             });
-                            @this.Logger.LogInformation("{key}-{tag}", ResourceModule.ResourceModule_Consumables, objectId);
+                            //                  @this.Logger.LogInformation("{key}-{tag}", ResourceModule.ResourceModule_Consumables, objectId);
 
                         }
 
@@ -167,7 +188,7 @@ namespace Maple.TstdMetadata
                                 DisplayName = pItem.ITEM_NAME.ToString(),
                                 DisplayDesc = pItem.DESC.ToString(),
                             });
-                            @this.Logger.LogInformation("{key}-{tag}", ResourceModule.ResourceModule_Items, objectId);
+                            //                     @this.Logger.LogInformation("{key}-{tag}", ResourceModule.ResourceModule_Items, objectId);
 
                         }
 
@@ -177,6 +198,30 @@ namespace Maple.TstdMetadata
 
             }
 
+            var cacheCharacters_count = TstdGameEnvironment.CacheCharacters.Count;
+            var cacheEquipment_count = TstdGameEnvironment.CacheEquipment.Count;
+            var cacheConsumables_count = TstdGameEnvironment.CacheConsumables.Count;
+            var cacheItems_count = TstdGameEnvironment.CacheItems.Count;
+
+
+
+            @this.Logger.LogInformation("{ResourceModule_PlayerCharacters}:{c}|{ResourceModule_Equipments}:{c}|{ResourceModule_Consumables}:{c}|{ResourceModule_Items}:{c}",
+                ResourceModule.ResourceModule_PlayerCharacters,
+                cacheCharacters_count.ToString(),
+
+                ResourceModule.ResourceModule_Equipments,
+                cacheEquipment_count.ToString(),
+
+                ResourceModule.ResourceModule_Consumables,
+                cacheConsumables_count.ToString(),
+
+                ResourceModule.ResourceModule_Items,
+                cacheItems_count.ToString());
+
+            return cacheCharacters_count != 0
+                && cacheEquipment_count != 0
+                && cacheConsumables_count != 0
+                && cacheItems_count != 0;
 
         }
 
