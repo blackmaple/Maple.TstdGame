@@ -26,7 +26,7 @@ namespace Maple.TstdGame.GameService
 
         protected override async ValueTask LoadGameDataAsync()
         {
-            await this.MonoTaskAsync(static p => p.GetTstdGameEnvironment().LoadResourceData()).ConfigureAwait(false);
+            await this.MonoTaskAsync(static p => p.GetTstdGameEnvironment().LoadResourceDataIfThrowNotInit()).ConfigureAwait(false);
         }
 
         public Task<TstdGameEnvironment> GetTstdGameEnvironmentAsync()
@@ -76,7 +76,7 @@ namespace Maple.TstdGame.GameService
         {
 
 
-            await this.MonoTaskAsync((p) =>p.GetTstdGameEnvironment().LoadResourceData()).ConfigureAwait(false);
+            await this.MonoTaskAsync((p) =>p.GetTstdGameEnvironment().WaitLoadResourceData()).ConfigureAwait(false);
 
             //await this.MonoTaskAsync(static p =>
             //{
