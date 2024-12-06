@@ -42,9 +42,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\..\Maple.MonoGameAssistant\Maple.MonoGameAssistant.AndroidCore\Maple.MonoGameAssistant.AndroidCore.csproj" />
-	  <ProjectReference Include="..\..\Maple.MonoGameAssistant\Maple.MonoGameAssistant.Core\Maple.MonoGameAssistant.Core.csproj" />
-	  <ProjectReference Include="..\..\Maple.MonoGameAssistant\Maple.MonoGameAssistant.Logger\Maple.MonoGameAssistant.Logger.csproj" />
+	  <ProjectReference Include="..\..\..\Maple.MonoGameAssistant\Maple.MonoGameAssistant.AndroidCore\Maple.MonoGameAssistant.AndroidCore.csproj" />
+	  <ProjectReference Include="..\..\..\Maple.MonoGameAssistant\Maple.MonoGameAssistant.Core\Maple.MonoGameAssistant.Core.csproj" />
+	  <ProjectReference Include="..\..\..\Maple.MonoGameAssistant\Maple.MonoGameAssistant.Logger\Maple.MonoGameAssistant.Logger.csproj" />
 	  <ProjectReference Include="..\Maple.TstdMetadata\Maple.TstdMetadata.csproj" />
 	</ItemGroup>
 
