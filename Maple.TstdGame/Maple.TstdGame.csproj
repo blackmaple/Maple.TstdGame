@@ -52,11 +52,12 @@
 	<ItemGroup>
 		<PackageReference Include="Maple.MonoGameAssistant.GameContext" Version="1.0.91-rc" />
 		<PackageReference Include="Maple.MonoGameAssistant.GameDTO" Version="1.0.90-rc" />
-		<PackageReference Include="Maple.MonoGameAssistant.Logger" Version="1.0.927-rc" />
 		<PackageReference Include="Maple.MonoGameAssistant.MonoCollectorDataV2" Version="1.0.90-rc" />
 		<PackageReference Include="Maple.MonoGameAssistant.MonoCollectorGeneratorV2" Version="1.0.90-rc" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
 		<PackageReference Include="Maple.MonoGameAssistant.UnityCore" Version="1.0.90-rc" />
 		<PackageReference Include="Maple.MonoGameAssistant.WebApi" Version="1.0.90-rc" />
+		<PackageReference Include="Maple.MonoGameAssistant.Logger" Version="1.0.928-rc" />
+
 
 	</ItemGroup>
 
