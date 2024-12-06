@@ -1,7 +1,4 @@
 <Solution>
-  <Project Path="../Maple.MonoGameAssistant/Maple.MonoGameAssistant.AndroidCore/Maple.MonoGameAssistant.AndroidCore.csproj" />
-  <Project Path="../Maple.MonoGameAssistant/Maple.MonoGameAssistant.Core/Maple.MonoGameAssistant.Core.csproj" />
-  <Project Path="../Maple.MonoGameAssistant/Maple.MonoGameAssistant.Logger/Maple.MonoGameAssistant.Logger.csproj" />
   <Project Path="Maple.TstdGame.Android/Maple.TstdGame.Android.csproj" Id="1da37be5-4092-4b5c-a20d-be3b49374590" />
   <Project Path="Maple.TstdGame.AndroidLoader/Maple.TstdGame.AndroidLoader.csproj" Id="4206e6ae-dbb8-49c1-bf13-e63ce46218d7" />
   <Project Path="Maple.TstdGame\Maple.TstdGame.csproj" />
