@@ -36,18 +36,15 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<PackageReference Include="Maple.MonoGameAssistant.AndroidCore" Version="1.0.921-rc" />
 		<PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Logging" Version="9.0.0" />
+		<PackageReference Include="Maple.MonoGameAssistant.Logger" Version="1.0.932-rc" />
 
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\..\..\Maple.MonoGameAssistant\Maple.MonoGameAssistant.AndroidCore\Maple.MonoGameAssistant.AndroidCore.csproj" />
-	  <ProjectReference Include="..\..\..\Maple.MonoGameAssistant\Maple.MonoGameAssistant.AndroidJNI\Maple.MonoGameAssistant.AndroidJNI.csproj" />
-	  <ProjectReference Include="..\..\..\Maple.MonoGameAssistant\Maple.MonoGameAssistant.AndroidModel\Maple.MonoGameAssistant.AndroidModel.csproj" />
-	  <ProjectReference Include="..\..\..\Maple.MonoGameAssistant\Maple.MonoGameAssistant.Core\Maple.MonoGameAssistant.Core.csproj" />
-	  <ProjectReference Include="..\..\..\Maple.MonoGameAssistant\Maple.MonoGameAssistant.Logger\Maple.MonoGameAssistant.Logger.csproj" />
-	  <ProjectReference Include="..\Maple.TstdMetadata\Maple.TstdMetadata.csproj" />
+		<ProjectReference Include="..\Maple.TstdMetadata\Maple.TstdMetadata.csproj" />
 	</ItemGroup>
 
 

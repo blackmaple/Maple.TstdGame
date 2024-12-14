@@ -56,7 +56,7 @@
 		<PackageReference Include="Maple.MonoGameAssistant.MonoCollectorGeneratorV2" Version="1.0.90-rc" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
 		<PackageReference Include="Maple.MonoGameAssistant.UnityCore" Version="1.0.90-rc" />
 		<PackageReference Include="Maple.MonoGameAssistant.WebApi" Version="1.0.90-rc" />
-		<PackageReference Include="Maple.MonoGameAssistant.Logger" Version="1.0.931-rc" />
+		<PackageReference Include="Maple.MonoGameAssistant.Logger" Version="1.0.932-rc" />
 
 
 	</ItemGroup>

@@ -115,9 +115,9 @@ namespace Maple.TstdMetadata
                                 ObjectId = objectId,
                                 DisplayCategory = EnumGameInventoryType.Character.ToString(),
                                 DisplayName = pCharacter.CHARACTER_NAME.ToString(),
-                                DisplayDesc = pCharacter.STYLE_NAME.ToString(),
+                                DisplayDesc = $"{objectId}:{pCharacter.STYLE_NAME}",
                             });
-                            @this.Logger.LogInformation("{key}-{tag}", ResourceModule.ResourceModule_PlayerCharacters, objectId);
+                            //       @this.Logger.LogInformation("{key}-{tag}", ResourceModule.ResourceModule_PlayerCharacters, objectId);
 
                         }
                     }
@@ -140,7 +140,7 @@ namespace Maple.TstdMetadata
                                 DisplayName = pItem.ITEM_NAME.ToString(),
                                 DisplayDesc = pItem.DESC.ToString(),
                             });
-                            @this.Logger.LogInformation("{key}-{tag}", ResourceModule.ResourceModule_Equipments, objectId);
+                            //                  @this.Logger.LogInformation("{key}-{tag}", ResourceModule.ResourceModule_Equipments, objectId);
 
                         }
                     }
@@ -164,7 +164,7 @@ namespace Maple.TstdMetadata
                                 DisplayName = pItem.ITEM_NAME.ToString(),
                                 DisplayDesc = pItem.DESC.ToString(),
                             });
-                            @this.Logger.LogInformation("{key}-{tag}", ResourceModule.ResourceModule_Consumables, objectId);
+                            //                     @this.Logger.LogInformation("{key}-{tag}", ResourceModule.ResourceModule_Consumables, objectId);
 
                         }
 
@@ -188,7 +188,7 @@ namespace Maple.TstdMetadata
                                 DisplayName = pItem.ITEM_NAME.ToString(),
                                 DisplayDesc = pItem.DESC.ToString(),
                             });
-                            @this.Logger.LogInformation("{key}-{tag}", ResourceModule.ResourceModule_Items, objectId);
+                            //                       @this.Logger.LogInformation("{key}-{tag}", ResourceModule.ResourceModule_Items, objectId);
 
                         }
 
