@@ -1,16 +1,10 @@
-﻿using Maple.MonoGameAssistant.Common;
-using Maple.MonoGameAssistant.Core;
-using Maple.MonoGameAssistant.GameContext;
+﻿using Maple.MonoGameAssistant.Core;
 using Maple.MonoGameAssistant.GameDTO;
-using Maple.MonoGameAssistant.HotKey;
 using Maple.MonoGameAssistant.Model;
+using Maple.MonoGameAssistant.Windows.HotKey.HookWindowMessage;
+using Maple.MonoGameAssistant.Windows.Service;
 using Maple.TstdMetadata;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Maple.TstdGame.GameService
 {

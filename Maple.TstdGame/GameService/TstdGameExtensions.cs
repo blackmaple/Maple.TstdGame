@@ -1,5 +1,5 @@
-﻿using Maple.MonoGameAssistant.GameContext;
-using Maple.MonoGameAssistant.WebApi;
+﻿using Maple.MonoGameAssistant.WebApi;
+using Maple.MonoGameAssistant.Windows.Service;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
