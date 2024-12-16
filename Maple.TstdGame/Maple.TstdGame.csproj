@@ -41,20 +41,21 @@
 		<InterceptorsPreviewNamespaces>$(InterceptorsPreviewNamespaces);Microsoft.AspNetCore.Http.Generated</InterceptorsPreviewNamespaces>
 	</PropertyGroup>
 
+
 	<!--<ItemGroup>
-		<NativeLibrary Include="x64\Maple.MonoGameAssistant.DllProxyStaticLib.lib" />
+		-->
+	<!--<NativeLibrary Include="C:\Users\NBNN_IT_CODE\.nuget\packages\maple.monogameassistant.dllproxystaticlib\1.0.3-rc\x64\Maple.MonoGameAssistant.DllProxyStaticLib.lib" />-->
+	<!--
+		<LinkerArg Include="C:\Users\NBNN_IT_CODE\.nuget\packages\maple.monogameassistant.dllproxystaticlib\1.0.3-rc\x64\Maple.MonoGameAssistant.DllProxyStaticLib.lib" />
 		<LinkerArg Include="/LTCG" />
 		<LinkerArg Include="/MAP" />
 	</ItemGroup>-->
 
 
-
 	<ItemGroup>
-		<PackageReference Include="Maple.MonoGameAssistant.DllProxyStaticLib" Version="1.0.2-rc" />
+		<PackageReference Include="Maple.MonoGameAssistant.DllProxyStaticLib" Version="1.0.3-rc" />
 		<PackageReference Include="Maple.MonoGameAssistant.WebApi" Version="1.0.90-rc" />
 		<PackageReference Include="Maple.MonoGameAssistant.Windows" Version="1.0.90-rc" />
-
-
 	</ItemGroup>
 
 
@@ -68,9 +69,8 @@
 
 
 
-
-
 	<Target Name="PostPublishActions" AfterTargets="Publish">
+
 		<PropertyGroup>
 			<Time>$([System.DateTime]::Now.ToString("yyyyMMddHHmmss"))</Time>
 			<TargetDir>D:\TSTD_v1.19\</TargetDir>
