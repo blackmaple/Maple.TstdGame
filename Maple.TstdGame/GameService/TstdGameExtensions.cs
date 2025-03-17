@@ -10,7 +10,7 @@ namespace Maple.TstdGame.GameService
 
 
         [UnmanagedCallersOnly(CallConvs = [typeof(CallConvStdcall)], EntryPoint = nameof(Maple))]
-        [return: MarshalAs(UnmanagedType.Bool)]
+        [return: MarshalAs(UnmanagedType.I4)]
         public static int Maple()
         {
             RunWebApiService();

@@ -8,9 +8,10 @@
   </PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Maple.MonoGameAssistant.Core" Version="1.0.91-rc" />
-		<PackageReference Include="Maple.MonoGameAssistant.GameDTO" Version="1.0.90-rc" />
-		<PackageReference Include="Maple.MonoGameAssistant.MonoCollectorDataV2" Version="1.0.90-rc" />
-		<PackageReference Include="Maple.MonoGameAssistant.MonoCollectorGeneratorV2" Version="1.0.90-rc" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+		<PackageReference Include="Maple.MonoGameAssistant.Core" Version="1.2.1-rc" />
+		<PackageReference Include="Maple.MonoGameAssistant.GameDTO" Version="1.2.0-rc" />
+		<PackageReference Include="Maple.MonoGameAssistant.MonoCollector" Version="1.2.1-rc" />
+		<PackageReference Include="Maple.MonoGameAssistant.MonoCollectorDataV2" Version="1.2.0-rc" />
+		<PackageReference Include="Maple.MonoGameAssistant.MonoCollectorGeneratorV2" Version="1.2.0-rc" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
 	</ItemGroup>
 </Project>

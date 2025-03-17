@@ -63,7 +63,7 @@ namespace Maple.TstdMetadata
      [MonoCollectorSearchFieldAttribute(typeof(PMonoList_D<Character.Ptr_Character>), "tempCharacters", "TEMP_CHARACTERS")]
 
     // struct 0x58 SecureInt Lv
-      [MonoCollectorSearchFieldAttribute(typeof(Ref_SecureInt),"Lv", "LV")]
+      [MonoCollectorSearchFieldAttribute(typeof(Ref_SecureInt),"_lv", "LV")]
 
     // class 0x60 Tstd2.Inventory.Inventorys inventory
     [MonoCollectorSearchFieldAttribute(typeof(Inventorys.Ptr_Inventorys), "inventory", "INVENTORY")]

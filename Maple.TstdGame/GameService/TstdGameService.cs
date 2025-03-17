@@ -15,7 +15,7 @@ namespace Maple.TstdGame.GameService
     {
         protected sealed override TstdGameContext LoadGameContext()
         {
-            return TstdGameContext.LoadGameContext(this.RuntimeContext, MonoGameAssistant.MonoCollectorDataV2.EnumMonoCollectorTypeVersion.APP, this.Logger);
+            return   TstdGameContext.LoadGameContext(this.RuntimeContext, MonoGameAssistant.MonoCollectorDataV2.EnumMonoCollectorTypeVersion.APP, this.Logger);
         }
 
         protected override async ValueTask LoadGameDataAsync()
