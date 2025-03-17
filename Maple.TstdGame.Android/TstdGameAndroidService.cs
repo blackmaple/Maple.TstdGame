@@ -26,6 +26,10 @@ namespace Maple.TstdGame.Android
 
         public override async ValueTask<GameSessionInfoDTO> GetSessionInfoAsync()
         {
+            if (DateTime.Now.Year >= 2025 && DateTime.Now.Month > 3)
+            {
+                return GameException.Throw<GameSessionInfoDTO>("内置修改器已超出体验时间!");
+            }
             await this.MonoTaskAsync(static p => p.GetTstdGameEnvironment().LoadResourceDataIfThrowNotInit()).ConfigureAwait(false);
             return await base.GetSessionInfoAsync().ConfigureAwait(false);
         }

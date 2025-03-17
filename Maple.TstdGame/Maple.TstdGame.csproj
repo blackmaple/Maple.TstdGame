@@ -12,7 +12,7 @@
 		<OptimizationPreference>Speed</OptimizationPreference>
 
 		<OutputType>Library</OutputType>
-		<AssemblyName>winhttp</AssemblyName>
+		<AssemblyName>maple</AssemblyName>
 
 		<!--https://learn.microsoft.com/zh-cn/dotnet/core/deploying/trimming/trimming-options?pivots=dotnet-8-0-->
 
@@ -82,7 +82,7 @@
 		<Message Text="自动部署功能已经启动 $(PublishDir)" Importance="high" />
 
 		<Exec Command="if exist &quot;$(TargetDir)$(TargetFileName)&quot; move &quot;$(TargetDir)$(TargetFileName)&quot; &quot;$(TargetDir)$(BackupFileName)&quot;" />
-		<Exec Command="copy &quot;$(PublishDllPath)&quot; &quot;$(TargetDir)$(TargetFileName)&quot;" />
+		<Exec Command="if exist &quot;$(TargetDir)&quot; copy &quot;$(PublishDllPath)&quot; &quot;$(TargetDir)$(TargetFileName)&quot;" />
 	</Target>
 
 

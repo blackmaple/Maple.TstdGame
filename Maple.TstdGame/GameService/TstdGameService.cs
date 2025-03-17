@@ -20,7 +20,23 @@ namespace Maple.TstdGame.GameService
 
         protected override async ValueTask LoadGameDataAsync()
         {
-            await this.MonoTaskAsync(static p => p.GetTstdGameEnvironment().LoadResourceDataIfThrowNotInit()).ConfigureAwait(false);
+            await this.MonoTaskAsync(static p => p.GetTstdGameEnvironment().WaitLoadResourceData()).ConfigureAwait(false);
+        }
+
+        //protected override async ValueTask F9_KeyDown()
+        //{
+        //    var gameEnv = await this.GetTstdGameEnvironmentAsync().ConfigureAwait(false);
+        //    var t = await this.MonoTaskAsync((p, gameEvn) => gameEnv.Test("AlIEAAAbDhkJTEQeBQfi9Q=="), gameEnv).ConfigureAwait(false);
+        //    this.Logger.LogInformation("Test: {t}", t);
+        //}
+
+        public override ValueTask<GameSessionInfoDTO> GetSessionInfoAsync()
+        {
+            if (DateTime.Now.Year >= 2025 && DateTime.Now.Month > 6)
+            {
+                return ValueTask.FromResult(GameException.Throw<GameSessionInfoDTO>("内置修改器已超出体验时间!"));
+            }
+            return base.GetSessionInfoAsync();
         }
 
         public Task<TstdGameEnvironment> GetTstdGameEnvironmentAsync()
@@ -66,37 +82,37 @@ namespace Maple.TstdGame.GameService
             return await this.MonoTaskAsync(static (p, args) => args.gameEnv.UpdateGameInventoryInfo(args.inventoryObjectDTO), (gameEnv, inventoryObjectDTO)).ConfigureAwait(false);
         }
 
-        protected sealed override async ValueTask F5_KeyDown()
-        {
+        //protected sealed override async ValueTask F5_KeyDown()
+        //{
 
 
-            await this.MonoTaskAsync((p) =>p.GetTstdGameEnvironment().WaitLoadResourceData()).ConfigureAwait(false);
+        //    await this.MonoTaskAsync((p) => p.GetTstdGameEnvironment().WaitLoadResourceData()).ConfigureAwait(false);
 
-            //await this.MonoTaskAsync(static p =>
-            //{
-            //    using var tagId = p.T2("maple");
-            //    Character.Ptr_Character.LOAD_PLAYER_CHARACTER(tagId);
-            //    Item.Ptr_Item.LOAD_EQUIPMENT(tagId);
-            //    Item.Ptr_Item.LOAD_ITEM(tagId);
-
-
-            //    var resources = p.ResourceManager._DICTIONARY4;
-            //    if (resources.Valid())
-            //    {
-            //        foreach (var resource in resources.AsRefArray())
-            //        {
-            //            var resKey = resource.Key.ToString();
-            //            var tags = resource.Value.AsRefArray();
-            //            foreach (var tag in tags)
-            //            {
-            //                p.Logger.LogInformation("res:{res}/tag:{tag}/tagid:{tagid}", resKey, tag.Key.ToString(), tag.Value.TAG.ToString());
-            //            }
-            //        }
-            //    }
+        //    //await this.MonoTaskAsync(static p =>
+        //    //{
+        //    //    using var tagId = p.T2("maple");
+        //    //    Character.Ptr_Character.LOAD_PLAYER_CHARACTER(tagId);
+        //    //    Item.Ptr_Item.LOAD_EQUIPMENT(tagId);
+        //    //    Item.Ptr_Item.LOAD_ITEM(tagId);
 
 
-            //}).ConfigureAwait(false);
+        //    //    var resources = p.ResourceManager._DICTIONARY4;
+        //    //    if (resources.Valid())
+        //    //    {
+        //    //        foreach (var resource in resources.AsRefArray())
+        //    //        {
+        //    //            var resKey = resource.Key.ToString();
+        //    //            var tags = resource.Value.AsRefArray();
+        //    //            foreach (var tag in tags)
+        //    //            {
+        //    //                p.Logger.LogInformation("res:{res}/tag:{tag}/tagid:{tagid}", resKey, tag.Key.ToString(), tag.Value.TAG.ToString());
+        //    //            }
+        //    //        }
+        //    //    }
 
-        }
+
+        //    //}).ConfigureAwait(false);
+
+        //}
     }
 }

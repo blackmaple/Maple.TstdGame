@@ -3718,8 +3718,8 @@ namespace Maple.TstdMetadata
         /// </summary>
         /// <param name="encryptedData">class System.String</param>
         /// <returns>class System.String</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("SimpleDecrypt")]
-        ///  extern nint SIMPLE_DECRYPT (nint encryptedData);
+        [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("SimpleDecrypt")]
+        extern PMonoString SIMPLE_DECRYPT(PMonoString encryptedData);
 
 
         /// <summary>

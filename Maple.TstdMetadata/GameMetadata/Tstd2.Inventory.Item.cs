@@ -201,8 +201,8 @@ namespace Maple.TstdMetadata
         /// </summary>
         /// <param name="_tag">class System.String</param>
         /// <returns>class Tstd2.Inventory.Equipment</returns>
-        [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("LoadEquipment")]
-        static extern Equipment.Ptr_Equipment LOAD_EQUIPMENT(PMonoString _tag);
+        //    [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("LoadEquipment")]
+        //    static extern Equipment.Ptr_Equipment LOAD_EQUIPMENT(PMonoString _tag);
 
 
         /// <summary>
@@ -210,8 +210,82 @@ namespace Maple.TstdMetadata
         /// </summary>
         /// <param name="_tag">class System.String</param>
         /// <returns>class Tstd2.Inventory.Item</returns>
+        //      [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("LoadItem")]
+        //   static extern Item.Ptr_Item LOAD_ITEM(PMonoString _tag);
+
+        /// <summary>
+        /// static  Tstd2.Inventory.Equipment LoadEquipment(System.String _tag, System.String _entrys)
+        /// </summary>
+        /// <param name="_tag">class System.String</param>
+        /// <param name="_entrys">class System.String</param>
+        /// <returns>class Tstd2.Inventory.Equipment</returns>
+        [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("LoadEquipment")]
+        static extern Equipment.Ptr_Equipment LOAD_EQUIPMENT(PMonoString _tag, PMonoString _entrys);
+
+
+        /// <summary>
+        /// static  Tstd2.Inventory.Item LoadItem(System.String _tag, System.String _entrys)
+        /// </summary>
+        /// <param name="_tag">class System.String</param>
+        /// <param name="_entrys">class System.String</param>
+        /// <returns>class Tstd2.Inventory.Item</returns>
         [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("LoadItem")]
-        static extern Item.Ptr_Item LOAD_ITEM(PMonoString _tag);
+        static extern Item.Ptr_Item LOAD_ITEM(PMonoString _tag, PMonoString _entrys);
+
+        /// <summary>
+        ///   System.Boolean RemoveEntry(System.String _entry)
+        /// </summary>
+        /// <param name="_entry">class System.String</param>
+        /// <returns>struct System.Boolean</returns>
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("RemoveEntry")]
+        ///  extern System.Boolean REMOVE_ENTRY (nint _entry);
+
+
+        /// <summary>
+        ///   System.Void SetEntry(System.String entrys)
+        /// </summary>
+        /// <param name="entrys">class System.String</param>
+        /// <returns>struct System.Void</returns>
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("SetEntry")]
+        ///  extern void SET_ENTRY (nint entrys);
+
+
+        /// <summary>
+        ///   System.Void SetEntryMap(System.Collections.Generic.Dictionary<System.String,System.Int32> entrysMap)
+        /// </summary>
+        /// <param name="entrysMap">class System.Collections.Generic.Dictionary<System.String,System.Int32></param>
+        /// <returns>struct System.Void</returns>
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("SetEntryMap")]
+        ///  extern void SET_ENTRY_MAP (nint entrysMap);
+
+
+        /// <summary>
+        ///   System.Int32 ShopPrice(System.Boolean isSell)
+        /// </summary>
+        /// <param name="isSell">struct System.Boolean</param>
+        /// <returns>struct System.Int32</returns>
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("ShopPrice")]
+        ///  extern System.Int32 SHOP_PRICE (System.Boolean isSell);
+
+
+        /// <summary>
+        ///   System.Void UpdateCallback(System.String _entry, System.Int32 _addVal)
+        /// </summary>
+        /// <param name="_entry">class System.String</param>
+        /// <param name="_addVal">struct System.Int32</param>
+        /// <returns>struct System.Void</returns>
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("UpdateCallback")]
+        ///  extern void UPDATE_CALLBACK (nint _entry, System.Int32 _addVal);
+
+
+        /// <summary>
+        ///   System.Void UpdateEntry(System.String _entry, System.Int32 _addVal)
+        /// </summary>
+        /// <param name="_entry">class System.String</param>
+        /// <param name="_addVal">struct System.Int32</param>
+        /// <returns>struct System.Void</returns>
+        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("UpdateEntry")]
+        ///  extern void UPDATE_ENTRY (nint _entry, System.Int32 _addVal);
 
 
         /// <summary>

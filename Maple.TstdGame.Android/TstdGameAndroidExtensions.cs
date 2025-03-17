@@ -13,11 +13,12 @@ namespace Maple.TstdGame.Android
         [UnmanagedCallersOnly(EntryPoint = nameof(JNI_OnLoad))]
         public static JINT JNI_OnLoad(PTR_JAVA_VM javaVM, JOBJECT reserved)
         {
+            //      Maple.MonoGameAssistant.Logger.MonoGameLogger
             return AndroidApiExtensions.JNI_OnLoadImp(javaVM, reserved, static api =>
             {
                 api.GameName = "吞食天地:刘蜀霸王";
                 api.GameDesc = "^-^ QQ:75351663";
-                api.DelayStartupSeconds = 10;
+                api.DelayStartupSeconds = 0;
                 return api.CreateGameAndroidService<TstdGameAndroidService>();
             });
         }

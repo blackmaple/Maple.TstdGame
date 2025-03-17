@@ -1,4 +1,5 @@
 ﻿using Maple.MonoGameAssistant.Common;
+using Maple.MonoGameAssistant.Core;
 using Maple.MonoGameAssistant.GameDTO;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
@@ -12,6 +13,33 @@ namespace Maple.TstdMetadata
 {
     public partial class TstdGameEnvironment(TstdGameContext context)
     {
+        public class GameItemEntrys(string name, int min, int max)
+        {
+            public string Name { get; } = name;
+            public int Min { get; } = min;
+            public int Max { get; } = max + 1;
+            public override string ToString()
+            {
+                return $"{Name}:{Random.Shared.Next(Min, Max)}";
+            }
+        }
+        static GameItemEntrys[] ItemEntrys =
+            [
+new("攻",15, 30),
+new("兵",15, 500),
+new("防",15, 30),
+new("智",15, 30),
+new("武",15, 30),
+new("速",15, 30),
+new("暴击率",15, 30),
+new("暴击伤害",15, 30),
+new("计策增伤",15, 30),
+new("计策防御",15, 30),
+new("闪避",15, 30),
+new("命中",15, 30),
+new("神算",15, 30),
+
+            ];
         public static List<GameInventoryDisplayDTO> CacheCharacters { get; } = new(1024);
         public static List<GameInventoryDisplayDTO> CacheConsumables { get; } = new(1024);
         public static List<GameInventoryDisplayDTO> CacheItems { get; } = new(1024);
@@ -34,12 +62,15 @@ namespace Maple.TstdMetadata
         public Item.Ptr_Item NewItem(string id)
         {
             using var tagId = Context.T2(id);
-            return Item.Ptr_Item.LOAD_ITEM(tagId);
+            return Item.Ptr_Item.LOAD_ITEM(tagId, nint.Zero);
         }
         public Equipment.Ptr_Equipment NewEquipment(string id)
         {
+            var att = string.Join(',', Random.Shared.GetItems(ItemEntrys, 6).Select(p => p.ToString()));
+            var entrys = Context.T2(att);
+
             using var tagId = Context.T2(id);
-            return Item.Ptr_Item.LOAD_EQUIPMENT(tagId);
+            return Item.Ptr_Item.LOAD_EQUIPMENT(tagId, entrys);
         }
         public Character.Ptr_Character NewCharacter(string id)
         {
@@ -55,12 +86,20 @@ namespace Maple.TstdMetadata
         public static TstdGameEnvironment GetTstdGameEnvironment(this TstdGameContext @this)
             => new(@this);
 
-        static void InitResource(this TstdGameEnvironment @this)
+        public static string? Test(this TstdGameEnvironment @this, string str)
         {
-            using var tagId = @this.Context.T2("maple");
+            using var t = @this.Context.T2(str);
+            var code = @this.Ptr_GameManager.SIMPLE_DECRYPT(t);
+            return code.ToString();
+        }
+
+        static PMonoString InitResource(this TstdGameEnvironment @this)
+        {
+            var tagId = @this.Context.T2("maple");
             _ = Character.Ptr_Character.LOAD_PLAYER_CHARACTER(tagId);
-            _ = Item.Ptr_Item.LOAD_EQUIPMENT(tagId);
-            _ = Item.Ptr_Item.LOAD_ITEM(tagId);
+            _ = Item.Ptr_Item.LOAD_EQUIPMENT(tagId, nint.Zero);
+            _ = Item.Ptr_Item.LOAD_ITEM(tagId, nint.Zero);
+            return tagId;
         }
 
         public static void WaitLoadResourceData(this TstdGameEnvironment @this)
@@ -94,6 +133,7 @@ namespace Maple.TstdMetadata
             foreach (var resource in resources.AsRefArray())
             {
                 var span_key = resource.Key.AsReadOnlySpan();
+                @this.Logger.Info(span_key.ToString());
                 if (span_key.SequenceEqual(ResourceModule.ResourceModule_PlayerCharacters))
                 {
 
@@ -117,19 +157,20 @@ namespace Maple.TstdMetadata
                                 DisplayName = pCharacter.CHARACTER_NAME.ToString(),
                                 DisplayDesc = $"{objectId}:{pCharacter.STYLE_NAME}",
                             });
-                            //       @this.Logger.LogInformation("{key}-{tag}", ResourceModule.ResourceModule_PlayerCharacters, objectId);
+                            //                       @this.Logger.LogInformation("{key}-{tag}", ResourceModule.ResourceModule_PlayerCharacters, objectId);
 
                         }
                     }
                 }
                 else if (span_key.SequenceEqual(ResourceModule.ResourceModule_Equipments))
                 {
+
                     var tags = resource.Value.AsRefArray();
                     foreach (var tag in tags)
                     {
                         var tagId = tag.Value.TAG;
                         var objectId = tagId.ToString()!;
-                        var pItem = Item.Ptr_Item.LOAD_EQUIPMENT(tagId);
+                        var pItem = Item.Ptr_Item.LOAD_EQUIPMENT(tagId, nint.Zero);
                         if (pItem)
                         {
 
@@ -140,7 +181,7 @@ namespace Maple.TstdMetadata
                                 DisplayName = pItem.ITEM_NAME.ToString(),
                                 DisplayDesc = pItem.DESC.ToString(),
                             });
-                            //                  @this.Logger.LogInformation("{key}-{tag}", ResourceModule.ResourceModule_Equipments, objectId);
+                            //                       @this.Logger.LogInformation("{key}-{tag}", ResourceModule.ResourceModule_Equipments, objectId);
 
                         }
                     }
@@ -153,7 +194,7 @@ namespace Maple.TstdMetadata
                     {
                         var tagId = tag.Value.TAG;
                         var objectId = tagId.ToString()!;
-                        var pItem = Item.Ptr_Item.LOAD_ITEM(tagId);
+                        var pItem = Item.Ptr_Item.LOAD_ITEM(tagId, nint.Zero);
                         if (pItem)
                         {
 
@@ -164,7 +205,7 @@ namespace Maple.TstdMetadata
                                 DisplayName = pItem.ITEM_NAME.ToString(),
                                 DisplayDesc = pItem.DESC.ToString(),
                             });
-                            //                     @this.Logger.LogInformation("{key}-{tag}", ResourceModule.ResourceModule_Consumables, objectId);
+                            //                    @this.Logger.LogInformation("{key}-{tag}", ResourceModule.ResourceModule_Consumables, objectId);
 
                         }
 
@@ -177,7 +218,7 @@ namespace Maple.TstdMetadata
                     {
                         var tagId = tag.Value.TAG;
                         var objectId = tagId.ToString()!;
-                        var pItem = Item.Ptr_Item.LOAD_ITEM(tagId);
+                        var pItem = Item.Ptr_Item.LOAD_ITEM(tagId, nint.Zero);
                         if (pItem)
                         {
 
@@ -188,7 +229,7 @@ namespace Maple.TstdMetadata
                                 DisplayName = pItem.ITEM_NAME.ToString(),
                                 DisplayDesc = pItem.DESC.ToString(),
                             });
-                            //                       @this.Logger.LogInformation("{key}-{tag}", ResourceModule.ResourceModule_Items, objectId);
+                            //                   @this.Logger.LogInformation("{key}-{tag}", ResourceModule.ResourceModule_Items, objectId);
 
                         }
 
