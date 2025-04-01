@@ -37,8 +37,6 @@
 
 	<ItemGroup>
 		<PackageReference Include="Maple.MonoGameAssistant.AndroidCore" Version="1.2.0-rc" />
-		<PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.0-preview.1.25080.5" />
-		<PackageReference Include="Microsoft.Extensions.Logging" Version="10.0.0-preview.1.25080.5" />
 		<PackageReference Include="Maple.MonoGameAssistant.Logger" Version="1.2.0-rc" />
 
 	</ItemGroup>
