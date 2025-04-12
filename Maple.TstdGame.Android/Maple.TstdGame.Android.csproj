@@ -36,8 +36,8 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Maple.MonoGameAssistant.AndroidCore" Version="1.2.0-rc" />
-		<PackageReference Include="Maple.MonoGameAssistant.Logger" Version="1.2.0-rc" />
+		<PackageReference Include="Maple.MonoGameAssistant.AndroidWebApi" Version="1.3.4-rc" />
+		<PackageReference Include="Maple.MonoGameAssistant.Logger" Version="1.3.0-rc" />
 
 	</ItemGroup>
 
@@ -47,7 +47,9 @@
 
 
 
-
+	<ItemGroup>
+		    <RdXmlFile Include="rd.xml" />
+	</ItemGroup>
 
 
 

@@ -1,4 +1,4 @@
-﻿using Maple.MonoGameAssistant.AndroidCore;
+﻿using Maple.MonoGameAssistant.AndroidCore.GameContext;
 using Maple.MonoGameAssistant.Core;
 using Maple.MonoGameAssistant.GameDTO;
 using Maple.MonoGameAssistant.Model;
