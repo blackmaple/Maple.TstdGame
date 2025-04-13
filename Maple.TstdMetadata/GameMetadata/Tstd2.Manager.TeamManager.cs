@@ -24,7 +24,7 @@ namespace Maple.TstdMetadata
     //  [MonoCollectorSearchFieldAttribute(typeof(UnityEngine.Color),"FamiliarWithTerrainHpBarColor", "FAMILIAR_WITH_TERRAIN_HP_BAR_COLOR", true)]
 
     //  class static Tstd2.Manager.TeamManager Instance
-       [MonoCollectorSearchFieldAttribute(typeof(TeamManager.Ptr_TeamManager),"Instance", "INSTANCE", true)]
+    [MonoCollectorSearchFieldAttribute(typeof(TeamManager.Ptr_TeamManager), "Instance", "INSTANCE", true)]
 
     //  struct static System.Int32 OffsetOfInstanceIDInCPlusPlusObject
     //  [MonoCollectorSearchFieldAttribute(typeof(System.Int32),"OffsetOfInstanceIDInCPlusPlusObject", "OFFSET_OF_INSTANCE_ID_IN_C_PLUS_PLUS_OBJECT", true)]
@@ -51,19 +51,19 @@ namespace Maple.TstdMetadata
     // [MonoCollectorSearchFieldAttribute(typeof(System.Int32),"defaultMp", "DEFAULT_MP")]
 
     // class 0x38 System.Collections.Generic.List<Tstd2.Characters.Character> characters
-      [MonoCollectorSearchFieldAttribute(typeof(PMonoList_D<Character.Ptr_Character>),"characters", "CHARACTERS")]
+    [MonoCollectorSearchFieldAttribute(typeof(PMonoList_D<Character.Ptr_Character>), "characters", "CHARACTERS")]
 
     // class 0x40 System.Collections.Generic.List<Tstd2.Characters.Character> npcCharacters
-     [MonoCollectorSearchFieldAttribute(typeof(PMonoList_D<Character.Ptr_Character>), "npcCharacters", "NPC_CHARACTERS")]
+    [MonoCollectorSearchFieldAttribute(typeof(PMonoList_D<Character.Ptr_Character>), "npcCharacters", "NPC_CHARACTERS")]
 
     // class 0x48 System.Collections.Generic.List<Tstd2.Characters.Character> alternateCharacters
-      [MonoCollectorSearchFieldAttribute(typeof(PMonoList_D<Character.Ptr_Character>), "alternateCharacters", "ALTERNATE_CHARACTERS")]
+    [MonoCollectorSearchFieldAttribute(typeof(PMonoList_D<Character.Ptr_Character>), "alternateCharacters", "ALTERNATE_CHARACTERS")]
 
     // class 0x50 System.Collections.Generic.List<Tstd2.Characters.Character> tempCharacters
-     [MonoCollectorSearchFieldAttribute(typeof(PMonoList_D<Character.Ptr_Character>), "tempCharacters", "TEMP_CHARACTERS")]
+    [MonoCollectorSearchFieldAttribute(typeof(PMonoList_D<Character.Ptr_Character>), "tempCharacters", "TEMP_CHARACTERS")]
 
     // struct 0x58 SecureInt Lv
-      [MonoCollectorSearchFieldAttribute(typeof(Ref_SecureInt),"_lv", "LV")]
+    [MonoCollectorSearchFieldAttribute(typeof(SecureInt.Ptr_SecureInt), "_lv", "LV")]
 
     // class 0x60 Tstd2.Inventory.Inventorys inventory
     [MonoCollectorSearchFieldAttribute(typeof(Inventorys.Ptr_Inventorys), "inventory", "INVENTORY")]
@@ -697,6 +697,13 @@ namespace Maple.TstdMetadata
         /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_JoinBattleCharacters")]
         ///  extern nint GET_JOIN_BATTLE_CHARACTERS ();
 
+        /// <summary>
+        ///   System.Int32 get_Lv()
+        /// </summary>
+        /// <returns>struct System.Int32</returns>
+        [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("get_Lv")]
+        extern System.Int32 GET_LV();
+
 
         /// <summary>
         ///   System.Int32 get_MaxMoveCount()
@@ -1247,6 +1254,14 @@ namespace Maple.TstdMetadata
         /// <returns>struct System.Void</returns>
         /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("set_hideFlags")]
         ///  extern void SET_HIDE_FLAGS (UnityEngine.HideFlags value);
+
+        /// <summary>
+        ///   System.Void set_Lv(System.Int32 value)
+        /// </summary>
+        /// <param name="value">struct System.Int32</param>
+        /// <returns>struct System.Void</returns>
+        [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("set_Lv")]
+        extern void SET_LV(System.Int32 value);
 
 
         /// <summary>

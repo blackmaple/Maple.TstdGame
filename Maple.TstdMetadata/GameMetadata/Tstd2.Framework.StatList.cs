@@ -14,9 +14,9 @@ namespace Maple.TstdMetadata
     /// <summary>
     /// class ["Assembly-CSharp.dll"."Tstd2.Framework"."StatList"]
     /// [System.Object]
-    /// 
+    /// [System.ICloneable]
     /// </summary>
-    //[Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorSettingsAttribute([65, 115, 115, 101, 109, 98, 108, 121, 45, 67, 83, 104, 97, 114, 112, 46, 100, 108, 108], 0x0200037DU)]
+    //[Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorSettingsAttribute([65, 115, 115, 101, 109, 98, 108, 121, 45, 67, 83, 104, 97, 114, 112, 46, 100, 108, 108], 0x0200038DU)]
     [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorSettingsAttribute([65, 115, 115, 101, 109, 98, 108, 121, 45, 67, 83, 104, 97, 114, 112, 46, 100, 108, 108], [84, 115, 116, 100, 50, 46, 70, 114, 97, 109, 101, 119, 111, 114, 107], [83, 116, 97, 116, 76, 105, 115, 116])]
     
                 
@@ -33,7 +33,7 @@ namespace Maple.TstdMetadata
         //public const string Const_ClassName = "StatList";
         //public static byte[] Static_ClassName { get; } = [83, 116, 97, 116, 76, 105, 115, 116];
 
-        //public const uint Const_TypeToken = 0x0200037DU;
+        //public const uint Const_TypeToken = 0x0200038DU;
 
 
 
@@ -83,9 +83,9 @@ namespace Maple.TstdMetadata
 
             
             /// <summary>
-            ///   Tstd2.Framework.StatList Clone()
+            ///   System.Object Clone()
             /// </summary>
-            /// <returns>class Tstd2.Framework.StatList</returns>
+            /// <returns>class System.Object</returns>
             /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("Clone")]
             ///  extern nint CLONE ();
 

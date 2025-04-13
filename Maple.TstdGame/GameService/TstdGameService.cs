@@ -3,6 +3,7 @@ using Maple.MonoGameAssistant.GameDTO;
 using Maple.MonoGameAssistant.Model;
 using Maple.MonoGameAssistant.Windows.HotKey.HookWindowMessage;
 using Maple.MonoGameAssistant.Windows.Service;
+using Maple.MonoGameAssistant.Windows.UITask;
 using Maple.TstdMetadata;
 using Microsoft.Extensions.Logging;
 
@@ -20,7 +21,11 @@ namespace Maple.TstdGame.GameService
 
         protected override async ValueTask LoadGameDataAsync()
         {
-            await this.MonoTaskAsync(static p => p.GetTstdGameEnvironment().WaitLoadResourceData()).ConfigureAwait(false);
+            var gameEnv = await this.MonoTaskAsync(static p => p.GetTstdGameEnvironment()).ConfigureAwait(false);
+   
+            await this.MonoTaskAsync(static (p, gameEnv) => gameEnv.WaitLoadResourceData(), gameEnv).ConfigureAwait(false);
+            await this.UITaskAsync(static(p, gameEnv) => gameEnv.LoadCharacter(), gameEnv).ConfigureAwait(false);
+
         }
 
         //protected override async ValueTask F9_KeyDown()

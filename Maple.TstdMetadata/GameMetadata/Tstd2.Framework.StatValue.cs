@@ -16,7 +16,7 @@ namespace Maple.TstdMetadata
     /// [System.Object]
     /// 
     /// </summary>
-    //[Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorSettingsAttribute([65, 115, 115, 101, 109, 98, 108, 121, 45, 67, 83, 104, 97, 114, 112, 46, 100, 108, 108], 0x0200037FU)]
+    //[Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorSettingsAttribute([65, 115, 115, 101, 109, 98, 108, 121, 45, 67, 83, 104, 97, 114, 112, 46, 100, 108, 108], 0x0200038FU)]
     [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorSettingsAttribute([65, 115, 115, 101, 109, 98, 108, 121, 45, 67, 83, 104, 97, 114, 112, 46, 100, 108, 108], [84, 115, 116, 100, 50, 46, 70, 114, 97, 109, 101, 119, 111, 114, 107], [83, 116, 97, 116, 86, 97, 108, 117, 101])]
     
                 
@@ -36,7 +36,7 @@ namespace Maple.TstdMetadata
         //public const string Const_ClassName = "StatValue";
         //public static byte[] Static_ClassName { get; } = [83, 116, 97, 116, 86, 97, 108, 117, 101];
 
-        //public const uint Const_TypeToken = 0x0200037FU;
+        //public const uint Const_TypeToken = 0x0200038FU;
 
 
 

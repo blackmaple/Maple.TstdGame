@@ -25,7 +25,7 @@ namespace Maple.TstdMetadata
     [MonoCollectorSearchFieldAttribute(typeof(Item.Ptr_Item), "item", "ITEM")]
 
     // struct 0x18 SecureInt count
-    [MonoCollectorSearchFieldAttribute(typeof(Ref_SecureInt), "_count", "COUNT")]
+    [MonoCollectorSearchFieldAttribute(typeof(SecureInt.Ptr_SecureInt), "_count", "COUNT")]
     public partial class ItemSlot
     {
         //public const string Const_ImageName = "Assembly-CSharp.dll";

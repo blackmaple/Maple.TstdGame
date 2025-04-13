@@ -2,6 +2,7 @@
 using Maple.MonoGameAssistant.Core;
 using Maple.MonoGameAssistant.GameDTO;
 using Microsoft.Extensions.Logging;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Resources;
@@ -132,8 +133,11 @@ new("神算",15, 30),
             @this.InitResource();
             foreach (var resource in resources.AsRefArray())
             {
+
                 var span_key = resource.Key.AsReadOnlySpan();
+
                 @this.Logger.Info(span_key.ToString());
+
                 if (span_key.SequenceEqual(ResourceModule.ResourceModule_PlayerCharacters))
                 {
 
@@ -236,7 +240,16 @@ new("神算",15, 30),
 
                     }
                 }
-
+                else
+                {
+                    foreach (var item in resource.Value.AsRefArray())
+                    {
+                        if (item.Value)
+                        {
+                            @this.Logger.LogInformation("item:{key}/{tag}", item.Key.ToString(), item.Value.TAG.ToString());
+                        }
+                    }
+                }
             }
 
             var cacheCharacters_count = TstdGameEnvironment.CacheCharacters.Count;
@@ -266,6 +279,38 @@ new("神算",15, 30),
 
         }
 
+        public static void LoadCharacter(this TstdGameEnvironment @this)
+        {
+            foreach (var item in TstdGameEnvironment.CacheCharacters)
+            {
+                var tagId = @this.Context.T2(item.ObjectId);
+                @this.Logger.LogInformation("character:{ObjectId}", item.ObjectId);
+
+                var pCharacter = Character.Ptr_Character.LOAD_PLAYER_CHARACTER(tagId);
+                if (pCharacter.Valid())
+                {
+                    var baseCharacter = pCharacter._DATA;
+                    if (baseCharacter)
+                    {
+                        var buff = baseCharacter.BUFF_DATA;
+                        if (buff)
+                        {
+                            @this.Logger.LogInformation("character:{ObjectId}/buffer:{name}:{desc}", item.ObjectId, buff.TAG.ToString(), buff.DESC.ToString());
+                        }
+                        //var buff_datas = buff.BUFF_DATA;
+                        //if (buff_datas.Valid())
+                        //{
+                        //    foreach (var b in buff_datas)
+                        //    {
+
+                        //    }
+                        //}
+
+                    }
+                }
+            }
+        }
+
         public static GameCurrencyDisplayDTO[] GetGameCurrencyDisplays(this TstdGameEnvironment @this)
         {
             return [
@@ -281,7 +326,7 @@ new("神算",15, 30),
             {
                 EnumGameCurrencyType.MONEY => new GameCurrencyInfoDTO() { ObjectId = currencyType.ToString(), DisplayValue = @this.Ptr_TeamManager.GET_MONEY().ToString() },
                 EnumGameCurrencyType.EXP => new GameCurrencyInfoDTO() { ObjectId = currencyType.ToString(), DisplayValue = @this.Ptr_TeamManager.GET_EXP().ToString() },
-                EnumGameCurrencyType.LV => new GameCurrencyInfoDTO() { ObjectId = currencyType.ToString(), DisplayValue = SecureInt.Ptr_SecureInt.DECRYPT(@this.Ptr_TeamManager.LV.encryptedValue).ToString() },
+                EnumGameCurrencyType.LV => new GameCurrencyInfoDTO() { ObjectId = currencyType.ToString(), DisplayValue = @this.Ptr_TeamManager.GET_LV().ToString() },
                 EnumGameCurrencyType.MP => new GameCurrencyInfoDTO() { ObjectId = currencyType.ToString(), DisplayValue = @this.Ptr_TeamManager.GET_MP().ToString() },
                 _ => GameException.Throw<GameCurrencyInfoDTO>($"NOT FOUND:{currencyType}")
 
