@@ -76,6 +76,7 @@
 			<TargetDir>D:\TSTD\</TargetDir>
 			<PublishDllPath>$(PublishDir)$(AssemblyName).dll</PublishDllPath>
 			<TargetFileName>$(AssemblyName).dll</TargetFileName>
+			<DllName>winhttp.dll</DllName>
 			<BackupFileName>$(AssemblyName).dll.bak_$(Time)</BackupFileName>
 		</PropertyGroup>
 
@@ -83,6 +84,8 @@
 
 		<Exec Command="if exist &quot;$(TargetDir)$(TargetFileName)&quot; move &quot;$(TargetDir)$(TargetFileName)&quot; &quot;$(TargetDir)$(BackupFileName)&quot;" />
 		<Exec Command="if exist &quot;$(TargetDir)&quot; copy &quot;$(PublishDllPath)&quot; &quot;$(TargetDir)$(TargetFileName)&quot;" />
+		<Exec Command="if exist &quot;$(TargetDir)&quot; copy &quot;$(PublishDir)$(DllName)&quot; &quot;$(TargetDir)$(DllName)&quot;" />
+
 	</Target>
 
 

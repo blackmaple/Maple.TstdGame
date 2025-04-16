@@ -35,6 +35,9 @@ typeof(MonoCollectorClassInfo)
     [MonoCollectorType(typeof(SecureInt))]
 
 
+
+    [MonoCollectorType(typeof(GeneralBuff))]
+    [MonoCollectorType(typeof(GeneralBuffData))]
     public partial class TstdGameContext
     {
 
