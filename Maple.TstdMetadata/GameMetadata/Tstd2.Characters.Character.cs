@@ -26,13 +26,13 @@ namespace Maple.TstdMetadata
     //  [MonoCollectorSearchFieldAttribute(typeof(nint),"u2rX", "U2R_X", true)]
 
     // class 0x10 Tstd2.Characters.BaseCharacterData _data
-      [MonoCollectorSearchFieldAttribute(typeof(BaseCharacterData.Ptr_BaseCharacterData),"_data", "_DATA")]
+    [MonoCollectorSearchFieldAttribute(typeof(BaseCharacterData.Ptr_BaseCharacterData), "_data", "_DATA")]
 
     // struct 0x18 System.Int32 Lv
     // [MonoCollectorSearchFieldAttribute(typeof(System.Int32),"Lv", "LV")]
 
     // class 0x20 Tstd2.Framework.StatList stat
-    // [MonoCollectorSearchFieldAttribute(typeof(nint),"stat", "STAT")]
+    [MonoCollectorSearchFieldAttribute(typeof(StatList.Ptr_StatList), "stat", "STAT")]
 
     // class 0x28 System.Collections.Generic.List<System.String> EnemyPriorityAttackTargets
     // [MonoCollectorSearchFieldAttribute(typeof(nint),"EnemyPriorityAttackTargets", "ENEMY_PRIORITY_ATTACK_TARGETS")]
@@ -47,7 +47,7 @@ namespace Maple.TstdMetadata
     // [MonoCollectorSearchFieldAttribute(typeof(System.Int32),"fixedDamage", "FIXED_DAMAGE")]
 
     // class 0x48 Tstd2.Framework.StatList _addedStat
-    // [MonoCollectorSearchFieldAttribute(typeof(nint),"_addedStat", "_ADDED_STAT")]
+    [MonoCollectorSearchFieldAttribute(typeof(StatList.Ptr_StatList), "_addedStat", "_ADDED_STAT")]
 
     // class 0x50 Tstd2.Characters.CharacterEquipment _equipments
     // [MonoCollectorSearchFieldAttribute(typeof(nint),"_equipments", "_EQUIPMENTS")]

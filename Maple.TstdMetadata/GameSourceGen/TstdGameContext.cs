@@ -38,6 +38,11 @@ typeof(MonoCollectorClassInfo)
 
     [MonoCollectorType(typeof(GeneralBuff))]
     [MonoCollectorType(typeof(GeneralBuffData))]
+
+
+    [MonoCollectorType(typeof(StatList))]
+    [MonoCollectorType(typeof(StatValue))]
+
     public partial class TstdGameContext
     {
 

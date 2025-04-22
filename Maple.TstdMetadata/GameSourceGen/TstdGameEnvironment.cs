@@ -2,13 +2,8 @@
 using Maple.MonoGameAssistant.Core;
 using Maple.MonoGameAssistant.GameDTO;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using System.Resources;
 using System.Runtime.CompilerServices;
-using static Maple.TstdMetadata.Character;
-using static Maple.TstdMetadata.ItemSlot;
 
 namespace Maple.TstdMetadata
 {
@@ -279,6 +274,7 @@ new("神算",15, 30),
 
         }
 
+        [Obsolete("test")]
         public static void LoadCharacter(this TstdGameEnvironment @this)
         {
             foreach (var item in TstdGameEnvironment.CacheCharacters)
@@ -530,6 +526,257 @@ new("神算",15, 30),
 
         }
 
+
+        private static bool TryGetGameCharacterDisplayImp(this Character.Ptr_Character ptr_Character, EnumGameCharacterType category, [MaybeNullWhen(false)] out GameCharacterDisplayDTO characterDisplayDTO)
+        {
+            Unsafe.SkipInit(out characterDisplayDTO);
+
+            var data = ptr_Character._DATA;
+            if (data.Valid() == false)
+            {
+                return false;
+            }
+            var characterModel = data.MODEL_DATA;
+            if (characterModel.Valid() == false)
+            {
+                var objectId = data.TAG.ToString()!;
+                var firstCharacter = TstdGameEnvironment.CacheCharacters.Find(p => p.ObjectId.AsSpan().SequenceEqual(objectId.AsSpan()));
+                if (firstCharacter is null)
+                {
+                    return false;
+                }
+                characterDisplayDTO = new GameCharacterDisplayDTO()
+                {
+                    ObjectId = objectId!,
+                    DisplayCategory = category.ToString(),
+                    DisplayName = firstCharacter.DisplayName,
+                    DisplayDesc = firstCharacter.DisplayDesc,
+
+                };
+                return true;
+            }
+            else
+            {
+
+                var objectId = characterModel.TAG.ToString()!;
+                characterDisplayDTO = new GameCharacterDisplayDTO()
+                {
+                    ObjectId = objectId!,
+                    DisplayCategory = category.ToString(),
+                    DisplayName = characterModel.CHARACTER_NAME.ToString(),
+                    DisplayDesc = $"{objectId}:{characterModel.STYLE_NAME}",
+
+                };
+                return true;
+
+            }
+
+        }
+        public static IEnumerable<GameCharacterDisplayDTO> GetGameCharacterDisplays(this TstdGameEnvironment @this)
+        {
+            var team = @this.Ptr_TeamManager;
+
+            var characters = team.CHARACTERS;
+            if (characters.Valid())
+            {
+                foreach (var character in characters.AsEnumerable())
+                {
+                    if (character.TryGetGameCharacterDisplayImp(EnumGameCharacterType.CHARACTER, out var data))
+                    {
+                        yield return data;
+
+                    }
+                }
+            }
+
+            var tempCharacters = team.TEMP_CHARACTERS;
+            if (tempCharacters.Valid())
+            {
+                foreach (var character in tempCharacters.AsEnumerable())
+                {
+                    if (character.TryGetGameCharacterDisplayImp(EnumGameCharacterType.TEMP, out var data))
+                    {
+                        yield return data;
+
+                    }
+                }
+            }
+
+
+            var alternateCharacters = team.ALTERNATE_CHARACTERS;
+            if (alternateCharacters.Valid())
+            {
+                foreach (var character in alternateCharacters.AsEnumerable())
+                {
+                    if (character.TryGetGameCharacterDisplayImp(EnumGameCharacterType.ALTERNATE, out var data))
+                    {
+                        yield return data;
+
+                    }
+                }
+            }
+
+            var npcCharacters = team.NPC_CHARACTERS;
+            if (npcCharacters.Valid())
+            {
+                foreach (var character in npcCharacters.AsEnumerable())
+                {
+                    if (character.TryGetGameCharacterDisplayImp(EnumGameCharacterType.NPC, out var data))
+                    {
+                        yield return data;
+
+                    }
+                }
+            }
+
+        }
+
+        private static bool TryFindCharacter(this IEnumerable<Character.Ptr_Character> ptr_Characters, string tag, out Character.Ptr_Character ptr_Character)
+        {
+            Unsafe.SkipInit(out ptr_Character);
+            foreach (var character in ptr_Characters)
+            {
+                var data = character._DATA;
+                if (data.Valid() == false)
+                {
+                    continue;
+                }
+                if (tag.AsSpan().SequenceEqual(data.TAG.AsReadOnlySpan()))
+                {
+                    ptr_Character = character;
+                    return true;
+                }
+            }
+            return false;
+        }
+        private static bool TryFindCharacter(this TstdGameEnvironment @this, string tag, EnumGameCharacterType category, out Character.Ptr_Character ptr_Character)
+        {
+            Unsafe.SkipInit(out ptr_Character);
+
+            var team = @this.Ptr_TeamManager;
+            var characters = team.CHARACTERS;
+            if (category == EnumGameCharacterType.CHARACTER && characters.Valid())
+            {
+                if (characters.AsEnumerable().TryFindCharacter(tag, out ptr_Character))
+                {
+                    return true;
+                }
+            }
+
+            var tempCharacters = team.TEMP_CHARACTERS;
+            if (category == EnumGameCharacterType.TEMP && tempCharacters.Valid())
+            {
+                if (characters.AsEnumerable().TryFindCharacter(tag, out ptr_Character))
+                {
+                    return true;
+                }
+            }
+
+
+            var alternateCharacters = team.ALTERNATE_CHARACTERS;
+            if (category == EnumGameCharacterType.ALTERNATE && alternateCharacters.Valid())
+            {
+                if (characters.AsEnumerable().TryFindCharacter(tag, out ptr_Character))
+                {
+                    return true;
+                }
+            }
+
+            var npcCharacters = team.NPC_CHARACTERS;
+            if (category == EnumGameCharacterType.NPC && npcCharacters.Valid())
+            {
+                if (characters.AsEnumerable().TryFindCharacter(tag, out ptr_Character))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        private static IEnumerable<(StatType statType, int statValue)> GetGameCharacterStatusImp(this Character.Ptr_Character ptr_Character)
+        {
+            var state = ptr_Character._ADDED_STAT;
+            if (state.Valid() == false)
+            {
+                yield break;
+            }
+            var stateDatas = state.STATS;
+            if (stateDatas.Valid() == false)
+            {
+                yield break;
+            }
+            foreach (var data in stateDatas)
+            {
+                yield return (data.TYPE, data.VALUE);
+            }
+        }
+        private static IEnumerable<GameSwitchDisplayDTO> EnumGameCharacterStatus(this Character.Ptr_Character ptr_Character)
+        {
+            var datas = ptr_Character.GetGameCharacterStatusImp().GroupBy(p => p.statType).ToDictionary(p => p.Key, p => p.Sum(x => x.statValue));
+            foreach (var s in Enum.GetValues<StatType>())
+            {
+                if (!datas.TryGetValue(s, out var val))
+                {
+                    val = 0;
+                }
+                yield return new GameSwitchDisplayDTO()
+                {
+                    ObjectId = s.ToString(),
+                    DisplayCategory = s.ToString(),
+                    DisplayName = $"附加*{s}",
+                    ContentValue = val.ToString(),
+                    UIType = (int)EnumGameSwitchUIType.TextEditor,
+                    CanWrite = true,
+                };
+            }
+        }
+        public static GameCharacterStatusDTO GetGameCharacterStatus(this TstdGameEnvironment @this, GameCharacterObjectDTO characterObjectDTO)
+        {
+            if (Enum.TryParse<EnumGameCharacterType>(characterObjectDTO.CharacterCategory, out var category))
+            {
+                if (@this.TryFindCharacter(characterObjectDTO.CharacterId, category, out var ptr_Character))
+                {
+                    return new GameCharacterStatusDTO() { ObjectId = characterObjectDTO.CharacterId, CharacterAttributes = [.. ptr_Character.EnumGameCharacterStatus()] };
+                }
+            }
+            return GameException.Throw<GameCharacterStatusDTO>($"NOT FOUND:{characterObjectDTO.CharacterId}");
+        }
+
+        private static void SetGameCharacterStatusImp(this Character.Ptr_Character ptr_Character, StatType statType, int statValue)
+        {
+            var state = ptr_Character._ADDED_STAT;
+            if (state.Valid() == false)
+            {
+                return;
+            }
+            var stateDatas = state.STATS;
+            if (stateDatas.Valid() == false)
+            {
+                return;
+            }
+            foreach (ref readonly var data in stateDatas.AsReadOnlySpan())
+            {
+                if (data.TYPE == statType)
+                {
+                    ref var ref_value = ref Unsafe.AsRef(in data);
+                    ref_value.VALUE = statValue;
+                    return;
+                }
+            }
+            state.SET_ITEM_01(statType, statValue);
+        }
+        public static GameCharacterStatusDTO UpdateGameCharacterStatus(this TstdGameEnvironment @this, GameCharacterModifyDTO characterModifyDTO)
+        {
+            if (Enum.TryParse<EnumGameCharacterType>(characterModifyDTO.CharacterCategory, out var category)
+                && Enum.TryParse<StatType>(characterModifyDTO.ModifyObject, out var statType))
+            {
+                if (@this.TryFindCharacter(characterModifyDTO.CharacterId, category, out var ptr_Character))
+                {
+                    ptr_Character.SetGameCharacterStatusImp(statType, characterModifyDTO.IntValue);
+                    return new GameCharacterStatusDTO() { ObjectId = characterModifyDTO.CharacterId, CharacterAttributes = [.. ptr_Character.EnumGameCharacterStatus()] };
+                }
+            }
+            return GameException.Throw<GameCharacterStatusDTO>($"NOT FOUND:{characterModifyDTO.CharacterId}");
+        }
     }
 
     public enum EnumGameCurrencyType
@@ -546,6 +793,14 @@ new("神算",15, 30),
         Equipment = 1,
         Consumable = 2,
         Item = 3,
+    }
+
+    public enum EnumGameCharacterType
+    {
+        CHARACTER = 0,
+        ALTERNATE = 1,
+        TEMP = 2,
+        NPC = 3,
     }
 }
 

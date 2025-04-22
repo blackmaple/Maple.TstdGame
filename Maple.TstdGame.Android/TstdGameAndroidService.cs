@@ -76,6 +76,23 @@ namespace Maple.TstdGame.Android
             var gameEnv = await this.GetTstdGameEnvironmentThrowIfNotLoadedAsync().ConfigureAwait(false);
             return await this.MonoTaskAsync(static (p, args) => args.gameEnv.UpdateGameInventoryInfo(args.inventoryObjectDTO), (gameEnv, inventoryObjectDTO)).ConfigureAwait(false);
         }
+
+
+        public override async ValueTask<GameCharacterDisplayDTO[]> GetListCharacterDisplayAsync()
+        {
+            var gameEnv = await this.GetTstdGameEnvironmentThrowIfNotLoadedAsync().ConfigureAwait(false);
+            return await this.MonoTaskAsync(static (p, gameEnv) => gameEnv.GetGameCharacterDisplays().ToArray(), gameEnv).ConfigureAwait(false);
+        }
+        public override async ValueTask<GameCharacterStatusDTO> GetCharacterStatusAsync(GameCharacterObjectDTO characterObjectDTO)
+        {
+            var gameEnv = await this.GetTstdGameEnvironmentThrowIfNotLoadedAsync().ConfigureAwait(false);
+            return await this.MonoTaskAsync(static (p, args) => args.gameEnv.GetGameCharacterStatus(args.characterObjectDTO), (gameEnv, characterObjectDTO)).ConfigureAwait(false);
+        }
+        public override async ValueTask<GameCharacterStatusDTO> UpdateCharacterStatusAsync(GameCharacterModifyDTO characterObjectDTO)
+        {
+            var gameEnv = await this.GetTstdGameEnvironmentThrowIfNotLoadedAsync().ConfigureAwait(false);
+            return await this.MonoTaskAsync(static (p, args) => args.gameEnv.UpdateGameCharacterStatus(args.characterObjectDTO), (gameEnv, characterObjectDTO)).ConfigureAwait(false);
+        }
     }
 
 }
