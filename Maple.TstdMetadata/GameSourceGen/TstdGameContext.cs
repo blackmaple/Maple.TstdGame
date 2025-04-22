@@ -42,6 +42,8 @@ typeof(MonoCollectorClassInfo)
 
     [MonoCollectorType(typeof(StatList))]
     [MonoCollectorType(typeof(StatValue))]
+    [MonoCollectorType(typeof(CharacterAddStat))]
+    [MonoCollectorType(typeof(SaveAddStat))]
 
     public partial class TstdGameContext
     {

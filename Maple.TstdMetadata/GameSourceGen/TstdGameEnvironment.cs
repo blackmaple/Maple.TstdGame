@@ -2,6 +2,8 @@
 using Maple.MonoGameAssistant.Core;
 using Maple.MonoGameAssistant.GameDTO;
 using Microsoft.Extensions.Logging;
+using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
 
@@ -9,6 +11,8 @@ namespace Maple.TstdMetadata
 {
     public partial class TstdGameEnvironment(TstdGameContext context)
     {
+        //Event.编所不能用
+        //Event.0-编
         public class GameItemEntrys(string name, int min, int max)
         {
             public string Name { get; } = name;
@@ -40,6 +44,49 @@ new("神算",15, 30),
         public static List<GameInventoryDisplayDTO> CacheConsumables { get; } = new(1024);
         public static List<GameInventoryDisplayDTO> CacheItems { get; } = new(1024);
         public static List<GameInventoryDisplayDTO> CacheEquipment { get; } = new(1024);
+        public static List<GameValueInfoDTO> CacheStat { get; } = [.. Enumerable.Range(0, 255 / 5 + 1).Select(p =>
+        {
+            var val = p*5;
+           return  new GameValueInfoDTO() { ObjectId = val.ToString(), DisplayName = val.ToString(), IntValue = val };
+        })];
+        public static List<GameValueInfoDTO> CacheHit { get; } = [.. Enumerable.Range(0,3000/100+1).Select(p =>
+        {
+            var val = p*50;
+           return  new GameValueInfoDTO() { ObjectId = val.ToString(), DisplayName = val.ToString(), IntValue = val };
+        })];
+        public static List<GameValueInfoDTO> CacheHp { get; } = [.. Enumerable.Range(0, 3000/100+1).Select(p =>
+        {
+            var val = p*100;
+           return  new GameValueInfoDTO() { ObjectId = val.ToString(), DisplayName = val.ToString(), IntValue = val };
+        })];
+        public static List<GameValueInfoDTO> CacheRate { get; } = [.. Enumerable.Range(0, 100/5+1).Select(p =>
+        {
+            var val = p*5;
+           return  new GameValueInfoDTO() { ObjectId = val.ToString(), DisplayName =$"{val}%", IntValue = val };
+        })];
+
+        public static GameSwitchDisplayDTO[] CacheSwitches { get; } =
+            [
+                new GameSwitchDisplayDTO(){ ObjectId = EnumGameSwitchCollection.功能_编所状态.ToString(), DisplayName =EnumGameSwitchCollection.功能_编所状态.ToString(), UIType=(int)EnumGameSwitchUIType.Button  },
+                new GameSwitchDisplayDTO(){ ObjectId = EnumGameSwitchCollection.功能_遇敌状态.ToString(), DisplayName =EnumGameSwitchCollection.功能_遇敌状态.ToString(),SwitchValue = false, IntCache =0, UIType=(int)EnumGameSwitchUIType.Switches  },
+
+                new GameSwitchDisplayDTO(){DisplayDesc = "添加的装备自动强化该属性", ObjectId = EnumGameSwitchCollection.装备强化_兵.ToString(), DisplayName =EnumGameSwitchCollection.装备强化_兵.ToString(),UIntContent = 0,UIType=(int)EnumGameSwitchUIType.Selects,SelectedContents=CacheHp    },
+
+                new GameSwitchDisplayDTO(){DisplayDesc = "添加的装备自动强化该属性", ObjectId = EnumGameSwitchCollection.装备强化_攻.ToString(), DisplayName =EnumGameSwitchCollection.装备强化_攻.ToString(),UIntContent = 0,UIType=(int)EnumGameSwitchUIType.Selects,SelectedContents=CacheStat   },
+                new GameSwitchDisplayDTO(){DisplayDesc = "添加的装备自动强化该属性", ObjectId = EnumGameSwitchCollection.装备强化_智.ToString(), DisplayName =EnumGameSwitchCollection.装备强化_智.ToString(),UIntContent = 0,UIType=(int)EnumGameSwitchUIType.Selects,SelectedContents=CacheStat  },
+                new GameSwitchDisplayDTO(){DisplayDesc = "添加的装备自动强化该属性", ObjectId = EnumGameSwitchCollection.装备强化_武.ToString(), DisplayName =EnumGameSwitchCollection.装备强化_武.ToString(),UIntContent = 0,UIType=(int)EnumGameSwitchUIType.Selects,SelectedContents=CacheStat  },
+                new GameSwitchDisplayDTO(){DisplayDesc = "添加的装备自动强化该属性", ObjectId = EnumGameSwitchCollection.装备强化_速.ToString(), DisplayName =EnumGameSwitchCollection.装备强化_速.ToString(),UIntContent = 0,UIType=(int)EnumGameSwitchUIType.Selects,SelectedContents=CacheStat  },
+
+                new GameSwitchDisplayDTO(){DisplayDesc = "添加的装备自动强化该属性", ObjectId = EnumGameSwitchCollection.装备强化_暴击伤害.ToString(), DisplayName =EnumGameSwitchCollection.装备强化_暴击伤害.ToString(),UIntContent = 0,UIType=(int)EnumGameSwitchUIType.Selects,SelectedContents=CacheHit   },
+                new GameSwitchDisplayDTO(){DisplayDesc = "添加的装备自动强化该属性", ObjectId = EnumGameSwitchCollection.装备强化_计策增伤.ToString(), DisplayName =EnumGameSwitchCollection.装备强化_计策增伤.ToString(),UIntContent = 0,UIType=(int)EnumGameSwitchUIType.Selects,SelectedContents=CacheHit   },
+                new GameSwitchDisplayDTO(){DisplayDesc = "添加的装备自动强化该属性", ObjectId = EnumGameSwitchCollection.装备强化_计策防御.ToString(), DisplayName =EnumGameSwitchCollection.装备强化_计策防御.ToString(),UIntContent = 0,UIType=(int)EnumGameSwitchUIType.Selects,SelectedContents=CacheHit    },
+
+                new GameSwitchDisplayDTO(){DisplayDesc = "添加的装备自动强化该属性", ObjectId = EnumGameSwitchCollection.装备强化_暴击率.ToString(), DisplayName =EnumGameSwitchCollection.装备强化_暴击率.ToString(),UIntContent = 0,UIType=(int)EnumGameSwitchUIType.Selects,SelectedContents=CacheRate  },
+                new GameSwitchDisplayDTO(){DisplayDesc = "添加的装备自动强化该属性", ObjectId = EnumGameSwitchCollection.装备强化_闪避.ToString(), DisplayName =EnumGameSwitchCollection.装备强化_闪避.ToString(),UIntContent = 0,UIType=   (int)EnumGameSwitchUIType.Selects,SelectedContents=CacheRate  },
+                new GameSwitchDisplayDTO(){DisplayDesc = "添加的装备自动强化该属性", ObjectId = EnumGameSwitchCollection.装备强化_命中.ToString(), DisplayName =EnumGameSwitchCollection.装备强化_命中.ToString(),UIntContent = 0,UIType=   (int)EnumGameSwitchUIType.Selects,SelectedContents=CacheRate  },
+                new GameSwitchDisplayDTO(){DisplayDesc = "添加的装备自动强化该属性", ObjectId = EnumGameSwitchCollection.装备强化_神算.ToString(), DisplayName =EnumGameSwitchCollection.装备强化_神算.ToString(),UIntContent = 0,UIType=   (int)EnumGameSwitchUIType.Selects,SelectedContents=CacheRate  },
+
+            ];
 
         public TstdGameContext Context { get; } = context;
         public ResourceManager ResourceManager => Context.ResourceManager;
@@ -631,7 +678,7 @@ new("神算",15, 30),
 
         }
 
-        private static bool TryFindCharacter(this IEnumerable<Character.Ptr_Character> ptr_Characters, string tag, out Character.Ptr_Character ptr_Character)
+        static bool TryFindCharacter(this IEnumerable<Character.Ptr_Character> ptr_Characters, string tag, out Character.Ptr_Character ptr_Character)
         {
             Unsafe.SkipInit(out ptr_Character);
             foreach (var character in ptr_Characters)
@@ -649,7 +696,7 @@ new("神算",15, 30),
             }
             return false;
         }
-        private static bool TryFindCharacter(this TstdGameEnvironment @this, string tag, EnumGameCharacterType category, out Character.Ptr_Character ptr_Character)
+        static bool TryFindCharacter(this TstdGameEnvironment @this, string tag, EnumGameCharacterType category, out Character.Ptr_Character ptr_Character)
         {
             Unsafe.SkipInit(out ptr_Character);
 
@@ -666,7 +713,7 @@ new("神算",15, 30),
             var tempCharacters = team.TEMP_CHARACTERS;
             if (category == EnumGameCharacterType.TEMP && tempCharacters.Valid())
             {
-                if (characters.AsEnumerable().TryFindCharacter(tag, out ptr_Character))
+                if (tempCharacters.AsEnumerable().TryFindCharacter(tag, out ptr_Character))
                 {
                     return true;
                 }
@@ -676,7 +723,7 @@ new("神算",15, 30),
             var alternateCharacters = team.ALTERNATE_CHARACTERS;
             if (category == EnumGameCharacterType.ALTERNATE && alternateCharacters.Valid())
             {
-                if (characters.AsEnumerable().TryFindCharacter(tag, out ptr_Character))
+                if (alternateCharacters.AsEnumerable().TryFindCharacter(tag, out ptr_Character))
                 {
                     return true;
                 }
@@ -685,84 +732,84 @@ new("神算",15, 30),
             var npcCharacters = team.NPC_CHARACTERS;
             if (category == EnumGameCharacterType.NPC && npcCharacters.Valid())
             {
-                if (characters.AsEnumerable().TryFindCharacter(tag, out ptr_Character))
+                if (npcCharacters.AsEnumerable().TryFindCharacter(tag, out ptr_Character))
                 {
                     return true;
                 }
             }
             return false;
         }
-        private static IEnumerable<(StatType statType, int statValue)> GetGameCharacterStatusImp(this Character.Ptr_Character ptr_Character)
+
+
+        static IEnumerable<GameSwitchDisplayDTO> GetGameCharacterStatusImp(this TstdGameEnvironment @this, Character.Ptr_Character ptr_Character)
         {
-            var state = ptr_Character._ADDED_STAT;
-            if (state.Valid() == false)
+            var data = ptr_Character._DATA;
+            if (data.Valid() == false)
             {
                 yield break;
             }
-            var stateDatas = state.STATS;
-            if (stateDatas.Valid() == false)
-            {
-                yield break;
-            }
-            foreach (var data in stateDatas)
-            {
-                yield return (data.TYPE, data.VALUE);
-            }
-        }
-        private static IEnumerable<GameSwitchDisplayDTO> EnumGameCharacterStatus(this Character.Ptr_Character ptr_Character)
-        {
-            var datas = ptr_Character.GetGameCharacterStatusImp().GroupBy(p => p.statType).ToDictionary(p => p.Key, p => p.Sum(x => x.statValue));
+            var tag = data.TAG;
             foreach (var s in Enum.GetValues<StatType>())
             {
-                if (!datas.TryGetValue(s, out var val))
-                {
-                    val = 0;
-                }
+                var val = @this.Ptr_GameManager.GET_ADD_STAT(tag, s);
                 yield return new GameSwitchDisplayDTO()
                 {
                     ObjectId = s.ToString(),
                     DisplayCategory = s.ToString(),
-                    DisplayName = $"附加*{s}",
+                    DisplayName = $"强化*{s}",
                     ContentValue = val.ToString(),
                     UIType = (int)EnumGameSwitchUIType.TextEditor,
                     CanWrite = true,
                 };
             }
         }
+
         public static GameCharacterStatusDTO GetGameCharacterStatus(this TstdGameEnvironment @this, GameCharacterObjectDTO characterObjectDTO)
         {
             if (Enum.TryParse<EnumGameCharacterType>(characterObjectDTO.CharacterCategory, out var category))
             {
                 if (@this.TryFindCharacter(characterObjectDTO.CharacterId, category, out var ptr_Character))
                 {
-                    return new GameCharacterStatusDTO() { ObjectId = characterObjectDTO.CharacterId, CharacterAttributes = [.. ptr_Character.EnumGameCharacterStatus()] };
+                    return new GameCharacterStatusDTO() { ObjectId = characterObjectDTO.CharacterId, CharacterAttributes = [.. @this.GetGameCharacterStatusImp(ptr_Character)] };
                 }
             }
             return GameException.Throw<GameCharacterStatusDTO>($"NOT FOUND:{characterObjectDTO.CharacterId}");
         }
 
-        private static void SetGameCharacterStatusImp(this Character.Ptr_Character ptr_Character, StatType statType, int statValue)
+
+        private static void SetGameCharacterStatusImp(this TstdGameEnvironment @this, Character.Ptr_Character ptr_Character, StatType statType, int statValue)
         {
-            var state = ptr_Character._ADDED_STAT;
-            if (state.Valid() == false)
+
+            var data = ptr_Character._DATA;
+            if (data.Valid() == false)
             {
                 return;
             }
-            var stateDatas = state.STATS;
-            if (stateDatas.Valid() == false)
+
+            var stat = @this.Ptr_GameManager.ADD_STAT;
+            if (false == stat.Valid())
             {
                 return;
             }
-            foreach (ref readonly var data in stateDatas.AsReadOnlySpan())
+
+            @this.Ptr_GameManager.ADD_STAT_01(ptr_Character, statType, -1);
+
+            var tag = data.TAG.AsReadOnlySpan();
+            foreach (var saveStat in stat.DATAS)
             {
-                if (data.TYPE == statType)
+                if (saveStat.ID.AsReadOnlySpan().SequenceEqual(tag))
                 {
-                    ref var ref_value = ref Unsafe.AsRef(in data);
-                    ref_value.VALUE = statValue;
-                    return;
+                    var statData = saveStat.ADD_STAT;
+                    foreach (ref readonly var s in statData.STATS.AsReadOnlySpan())
+                    {
+                        if (s.TYPE == statType)
+                        {
+                            ref var ref_val = ref Unsafe.AsRef(in s);
+                            ref_val.VALUE = statValue;
+                        }
+                    }
                 }
             }
-            state.SET_ITEM_01(statType, statValue);
         }
         public static GameCharacterStatusDTO UpdateGameCharacterStatus(this TstdGameEnvironment @this, GameCharacterModifyDTO characterModifyDTO)
         {
@@ -771,8 +818,8 @@ new("神算",15, 30),
             {
                 if (@this.TryFindCharacter(characterModifyDTO.CharacterId, category, out var ptr_Character))
                 {
-                    ptr_Character.SetGameCharacterStatusImp(statType, characterModifyDTO.IntValue);
-                    return new GameCharacterStatusDTO() { ObjectId = characterModifyDTO.CharacterId, CharacterAttributes = [.. ptr_Character.EnumGameCharacterStatus()] };
+                    @this.SetGameCharacterStatusImp(ptr_Character, statType, characterModifyDTO.IntValue);
+                    return new GameCharacterStatusDTO() { ObjectId = characterModifyDTO.CharacterId, CharacterAttributes = [.. @this.GetGameCharacterStatusImp(ptr_Character)] };
                 }
             }
             return GameException.Throw<GameCharacterStatusDTO>($"NOT FOUND:{characterModifyDTO.CharacterId}");
@@ -801,6 +848,43 @@ new("神算",15, 30),
         ALTERNATE = 1,
         TEMP = 2,
         NPC = 3,
+    }
+
+
+    /*
+     new("攻",15, 30),
+new("兵",15, 500),
+new("防",15, 30),
+new("智",15, 30),
+new("武",15, 30),
+new("速",15, 30),
+new("暴击率",15, 30),
+new("暴击伤害",15, 30),
+new("计策增伤",15, 30),
+new("计策防御",15, 30),
+new("闪避",15, 30),
+new("命中",15, 30),
+new("神算",15, 30),
+     
+     */
+    public enum EnumGameSwitchCollection
+    {
+        功能_遇敌状态 = 1,
+        功能_编所状态 = 2,
+
+        装备强化_攻 = 100,
+        装备强化_兵,
+        装备强化_智,
+        装备强化_武,
+        装备强化_速,
+        装备强化_暴击率,
+        装备强化_暴击伤害,
+        装备强化_计策增伤,
+        装备强化_计策防御,
+        装备强化_闪避,
+        装备强化_命中,
+        装备强化_神算,
+
     }
 }
 
