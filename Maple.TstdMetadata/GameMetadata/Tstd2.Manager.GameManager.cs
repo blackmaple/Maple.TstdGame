@@ -3644,8 +3644,8 @@ namespace Maple.TstdMetadata
         /// <param name="key">class System.String</param>
         /// <param name="value">struct System.Int32</param>
         /// <returns>struct System.Void</returns>
-        /// [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("SetEventKey")]
-        ///  extern void SET_EVENT_KEY (nint key, System.Int32 value);
+        [Maple.MonoGameAssistant.MonoCollectorDataV2.MonoCollectorMethodAttribute("SetEventKey")]
+        extern void SET_EVENT_KEY(PMonoString key, System.Int32 value);
 
 
         /// <summary>

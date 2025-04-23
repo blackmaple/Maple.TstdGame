@@ -109,6 +109,12 @@ namespace Maple.TstdGame.GameService
         {
             return ValueTask.FromResult(TstdGameEnvironment.CacheSwitches);
         }
+
+        public override async ValueTask<GameSwitchDisplayDTO> UpdateSwitchDisplayAsync(GameSwitchModifyDTO gameSwitchModify)
+        {
+            var gameEnv = await this.GetTstdGameEnvironmentThrowIfNotLoadedAsync().ConfigureAwait(false);
+            return await this.MonoTaskAsync(static (p, args) => args.gameEnv.UpdateGameSwitchDisplay(args.gameSwitchModify), (gameEnv, gameSwitchModify)).ConfigureAwait(false);
+        }
         //protected sealed override async ValueTask F5_KeyDown()
         //{
 

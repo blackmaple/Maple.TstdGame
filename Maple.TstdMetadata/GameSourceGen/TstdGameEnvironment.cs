@@ -44,47 +44,73 @@ new("神算",15, 30),
         public static List<GameInventoryDisplayDTO> CacheConsumables { get; } = new(1024);
         public static List<GameInventoryDisplayDTO> CacheItems { get; } = new(1024);
         public static List<GameInventoryDisplayDTO> CacheEquipment { get; } = new(1024);
-        public static List<GameValueInfoDTO> CacheStat { get; } = [.. Enumerable.Range(0, 255 / 5 + 1).Select(p =>
-        {
-            var val = p*5;
-           return  new GameValueInfoDTO() { ObjectId = val.ToString(), DisplayName = val.ToString(), IntValue = val };
-        })];
-        public static List<GameValueInfoDTO> CacheHit { get; } = [.. Enumerable.Range(0,3000/100+1).Select(p =>
-        {
-            var val = p*50;
-           return  new GameValueInfoDTO() { ObjectId = val.ToString(), DisplayName = val.ToString(), IntValue = val };
-        })];
-        public static List<GameValueInfoDTO> CacheHp { get; } = [.. Enumerable.Range(0, 3000/100+1).Select(p =>
-        {
-            var val = p*100;
-           return  new GameValueInfoDTO() { ObjectId = val.ToString(), DisplayName = val.ToString(), IntValue = val };
-        })];
-        public static List<GameValueInfoDTO> CacheRate { get; } = [.. Enumerable.Range(0, 100/5+1).Select(p =>
-        {
-            var val = p*5;
-           return  new GameValueInfoDTO() { ObjectId = val.ToString(), DisplayName =$"{val}%", IntValue = val };
-        })];
+        public static List<GameValueInfoDTO> CacheStat { get; } =
+            [
+                 new GameValueInfoDTO() { ObjectId = 00.ToString(), DisplayName = 00.ToString(), IntValue = 00 },
+                 new GameValueInfoDTO() { ObjectId = 05.ToString(), DisplayName = 05.ToString(), IntValue = 05 },
+                 new GameValueInfoDTO() { ObjectId = 10.ToString(), DisplayName = 10.ToString(), IntValue = 10 },
+                 new GameValueInfoDTO() { ObjectId = 15.ToString(), DisplayName = 15.ToString(), IntValue = 15 },
+                 new GameValueInfoDTO() { ObjectId = 20.ToString(), DisplayName = 20.ToString(), IntValue = 20 },
+                 new GameValueInfoDTO() { ObjectId = 25.ToString(), DisplayName = 25.ToString(), IntValue = 25 },
+                 new GameValueInfoDTO() { ObjectId = 30.ToString(), DisplayName = 30.ToString(), IntValue = 30 },
+
+
+            ];
+        public static List<GameValueInfoDTO> CacheHit { get; } =
+            [
+                 new GameValueInfoDTO() { ObjectId = 00.ToString(), DisplayName = 00.ToString(), IntValue = 00 },
+                 new GameValueInfoDTO() { ObjectId = 05.ToString(), DisplayName = 05.ToString(), IntValue = 05 },
+                 new GameValueInfoDTO() { ObjectId = 10.ToString(), DisplayName = 10.ToString(), IntValue = 10 },
+                 new GameValueInfoDTO() { ObjectId = 15.ToString(), DisplayName = 15.ToString(), IntValue = 15 },
+                 new GameValueInfoDTO() { ObjectId = 20.ToString(), DisplayName = 20.ToString(), IntValue = 20 },
+                 new GameValueInfoDTO() { ObjectId = 25.ToString(), DisplayName = 25.ToString(), IntValue = 25 },
+                 new GameValueInfoDTO() { ObjectId = 30.ToString(), DisplayName = 30.ToString(), IntValue = 30 },
+
+
+            ];
+        public static List<GameValueInfoDTO> CacheHp { get; } = [
+                 new GameValueInfoDTO() { ObjectId = 000.ToString(), DisplayName = 000.ToString(), IntValue = 000 },
+                 new GameValueInfoDTO() { ObjectId = 100.ToString(), DisplayName = 100.ToString(), IntValue = 100 },
+                 new GameValueInfoDTO() { ObjectId = 200.ToString(), DisplayName = 200.ToString(), IntValue = 200 },
+                 new GameValueInfoDTO() { ObjectId = 300.ToString(), DisplayName = 300.ToString(), IntValue = 300 },
+                 new GameValueInfoDTO() { ObjectId = 400.ToString(), DisplayName = 400.ToString(), IntValue = 400 },
+                 new GameValueInfoDTO() { ObjectId = 500.ToString(), DisplayName = 500.ToString(), IntValue = 500 },
+                 new GameValueInfoDTO() { ObjectId = 600.ToString(), DisplayName = 600.ToString(), IntValue = 600 },
+
+
+            ];
+        public static List<GameValueInfoDTO> CacheRate { get; } = [
+                 new GameValueInfoDTO() { ObjectId = 00.ToString(), DisplayName = 00.ToString(), IntValue = 00 },
+                 new GameValueInfoDTO() { ObjectId = 05.ToString(), DisplayName = 05.ToString(), IntValue = 05 },
+                 new GameValueInfoDTO() { ObjectId = 10.ToString(), DisplayName = 10.ToString(), IntValue = 10 },
+                 new GameValueInfoDTO() { ObjectId = 15.ToString(), DisplayName = 15.ToString(), IntValue = 15 },
+                 new GameValueInfoDTO() { ObjectId = 20.ToString(), DisplayName = 20.ToString(), IntValue = 20 },
+                 new GameValueInfoDTO() { ObjectId = 25.ToString(), DisplayName = 25.ToString(), IntValue = 25 },
+                 new GameValueInfoDTO() { ObjectId = 30.ToString(), DisplayName = 30.ToString(), IntValue = 30 },
+
+
+            ];
 
         public static GameSwitchDisplayDTO[] CacheSwitches { get; } =
             [
                 new GameSwitchDisplayDTO(){ ObjectId = EnumGameSwitchCollection.功能_编所状态.ToString(), DisplayName =EnumGameSwitchCollection.功能_编所状态.ToString(), UIType=(int)EnumGameSwitchUIType.Button  },
                 new GameSwitchDisplayDTO(){ ObjectId = EnumGameSwitchCollection.功能_遇敌状态.ToString(), DisplayName =EnumGameSwitchCollection.功能_遇敌状态.ToString(),SwitchValue = false, IntCache =0, UIType=(int)EnumGameSwitchUIType.Switches  },
 
-                new GameSwitchDisplayDTO(){DisplayDesc = "添加的装备自动强化该属性", ObjectId = EnumGameSwitchCollection.装备强化_兵.ToString(), DisplayName =EnumGameSwitchCollection.装备强化_兵.ToString(),UIntContent = 0,UIType=(int)EnumGameSwitchUIType.Selects,SelectedContents=CacheHp    },
+                new GameSwitchDisplayDTO(){DisplayDesc = "添加的装备自动强化该属性", ObjectId = EnumGameEquipmentEntrys.兵.ToString(), DisplayName =$"装备强化_{EnumGameEquipmentEntrys.兵}",UIntContent = 0,UIType=(int)EnumGameSwitchUIType.Selects,SelectedContents=CacheHp    },
 
-                new GameSwitchDisplayDTO(){DisplayDesc = "添加的装备自动强化该属性", ObjectId = EnumGameSwitchCollection.装备强化_攻.ToString(), DisplayName =EnumGameSwitchCollection.装备强化_攻.ToString(),UIntContent = 0,UIType=(int)EnumGameSwitchUIType.Selects,SelectedContents=CacheStat   },
-                new GameSwitchDisplayDTO(){DisplayDesc = "添加的装备自动强化该属性", ObjectId = EnumGameSwitchCollection.装备强化_智.ToString(), DisplayName =EnumGameSwitchCollection.装备强化_智.ToString(),UIntContent = 0,UIType=(int)EnumGameSwitchUIType.Selects,SelectedContents=CacheStat  },
-                new GameSwitchDisplayDTO(){DisplayDesc = "添加的装备自动强化该属性", ObjectId = EnumGameSwitchCollection.装备强化_武.ToString(), DisplayName =EnumGameSwitchCollection.装备强化_武.ToString(),UIntContent = 0,UIType=(int)EnumGameSwitchUIType.Selects,SelectedContents=CacheStat  },
-                new GameSwitchDisplayDTO(){DisplayDesc = "添加的装备自动强化该属性", ObjectId = EnumGameSwitchCollection.装备强化_速.ToString(), DisplayName =EnumGameSwitchCollection.装备强化_速.ToString(),UIntContent = 0,UIType=(int)EnumGameSwitchUIType.Selects,SelectedContents=CacheStat  },
+                new GameSwitchDisplayDTO(){DisplayDesc = "添加的装备自动强化该属性", ObjectId = EnumGameEquipmentEntrys.攻.ToString(), DisplayName =$"装备强化_{EnumGameEquipmentEntrys.攻}",UIntContent = 0,UIType=(int)EnumGameSwitchUIType.Selects,SelectedContents=CacheStat   },
+                new GameSwitchDisplayDTO(){DisplayDesc = "添加的装备自动强化该属性", ObjectId = EnumGameEquipmentEntrys.智.ToString(), DisplayName =$"装备强化_{EnumGameEquipmentEntrys.智}",UIntContent = 0,UIType=(int)EnumGameSwitchUIType.Selects,SelectedContents=CacheStat  },
+                new GameSwitchDisplayDTO(){DisplayDesc = "添加的装备自动强化该属性", ObjectId = EnumGameEquipmentEntrys.武.ToString(), DisplayName =$"装备强化_{EnumGameEquipmentEntrys.武}",UIntContent = 0,UIType=(int)EnumGameSwitchUIType.Selects,SelectedContents=CacheStat  },
+                new GameSwitchDisplayDTO(){DisplayDesc = "添加的装备自动强化该属性", ObjectId = EnumGameEquipmentEntrys.速.ToString(), DisplayName =$"装备强化_{EnumGameEquipmentEntrys.速}",UIntContent = 0,UIType=(int)EnumGameSwitchUIType.Selects,SelectedContents=CacheStat  },
 
-                new GameSwitchDisplayDTO(){DisplayDesc = "添加的装备自动强化该属性", ObjectId = EnumGameSwitchCollection.装备强化_暴击伤害.ToString(), DisplayName =EnumGameSwitchCollection.装备强化_暴击伤害.ToString(),UIntContent = 0,UIType=(int)EnumGameSwitchUIType.Selects,SelectedContents=CacheHit   },
-                new GameSwitchDisplayDTO(){DisplayDesc = "添加的装备自动强化该属性", ObjectId = EnumGameSwitchCollection.装备强化_计策增伤.ToString(), DisplayName =EnumGameSwitchCollection.装备强化_计策增伤.ToString(),UIntContent = 0,UIType=(int)EnumGameSwitchUIType.Selects,SelectedContents=CacheHit   },
-                new GameSwitchDisplayDTO(){DisplayDesc = "添加的装备自动强化该属性", ObjectId = EnumGameSwitchCollection.装备强化_计策防御.ToString(), DisplayName =EnumGameSwitchCollection.装备强化_计策防御.ToString(),UIntContent = 0,UIType=(int)EnumGameSwitchUIType.Selects,SelectedContents=CacheHit    },
+                new GameSwitchDisplayDTO(){DisplayDesc = "添加的装备自动强化该属性", ObjectId = EnumGameEquipmentEntrys.暴击伤害.ToString(), DisplayName =$"装备强化_{EnumGameEquipmentEntrys.暴击伤害}",UIntContent = 0,UIType=(int)EnumGameSwitchUIType.Selects,SelectedContents=CacheHit   },
+                new GameSwitchDisplayDTO(){DisplayDesc = "添加的装备自动强化该属性", ObjectId = EnumGameEquipmentEntrys.计策增伤.ToString(), DisplayName =$"装备强化_{EnumGameEquipmentEntrys.计策增伤}",UIntContent = 0,UIType=(int)EnumGameSwitchUIType.Selects,SelectedContents=CacheHit   },
+                new GameSwitchDisplayDTO(){DisplayDesc = "添加的装备自动强化该属性", ObjectId = EnumGameEquipmentEntrys.计策防御.ToString(), DisplayName =$"装备强化_{EnumGameEquipmentEntrys.计策防御}",UIntContent = 0,UIType=(int)EnumGameSwitchUIType.Selects,SelectedContents=CacheHit    },
 
-                new GameSwitchDisplayDTO(){DisplayDesc = "添加的装备自动强化该属性", ObjectId = EnumGameSwitchCollection.装备强化_暴击率.ToString(), DisplayName =EnumGameSwitchCollection.装备强化_暴击率.ToString(),UIntContent = 0,UIType=(int)EnumGameSwitchUIType.Selects,SelectedContents=CacheRate  },
-                new GameSwitchDisplayDTO(){DisplayDesc = "添加的装备自动强化该属性", ObjectId = EnumGameSwitchCollection.装备强化_闪避.ToString(), DisplayName =EnumGameSwitchCollection.装备强化_闪避.ToString(),UIntContent = 0,UIType=   (int)EnumGameSwitchUIType.Selects,SelectedContents=CacheRate  },
-                new GameSwitchDisplayDTO(){DisplayDesc = "添加的装备自动强化该属性", ObjectId = EnumGameSwitchCollection.装备强化_命中.ToString(), DisplayName =EnumGameSwitchCollection.装备强化_命中.ToString(),UIntContent = 0,UIType=   (int)EnumGameSwitchUIType.Selects,SelectedContents=CacheRate  },
-                new GameSwitchDisplayDTO(){DisplayDesc = "添加的装备自动强化该属性", ObjectId = EnumGameSwitchCollection.装备强化_神算.ToString(), DisplayName =EnumGameSwitchCollection.装备强化_神算.ToString(),UIntContent = 0,UIType=   (int)EnumGameSwitchUIType.Selects,SelectedContents=CacheRate  },
+                new GameSwitchDisplayDTO(){DisplayDesc = "添加的装备自动强化该属性", ObjectId = EnumGameEquipmentEntrys.暴击率.ToString(), DisplayName =$"装备强化_{EnumGameEquipmentEntrys.暴击率}",UIntContent = 0,UIType=(int)EnumGameSwitchUIType.Selects,SelectedContents=CacheRate  },
+                new GameSwitchDisplayDTO(){DisplayDesc = "添加的装备自动强化该属性", ObjectId = EnumGameEquipmentEntrys.闪避.ToString(), DisplayName =$"装备强化_{EnumGameEquipmentEntrys.闪避}",UIntContent = 0,UIType=   (int)EnumGameSwitchUIType.Selects,SelectedContents=CacheRate  },
+                new GameSwitchDisplayDTO(){DisplayDesc = "添加的装备自动强化该属性", ObjectId = EnumGameEquipmentEntrys.命中.ToString(), DisplayName =$"装备强化_{EnumGameEquipmentEntrys.命中}",UIntContent = 0,UIType=   (int)EnumGameSwitchUIType.Selects,SelectedContents=CacheRate  },
+                new GameSwitchDisplayDTO(){DisplayDesc = "添加的装备自动强化该属性", ObjectId = EnumGameEquipmentEntrys.神算.ToString(), DisplayName =$"装备强化_{EnumGameEquipmentEntrys.神算}",UIntContent = 0,UIType=   (int)EnumGameSwitchUIType.Selects,SelectedContents=CacheRate  },
 
             ];
 
@@ -100,24 +126,35 @@ new("神算",15, 30),
             return this.Ptr_TeamManager.CHARACTERS_CHANGED_EVENT != nint.Zero;
         }
 
+        static IEnumerable<string> GetEquipmentEntrys()
+        {
+            foreach (var switchData in CacheSwitches)
+            {
+                var cache = switchData.IntCache;
+                if (cache > 0 && Enum.TryParse<EnumGameEquipmentEntrys>(switchData.ObjectId, out var equipmentEntrys))
+                {
+                    yield return $"{equipmentEntrys}:{cache}";
+                }
+            }
 
+        }
 
         public Item.Ptr_Item NewItem(string id)
         {
-            using var tagId = Context.T2(id);
+            var tagId = Context.T2(id);
             return Item.Ptr_Item.LOAD_ITEM(tagId, nint.Zero);
         }
         public Equipment.Ptr_Equipment NewEquipment(string id)
         {
-            var att = string.Join(',', Random.Shared.GetItems(ItemEntrys, 6).Select(p => p.ToString()));
+            var att = string.Join(',', GetEquipmentEntrys());
             var entrys = Context.T2(att);
 
-            using var tagId = Context.T2(id);
+            var tagId = Context.T2(id);
             return Item.Ptr_Item.LOAD_EQUIPMENT(tagId, entrys);
         }
         public Character.Ptr_Character NewCharacter(string id)
         {
-            using var tagId = Context.T2(id);
+            var tagId = Context.T2(id);
             return Character.Ptr_Character.LOAD_PLAYER_CHARACTER(tagId);
         }
 
@@ -824,6 +861,48 @@ new("神算",15, 30),
             }
             return GameException.Throw<GameCharacterStatusDTO>($"NOT FOUND:{characterModifyDTO.CharacterId}");
         }
+
+
+
+        public static GameSwitchDisplayDTO UpdateGameSwitchDisplay(this TstdGameEnvironment @this, GameSwitchModifyDTO switchModifyDTO)
+        {
+            var switchData = TstdGameEnvironment.CacheSwitches.FirstOrDefault(p => p.ObjectId == switchModifyDTO.SwitchObjectId);
+            if (switchData is not null)
+            {
+
+                if (Enum.TryParse<EnumGameEquipmentEntrys>(switchModifyDTO.SwitchObjectId, out var _))
+                {
+
+                }
+                else if (Enum.TryParse<EnumGameSwitchCollection>(switchModifyDTO.SwitchObjectId, out var result))
+                {
+                    if (result == EnumGameSwitchCollection.功能_遇敌状态)
+                    {
+                        var ptr_team = @this.Ptr_TeamManager;
+                        if (switchModifyDTO.SwitchValue)
+                        {
+
+                            ptr_team.AVOID_ENEMY_STEPS = int.MaxValue;
+                        }
+                        else
+                        {
+                            ptr_team.AVOID_ENEMY_STEPS = 0;
+                        }
+                    }
+                    else if (result == EnumGameSwitchCollection.功能_编所状态)
+                    {
+                        @this.Ptr_GameManager.SET_EVENT_KEY(@this.Context.T2("Event.编所不能用"), 1);
+                    }
+                }
+
+                switchData.CacheValue = switchModifyDTO.ContentValue;
+                switchData.ContentValue = switchModifyDTO.ContentValue;
+                return switchData;
+            }
+
+
+            return GameException.Throw<GameSwitchDisplayDTO>($"NOT FOUND:{switchModifyDTO.SwitchObjectId}");
+        }
     }
 
     public enum EnumGameCurrencyType
@@ -872,19 +951,24 @@ new("神算",15, 30),
         功能_遇敌状态 = 1,
         功能_编所状态 = 2,
 
-        装备强化_攻 = 100,
-        装备强化_兵,
-        装备强化_智,
-        装备强化_武,
-        装备强化_速,
-        装备强化_暴击率,
-        装备强化_暴击伤害,
-        装备强化_计策增伤,
-        装备强化_计策防御,
-        装备强化_闪避,
-        装备强化_命中,
-        装备强化_神算,
 
+
+    }
+
+    public enum EnumGameEquipmentEntrys
+    {
+        攻 = 100,
+        兵,
+        智,
+        武,
+        速,
+        暴击率,
+        暴击伤害,
+        计策增伤,
+        计策防御,
+        闪避,
+        命中,
+        神算,
     }
 }
 

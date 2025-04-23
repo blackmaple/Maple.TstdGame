@@ -114,7 +114,7 @@ namespace Maple.TstdMetadata
     // [MonoCollectorSearchFieldAttribute(typeof(nint),"_events", "_EVENTS")]
 
     // struct 0xE0 System.Int32 AvoidEnemySteps
-    // [MonoCollectorSearchFieldAttribute(typeof(System.Int32),"AvoidEnemySteps", "AVOID_ENEMY_STEPS")]
+    [MonoCollectorSearchFieldAttribute(typeof(System.Int32), "AvoidEnemySteps", "AVOID_ENEMY_STEPS", IsReadOnly = false)]
 
     // struct 0xE4 System.Int32 AntivirusSteps
     // [MonoCollectorSearchFieldAttribute(typeof(System.Int32),"AntivirusSteps", "ANTIVIRUS_STEPS")]
