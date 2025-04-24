@@ -37,10 +37,10 @@ namespace Maple.TstdGame.GameService
 
         public override ValueTask<GameSessionInfoDTO> GetSessionInfoAsync()
         {
-            if (DateTime.Now.Year >= 2025 && DateTime.Now.Month > 6)
-            {
-                return ValueTask.FromResult(GameException.Throw<GameSessionInfoDTO>("内置修改器已超出体验时间!"));
-            }
+            //if (DateTime.Now.Year >= 2025 && DateTime.Now.Month > 6)
+            //{
+            //    return ValueTask.FromResult(GameException.Throw<GameSessionInfoDTO>("内置修改器已超出体验时间!"));
+            //}
             return base.GetSessionInfoAsync();
         }
 
@@ -112,8 +112,16 @@ namespace Maple.TstdGame.GameService
 
         public override async ValueTask<GameSwitchDisplayDTO> UpdateSwitchDisplayAsync(GameSwitchModifyDTO gameSwitchModify)
         {
-            var gameEnv = await this.GetTstdGameEnvironmentThrowIfNotLoadedAsync().ConfigureAwait(false);
-            return await this.MonoTaskAsync(static (p, args) => args.gameEnv.UpdateGameSwitchDisplay(args.gameSwitchModify), (gameEnv, gameSwitchModify)).ConfigureAwait(false);
+            if (Enum.TryParse<EnumGameEquipmentEntrys>(gameSwitchModify.SwitchObjectId, out var _))
+            {
+                var gameEnv = await this.GetTstdGameEnvironmentAsync().ConfigureAwait(false);
+                return await this.MonoTaskAsync(static (p, args) => args.gameEnv.UpdateGameSwitchDisplay(args.gameSwitchModify), (gameEnv, gameSwitchModify)).ConfigureAwait(false);
+            }
+            else
+            {
+                var gameEnv = await this.GetTstdGameEnvironmentThrowIfNotLoadedAsync().ConfigureAwait(false);
+                return await this.MonoTaskAsync(static (p, args) => args.gameEnv.UpdateGameSwitchDisplay(args.gameSwitchModify), (gameEnv, gameSwitchModify)).ConfigureAwait(false);
+            }
         }
         //protected sealed override async ValueTask F5_KeyDown()
         //{

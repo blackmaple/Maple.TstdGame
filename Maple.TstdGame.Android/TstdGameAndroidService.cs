@@ -26,11 +26,11 @@ namespace Maple.TstdGame.Android
 
         public override async ValueTask<GameSessionInfoDTO> GetSessionInfoAsync()
         {
-            if (DateTime.Now.Year >= 2025 && DateTime.Now.Month > 5)
-            {
-                return GameException.Throw<GameSessionInfoDTO>("修改器初始化失败,请联系管理员!");
-            }
-            await this.MonoTaskAsync(static p => p.GetTstdGameEnvironment().LoadResourceDataIfThrowNotInit()).ConfigureAwait(false);
+            //if (DateTime.Now.Year >= 2025 && DateTime.Now.Month > 5)
+            //{
+            //    return GameException.Throw<GameSessionInfoDTO>("修改器初始化失败,请联系管理员!");
+            //}
+            await this.MonoTaskAsync(static p => p.GetTstdGameEnvironment().CheckNetTime().LoadResourceDataIfThrowNotInit()).ConfigureAwait(false);
             return await base.GetSessionInfoAsync().ConfigureAwait(false);
         }
 
@@ -92,6 +92,26 @@ namespace Maple.TstdGame.Android
         {
             var gameEnv = await this.GetTstdGameEnvironmentThrowIfNotLoadedAsync().ConfigureAwait(false);
             return await this.MonoTaskAsync(static (p, args) => args.gameEnv.UpdateGameCharacterStatus(args.characterObjectDTO), (gameEnv, characterObjectDTO)).ConfigureAwait(false);
+        }
+
+
+        public override ValueTask<GameSwitchDisplayDTO[]> GetListSwitchDisplayAsync()
+        {
+            return ValueTask.FromResult(TstdGameEnvironment.CacheSwitches);
+        }
+
+        public override async ValueTask<GameSwitchDisplayDTO> UpdateSwitchDisplayAsync(GameSwitchModifyDTO gameSwitchModify)
+        {
+            if (Enum.TryParse<EnumGameEquipmentEntrys>(gameSwitchModify.SwitchObjectId, out var _))
+            {
+                var gameEnv = await this.GetTstdGameEnvironmentAsync().ConfigureAwait(false);
+                return await this.MonoTaskAsync(static (p, args) => args.gameEnv.UpdateGameSwitchDisplay(args.gameSwitchModify), (gameEnv, gameSwitchModify)).ConfigureAwait(false);
+            }
+            else
+            {
+                var gameEnv = await this.GetTstdGameEnvironmentThrowIfNotLoadedAsync().ConfigureAwait(false);
+                return await this.MonoTaskAsync(static (p, args) => args.gameEnv.UpdateGameSwitchDisplay(args.gameSwitchModify), (gameEnv, gameSwitchModify)).ConfigureAwait(false);
+            }
         }
     }
 

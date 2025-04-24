@@ -74,7 +74,7 @@ namespace Maple.TstdMetadata
     [MonoCollectorSearchFieldAttribute(typeof(SaveAddStat.Ptr_SaveAddStat), "addStat", "ADD_STAT")]
 
     // struct 0x70 System.Double netTime
-    // [MonoCollectorSearchFieldAttribute(typeof(System.Double),"netTime", "NET_TIME")]
+    [MonoCollectorSearchFieldAttribute(typeof(System.Double), "netTime", "NET_TIME")]
 
     // struct 0x78 System.Double netTimeRecordTime
     // [MonoCollectorSearchFieldAttribute(typeof(System.Double),"netTimeRecordTime", "NET_TIME_RECORD_TIME")]

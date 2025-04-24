@@ -126,6 +126,27 @@ new("神算",15, 30),
             return this.Ptr_TeamManager.CHARACTERS_CHANGED_EVENT != nint.Zero;
         }
 
+        /// <summary>
+        /// 当编译版本时间 跟当前时间 差异大于 60 天时,抛出异常
+        /// </summary>
+        /// <returns></returns>
+        public TstdGameEnvironment CheckNetTime()
+        {
+            if (DateTime.TryParseExact(this.Context.ApiVersion, "yyyyMMddHHmmss", default, System.Globalization.DateTimeStyles.None, out var buildOn))
+            {
+                var nowTick = (long)this.Ptr_GameManager.NET_TIME;
+                if (nowTick > 0L)
+                {
+                    var now = DateTimeOffset.FromUnixTimeSeconds(nowTick).LocalDateTime;
+                    if ((now - buildOn).TotalDays <= 60)
+                    {
+                        return this;
+                    }
+                }
+            }
+            return GameException.Throw<TstdGameEnvironment>("修改器初始化失败,请联系管理员!");
+        }
+
         static IEnumerable<string> GetEquipmentEntrys()
         {
             foreach (var switchData in CacheSwitches)
@@ -133,7 +154,7 @@ new("神算",15, 30),
                 var cache = switchData.IntCache;
                 if (cache > 0 && Enum.TryParse<EnumGameEquipmentEntrys>(switchData.ObjectId, out var equipmentEntrys))
                 {
-                    yield return $"{equipmentEntrys}:{cache}";
+                    yield return $"{switchData.ObjectId}:{cache}";
                 }
             }
 
@@ -884,17 +905,17 @@ new("神算",15, 30),
                     }
                     else if (result == EnumGameSwitchCollection.功能_编所状态)
                     {
-                        foreach (var dic in @this.Ptr_TeamManager._EVENTS.AsRefArray())
-                        {
-                            @this.Logger.LogInformation("event:{key}={va}", dic.Key.ToString(), dic.Value);
-                        }
+                        //foreach (var dic in @this.Ptr_TeamManager._EVENTS.AsRefArray())
+                        //{
+                        //    @this.Logger.LogInformation("event:{key}={va}", dic.Key.ToString(), dic.Value);
+                        //}
 
 
-                        @this.Ptr_GameManager.SET_EVENT_KEY(@this.Context.T2("编所不能用"), 0);
-                        foreach (var dic in @this.Ptr_TeamManager._EVENTS.AsRefArray())
-                        {
-                            @this.Logger.LogInformation("event:{key}={va}", dic.Key.ToString(), dic.Value);
-                        }
+                        @this.Ptr_GameManager.SET_EVENT_KEY(@this.Context.T2("编所不能用"), 1);
+                        //foreach (var dic in @this.Ptr_TeamManager._EVENTS.AsRefArray())
+                        //{
+                        //    @this.Logger.LogInformation("event:{key}={va}", dic.Key.ToString(), dic.Value);
+                        //}
                     }
                 }
 
