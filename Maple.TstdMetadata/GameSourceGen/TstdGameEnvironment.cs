@@ -879,19 +879,22 @@ new("神算",15, 30),
                     if (result == EnumGameSwitchCollection.功能_遇敌状态)
                     {
                         var ptr_team = @this.Ptr_TeamManager;
-                        if (switchModifyDTO.SwitchValue)
-                        {
+                        ptr_team.AVOID_ENEMY_STEPS = switchModifyDTO.SwitchValue ? int.MaxValue : 0;
 
-                            ptr_team.AVOID_ENEMY_STEPS = int.MaxValue;
-                        }
-                        else
-                        {
-                            ptr_team.AVOID_ENEMY_STEPS = 0;
-                        }
                     }
                     else if (result == EnumGameSwitchCollection.功能_编所状态)
                     {
-                        @this.Ptr_GameManager.SET_EVENT_KEY(@this.Context.T2("Event.编所不能用"), 1);
+                        foreach (var dic in @this.Ptr_TeamManager._EVENTS.AsRefArray())
+                        {
+                            @this.Logger.LogInformation("event:{key}={va}", dic.Key.ToString(), dic.Value);
+                        }
+
+
+                        @this.Ptr_GameManager.SET_EVENT_KEY(@this.Context.T2("编所不能用"), 0);
+                        foreach (var dic in @this.Ptr_TeamManager._EVENTS.AsRefArray())
+                        {
+                            @this.Logger.LogInformation("event:{key}={va}", dic.Key.ToString(), dic.Value);
+                        }
                     }
                 }
 

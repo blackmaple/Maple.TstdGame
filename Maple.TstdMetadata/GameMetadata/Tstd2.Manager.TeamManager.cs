@@ -111,7 +111,7 @@ namespace Maple.TstdMetadata
     // [MonoCollectorSearchFieldAttribute(typeof(System.Boolean),"_isTestConfig", "_IS_TEST_CONFIG")]
 
     // class 0xD8 System.Collections.Generic.Dictionary<System.String,System.Int32> _events
-    // [MonoCollectorSearchFieldAttribute(typeof(nint),"_events", "_EVENTS")]
+    [MonoCollectorSearchFieldAttribute(typeof(PMonoDictionary_OptimizationDefault<PMonoString, int>), "_events", "_EVENTS")]
 
     // struct 0xE0 System.Int32 AvoidEnemySteps
     [MonoCollectorSearchFieldAttribute(typeof(System.Int32), "AvoidEnemySteps", "AVOID_ENEMY_STEPS", IsReadOnly = false)]
